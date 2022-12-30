@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>胤舜密封</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            background-color: #F2F2F2;
+        }
+
+        #app {
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .left {
+            width: 329px;
+            height: 100%;
+            background-color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 100px 0 50px;
+            box-sizing: border-box;
+        }
+
+        .left_logo {
+            width: 80%;
+        }
+
+        .left_name {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .left_name span {
+            font-size: 30px;
+            font-weight: 500;
+            color: #666666;
+            line-height: 42px;
+            margin-right: 15px;
+        }
+
+        .left_name img {
+            width: 28px;
+        }
+
+        .left_gongsi {
+            font-size: 16px;
+            font-weight: 400;
+            color: #666666;
+            line-height: 20px;
+            margin-top: 6px;
+        }
+
+        .left_zhiwu {
+            font-size: 16px;
+            font-weight: 400;
+            color: #666666;
+            line-height: 20px;
+            margin-top: 40px;
+        }
+
+        .left_div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .left_bottom {
+            font-size: 15px;
+            font-weight: 400;
+            color: #545454;
+            line-height: 36px;
+        }
+
+        .left_list {
+            width: 70%;
+            height: 48px;
+            background-color: #348DE3;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            margin: 8px 0;
+        }
+
+        .left_list span:nth-child(1) {
+            width: 9px;
+            height: 9px;
+            background-color: #FFFFFF;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .left_list span:nth-child(2) {
+            font-size: 18px;
+            font-weight: 400;
+            color: #FFFFFF;
+            text-align: center;
+        }
+
+        .left_lists {
+            width: 70%;
+            height: 48px;
+            background-color: #F3F3F3;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            margin: 8px 0;
+        }
+
+        .left_lists span:nth-child(1) {
+            width: 9px;
+            height: 9px;
+            background-color: #0398DD;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .left_lists span:nth-child(2) {
+            font-size: 18px;
+            font-weight: 400;
+            color: #666666;
+            text-align: center;
+        }
+
+        .right {
+            flex: 1;
+            padding: 30px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .right_title {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .right_title_left {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .right_title_left img {
+            width: 23px;
+            margin-right: 5px;
+        }
+
+        .right_title_left span {
+            font-size: 18px;
+            font-weight: 400;
+            color: #666666;
+            line-height: 36px;
+            cursor: pointer;
+        }
+
+        .right_title_right {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .right_title_right img {
+            width: 26px;
+            margin-right: 5px;
+        }
+
+        .right_title_right span {
+            font-size: 18px;
+            font-weight: 400;
+            color: #666666;
+            line-height: 36px;
+        }
+
+        .right_content {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 5px;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .right_content_title {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #E1E1E1;
+            margin-bottom: 40px;
+        }
+
+        .right_content_title_left {
+            font-size: 20px;
+            font-weight: bold;
+            color: #3D3D3D;
+        }
+
+        .select_sou {
+            display: inline-block;
+            cursor: pointer;
+            color: #FFFFFF;
+            line-height: 40px;
+            width: 120px;
+            height: 40px;
+            background: linear-gradient(-90deg, #0646AF, #025CE8);
+            text-align: center;
+            font-size: 14px;
+            margin-left: 30px;
+        }
+
+        .deleteImg {
+            width: 30px;
+        }
+
+        .caozuoList {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .shou {
+            cursor: pointer;
+            color: #409eff;
+        }
+
+        .right_content_div {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        .select_chong {
+            display: inline-block;
+            cursor: pointer;
+            color: #353535;
+            line-height: 40px;
+            width: 120px;
+            height: 40px;
+            text-align: center;
+            margin-left: 10px;
+            border-radius: 20px;
+            border: 1px solid #B7B7B7;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .formDiv {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="left">
+        <div class="left_div">
+            <img class="left_logo" src="./img/mine1.png" alt="">
+            <div class="left_name">
+                <span>{{ detailsList.name }}</span>
+                <img @click="classChange(4)" src="./img/mine5.png" alt="">
+            </div>
+            <div class="left_gongsi">{{ detailsList.department }}</div>
+            <div class="left_zhiwu">
+                职务：{{ detailsList.post }} | 推荐人：{{ detailsList.pid }}
+            </div>
+            <div style="margin-top: 80px" @click="classChange(0)"
+                 :class="classStatus === 0 ? 'left_list' : 'left_lists'">
+                <span class="left_list_width"></span>
+                <span class="left_list_name">介质查询收藏</span>
+            </div>
+            <!--            <div @click="classChange(1)" :class="classStatus === 1 ? 'left_list' : 'left_lists'">-->
+            <!--                <span class="left_lists_width"></span>-->
+            <!--                <span class="left_lists_name">尺寸查询收藏</span>-->
+            <!--            </div>-->
+            <div @click="classChange(2)" :class="classStatus === 2 ? 'left_list' : 'left_lists'">
+                <span class="left_lists_width"></span>
+                <span class="left_lists_name">视频观看记录</span>
+            </div>
+            <div @click="classChange(3)" :class="classStatus === 3 ? 'left_list' : 'left_lists'">
+                <span class="left_lists_width"></span>
+                <span class="left_lists_name">资料下载</span>
+            </div>
+        </div>
+        <div class="left_bottom">Copyright (c) 2022 All rights reserved</div>
+    </div>
+    <div class="right">
+        <div class="right_title">
+            <div class="right_title_left">
+                <img src="./img/mine2.png" alt="">
+                <div>
+                    <span>当前位置:</span>
+                    <span @click="goIndex">首页 > </span>
+                    <span>用户中心</span>
+                </div>
+                <!--                <span>当前位置：用户中心</span>-->
+            </div>
+            <div class="right_title_left">
+                <div @click="classChange(5)" style="margin-right: 30px" class="right_title_right">
+                    <img src="./img/mine3.png" alt="">
+                    <span>修改手机号</span>
+                </div>
+                <div @click="loginOut" class="right_title_right">
+                    <img src="./img/mine3.png" alt="">
+                    <span>退出登录</span>
+                </div>
+            </div>
+        </div>
+        <div v-show="classStatus === 0" class="right_content">
+            <div class="right_content_title">
+                <span class="right_content_title_left">介质查询收藏</span>
+                <div class="right_content_title_right">
+                    <el-date-picker
+                            value-format="yyyy-MM-dd"
+                            v-model="time"
+                            type="daterange"
+                            range-separator="至"
+                            start-placeholder="开始日期"
+                            end-placeholder="结束日期">
+                    </el-date-picker>
+                    <span @click="collectionList()" class="select_sou">查询时间</span>
+                </div>
+            </div>
+            <el-table
+                    :data="collectionListList"
+                    style="width: 100%">
+                <el-table-column
+                        prop="date"
+                        label="介质"
+                        width="180">
+                    <template slot-scope="scope">
+                        <span v-for="(item,key) in scope.row.medium">{{ key === 0 ? '' : ',' }}{{ item }}</span>
+                    </template>
+                </el-table-column>
+                <el-table-column
+                        prop="material"
+                        label="材料"
+                        width="180">
+                    <template slot-scope="scope">
+                        <span class="shou" @click="detailsClick(item)"
+                              v-for="(item,key) in scope.row.material">{{ key === 0 ? '' : ',' }}{{ item }}</span>
+                    </template>
+                </el-table-column>
+                <el-table-column
+                        prop="value"
+                        label="兼容性">
+                </el-table-column>
+                <el-table-column
+                        prop="hard_min_max"
+                        label="硬度">
+                </el-table-column>
+                <el-table-column
+                        prop="min"
+                        label="min温度">
+                </el-table-column>
+                <el-table-column
+                        prop="max"
+                        label="max温度">
+                </el-table-column>
+                <el-table-column
+                        prop="name"
+                        label="操作">
+                    <template slot-scope="scope">
+                        <div class="caozuoList">
+                            <el-button style="margin-right: 10px" @click="materialScience_detals(scope.row.id)"
+                                       type="warning" size="mini">详情
+                            </el-button>
+                            <el-button style="margin-right: 10px" @click="pdf(scope.row)" type="primary" size="mini">
+                                打印该材料
+                            </el-button>
+                            <el-popover
+                                    placement="top"
+                                    width="160"
+                                    v-model="scope.row.tanshan">
+                                <p>确定删除该收藏吗？</p>
+                                <div style="text-align: right; margin: 0">
+                                    <el-button size="mini" type="text" @click="scope.row.tanshan = false">取消
+                                    </el-button>
+                                    <el-button type="primary" size="mini"
+                                               @click="delList(scope.row.id,scope.row.tanshan)">确定
+                                    </el-button>
+                                </div>
+                                <img style="margin-top: 5px" slot="reference" class="deleteImg" src="./img/mine4.png"
+                                     alt="">
+                                <!--                                <el-button slot="reference">删除</el-button>-->
+                            </el-popover>
+                        </div>
+                    </template>
+                </el-table-column>
+            </el-table>
+            <el-pagination
+                    background
+                    @current-change="handleCurrentChange"
+                    style="margin-top: 40px"
+                    :page-size="pageSize"
+                    layout="prev, pager, next, jumper,total"
+                    :total="total">
+            </el-pagination>
+        </div>
+        <div v-show="classStatus === 1" class="right_content">
+            <div class="right_content_title">
+                <span class="right_content_title_left">尺寸查询收藏</span>
+                <div class="right_content_title_right">
+                    <el-date-picker
+                            value-format="yyyy-MM-dd"
+                            v-model="time"
+                            type="daterange"
+                            range-separator="至"
+                            start-placeholder="开始日期"
+                            end-placeholder="结束日期">
+                    </el-date-picker>
+                    <span @click="collectionList()" class="select_sou">查询时间</span>
+                </div>
+            </div>
+            <el-table
+                    :data="[]"
+                    style="width: 100%">
+                <el-table-column
+                        prop="date"
+                        label="介质"
+                        width="180">
+                    <template slot-scope="scope">
+                        <span v-for="(item,key) in scope.row.medium">{{ key === 0 ? '' : ',' }}{{ item }}</span>
+                    </template>
+                </el-table-column>
+                <el-table-column
+                        prop="material"
+                        label="材料"
+                        width="180">
+                    <template slot-scope="scope">
+                        <span class="shou" @click="detailsClick(item)"
+                              v-for="(item,key) in scope.row.material">{{ key === 0 ? '' : ',' }}{{ item }}</span>
+                    </template>
+                </el-table-column>
+                <el-table-column
+                        prop="value"
+                        label="兼容性">
+                </el-table-column>
+                <el-table-column
+                        prop="hard_min_max"
+                        label="硬度">
+                </el-table-column>
+                <el-table-column
+                        prop="min"
+                        label="min温度">
+                </el-table-column>
+                <el-table-column
+                        prop="max"
+                        label="max温度">
+                </el-table-column>
+                <el-table-column
+                        prop="name"
+                        label="操作">
+                    <template slot-scope="scope">
+                        <div class="caozuoList">
+                            <el-button style="margin-right: 10px" @click="materialScience_detals(scope.row.id)"
+                                       type="warning" size="mini">详情
+                            </el-button>
+                            <el-button style="margin-right: 10px" @click="pdf(scope.row)" type="primary" size="mini">
+                                打印该材料
+                            </el-button>
+                        </div>
+                    </template>
+                </el-table-column>
+            </el-table>
+            <el-pagination
+                    background
+                    @current-change="handleCurrentChange"
+                    style="margin-top: 40px"
+                    :page-size="pageSize"
+                    layout="prev, pager, next, jumper,total"
+                    :total="total">
+            </el-pagination>
+        </div>
+        <div v-show="classStatus === 2" class="right_content">
+            <div class="right_content_title">
+                <span class="right_content_title_left">视频观看记录</span>
+                <div class="right_content_title_right">
+                    <el-date-picker
+                            value-format="yyyy-MM-dd"
+                            v-model="time"
+                            type="daterange"
+                            range-separator="至"
+                            start-placeholder="开始日期"
+                            end-placeholder="结束日期">
+                    </el-date-picker>
+                    <span @click="collectionList()" class="select_sou">查询时间</span>
+                </div>
+            </div>
+            <el-table
+                    :data="userRecordListList"
+                    style="width: 100%">
+                <el-table-column
+                        prop="title"
+                        label="标题">
+                </el-table-column>
+                <el-table-column
+                        prop="number"
+                        label="时长">
+                </el-table-column>
+                <!--                <el-table-column-->
+                <!--                        prop="url"-->
+                <!--                        label="地址">-->
+                <!--                </el-table-column>-->
+                <el-table-column
+                        prop="add_time"
+                        label="观看时间">
+                </el-table-column>
+            </el-table>
+            <el-pagination
+                    background
+                    @current-change="handleCurrentChange"
+                    style="margin-top: 40px"
+                    :page-size="pageSize"
+                    layout="prev, pager, next, jumper,total"
+                    :total="total">
+            </el-pagination>
+        </div>
+        <div v-show="classStatus === 3" class="right_content">
+            <div class="right_content_title">
+                <span class="right_content_title_left">资料下载</span>
+            </div>
+            <el-table
+                    :data="informationList"
+                    style="width: 100%">
+                <el-table-column
+                        prop="title"
+                        label="标题">
+                </el-table-column>
+                <el-table-column
+                        prop="remarks"
+                        label="说明">
+                </el-table-column>
+                <el-table-column
+                        prop="number"
+                        label="下载量">
+                </el-table-column>
+                <el-table-column
+                        label="操作">
+                    <template slot-scope="scope">
+                        <div class="caozuoList">
+                            <el-button @click="informationList_details(scope.row)" type="primary" size="mini">
+                                下载
+                            </el-button>
+                        </div>
+                    </template>
+
+                </el-table-column>
+            </el-table>
+            <el-pagination
+                    background
+                    @current-change="handleCurrentChange"
+                    style="margin-top: 40px"
+                    :page-size="pageSize"
+                    layout="prev, pager, next, jumper,total"
+                    :total="total">
+            </el-pagination>
+        </div>
+        <div v-show="classStatus === 4" class="right_content">
+            <div class="right_content_title">
+                <span class="right_content_title_left">修改个人信息</span>
+            </div>
+            <div class="right_content_div">
+                <el-form style="widht:50%" ref="searchForm" :rules="rules" label-position="left" :model="form"
+                         label-width="80px">
+                    <el-form-item prop="name" label="真实姓名">
+                        <el-input v-model="form.name"></el-input>
+                    </el-form-item>
+                    <el-form-item prop="department" label="公司姓名">
+                        <el-input v-model="form.department"></el-input>
+                    </el-form-item>
+                    <el-form-item prop="post" label="所属职务">
+                        <el-input v-model="form.post"></el-input>
+                    </el-form-item>
+                    <el-form-item prop="mailbox" label="邮箱">
+                        <el-input v-model="form.mailbox"></el-input>
+                    </el-form-item>
+                    <el-form-item>
+                        <span @click="addSubmit('searchForm')" class="select_sou">修 改</span>
+                        <div @click="resetForm('searchForm')" class="select_chong">重 置</div>
+                    </el-form-item>
+                </el-form>
+            </div>
+        </div>
+        <div v-show="classStatus === 5" class="right_content">
+            <div class="right_content_title">
+                <span class="right_content_title_left">修改手机号</span>
+            </div>
+            <div class="right_content_div">
+                <el-form style="widht:50%" ref="phoneForm" :rules="phoneRules" label-position="left" :model="phoneForm"
+                         label-width="80px">
+                    <el-form-item prop="phone" label="手机号">
+                        <div class="formDiv">
+                            <el-input style="margin-right: 10px" v-model="phoneForm.phone"></el-input>
+                            <el-button style="width: 112px" v-if="codeStatus" @click="codePhone" type="info">
+                                获取验证码
+                            </el-button>
+                            <el-button style="width: 112px" v-else type="info">{{ code }}s</el-button>
+                        </div>
+
+                    </el-form-item>
+                    <el-form-item prop="code" label="验证码">
+                        <el-input v-model="phoneForm.code"></el-input>
+
+                    </el-form-item>
+                    <el-form-item>
+                        <span @click="phoneSubmit('phoneForm')" class="select_sou">修 改</span>
+                        <div @click="resetForm('phoneForm')" class="select_chong">重 置</div>
+                    </el-form-item>
+                </el-form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="fetchS.js"></script>
+<script>
+    function _isMobile() {
+        let flag = navigator.userAgent.match(
+            /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+        );
+        return flag;
+    }
+    if (this._isMobile()) {
+        window.location.href = "mine_s.html"
+        console.log('我是手机');
+    } else {
+
+    }
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                classStatus: 0,
+                time: '',
+                total: 0,
+                pageSize: 20,
+                collectionListList: [],
+                userRecordListList: [],
+                informationList: [],
+                codeStatus: true,
+                codeSetInterval: null,
+                code: 60,
+                visible: false,
+                page: 1,
+                detailsList: {},
+                form: {
+                    post: '',
+                    mailbox: '',
+                    department: '',
+                    phone: '',
+                    code: '',
+                    name: '',
+                    pid: '',
+                },
+                rules: {
+                    post: [
+                        {required: true, message: '请选择职务', trigger: 'blur'}
+                    ],
+                    mailbox: [
+                        {required: true, message: '请输入邮箱', trigger: 'blur'}
+                    ],
+                    department: [
+                        {required: true, message: '请选择公司', trigger: 'blur'}
+                    ],
+                    name: [
+                        {required: true, message: '请输入姓名', trigger: 'blur'}
+                    ],
+                },
+                phoneForm: {
+                    phone: "",
+                    code: "",
+                },
+                phoneRules: {
+                    phone: [
+                        {required: true, message: '请输入手机号', trigger: 'blur'}
+                    ],
+                    code: [
+                        {required: true, message: '请输入验证码', trigger: 'blur'}
+                    ],
+                }
+            }
+        },
+        mounted() {
+            this.details();
+            this.collectionList();
+        },
+        methods: {
+            resetForm(formName) {
+                console.log(123, formName)
+                this.$refs[formName].resetFields();
+            },
+            submit() {
+                const {
+                    post,
+                    mailbox,
+                    department,
+                    name,
+                    pid,
+                } = this.form;
+                let formData = new FormData();
+                formData.append('id', this.detailsList.id);
+                formData.append('post', post);
+                formData.append('mailbox', mailbox);
+                formData.append('department', department);
+                formData.append('name', name);
+                fetchFun('http://webapi.issealing.com/api/login/edit', "POST", formData)
+                    .then(res => {
+                        console.log(111, res)
+                        this.$message({
+                            message: res.message,
+                            type: 'warning'
+                        });
+                        if (res.code === 200) {
+                            localStorage.setItem('YinShunUser', JSON.stringify(res.data));
+                            this.details();
+                        }
+                    })
+            },
+            phoneClick() {
+                const {
+                    phone,
+                    code
+                } = this.phoneForm;
+                let formData = new FormData();
+                formData.append('id', this.detailsList.id);
+                formData.append('phone', phone);
+                formData.append('code', code);
+                fetchFun('http://webapi.issealing.com/api/login/phoneEdit', "POST", formData)
+                    .then(res => {
+                        console.log(111, res)
+                        this.$message({
+                            message: res.message,
+                            type: 'warning'
+                        });
+                        if (res.code === 200) {
+                            localStorage.setItem('YinShunUser', '');
+                            window.location.href = "./login.html"
+                        }
+                    })
+            },
+            phoneSubmit(formName) {
+                this.$refs[formName].validate((valid) => {
+                    if (valid) {
+                        console.log('成功');
+                        this.phoneClick();
+                    } else {
+                        console.log('error submit!!');
+                        return false;
+                    }
+                });
+            },
+            addSubmit(formName) {
+                this.$refs[formName].validate((valid) => {
+                    if (valid) {
+                        console.log('成功');
+                        this.submit();
+                    } else {
+                        console.log('error submit!!');
+                        return false;
+                    }
+                });
+            },
+            codePhone() {
+                if (!this.phoneForm.phone || this.phoneForm.phone.length !== 11) {
+                    this.$message({
+                        message: '请输入正确的手机号',
+                        type: 'warning'
+                    });
+                    return;
+                }
+                let formData = new FormData();
+                formData.append('phone', this.phoneForm.phone);
+                fetchFun('http://webapi.issealing.com/api/verification/code', "POST", formData)
+                    .then(res => {
+                        console.log(111, res)
+                        if (res.code === 200) {
+                            this.codeStatus = false;
+                            this.codeSetInterval = setInterval(() => {
+                                this.code--;
+                                if (this.code <= 0) {
+                                    this.codeStatus = true;
+                                    clearInterval(this.codeSetInterval);
+                                }
+                            }, 1000)
+                        }
+                    })
+            },
+            goIndex() {
+                window.location.href = 'index.html'
+            },
+            loginOut() {
+                let user = JSON.parse(localStorage.getItem('YinShunUser'));
+                let formData = new FormData();
+                formData.append('phone', user.phone);
+                fetchFun('http://webapi.issealing.com/api/login/loginOut', "POST", formData)
+                    .then(res => {
+                        console.log(111, res)
+                        if (res.code === 200) {
+                            window.location.href = `./login.html`
+                            localStorage.removeItem('YinShunUser');
+                        }
+                    })
+            },
+            classChange(num) {
+                this.page = 1;
+                this.total = 0;
+                this.classStatus = num;
+                if (num === 0) {
+                    this.collectionList();
+                } else if (num === 1) {
+
+                } else if (num === 2) {
+                    this.userRecordList();
+                } else if (num === 3) {
+                    this.information();
+                } else if (num === 4) {
+                    let user = this.detailsList;
+                    this.form = {
+                        mailbox: user.mailbox,
+                        department: user.department,
+                        phone: user.phone,
+                        code: '',
+                        name: user.name,
+                        post: user.post,
+                        pid: user.pid,
+                    }
+                } else if (num === 5) {
+                    let user = this.detailsList;
+                    this.phoneForm = {
+                        phone: user.phone,
+                        code: '',
+                    }
+                }
+            },
+            detailsClick(name) {
+                window.location.href = `./materialScience_detals.html?name=${name}`
+            },
+            pdf(date) {
+                const {medium, min, max, hard_min_max, material} = date;
+                window.location.href = `http://webapi.issealing.com/api/index/pdf?medium=${medium.toString()}&min=${min}&max=${max}&hard_min_max=${hard_min_max}&material=${material.toString()}`
+            },
+            materialScience_detals(id) {
+                window.location.href = `./materialScience_detalsA.html?id=${id}`
+            },
+            delList(id) {
+                fetchFun(`http://webapi.issealing.com/api/index/del?id=${id}`, "GET")
+                    .then(res => {
+                        console.log(111, res);
+                        this.visible = false;
+                        this.$message({
+                            message: res.message,
+                        });
+                        if (res.code === 200) {
+                            this.collectionList();
+                        }
+                    })
+            },
+            handleCurrentChange(val) {
+                console.log(`当前页: ${val}`);
+                this.page = val;
+                if (this.classStatus === 0) {
+                    this.collectionList();
+                } else if (this.classStatus === 1) {
+
+                } else if (this.classStatus === 2) {
+                    this.userRecordList();
+                } else if (this.classStatus === 3) {
+                    this.information();
+                }
+            },
+            collectionList() {
+                let time = this.time.length > 0 ? this.time : ['', '']
+                fetchFun(`http://webapi.issealing.com/api/index/collectionList?page=${this.page}&user_id=${JSON.parse(localStorage.getItem('YinShunUser')).id}&start=${time[0]}&end=${time[1]}`, "GET")
+                    .then(res => {
+                        console.log(111, res)
+                        if (res.code === 200) {
+                            this.collectionListList = res.data.data;
+                            this.total = res.data.total;
+                        }
+                    })
+            },
+            userRecordList() {
+                let time = this.time.length > 0 ? this.time : ['', '']
+                fetchFun(`http://webapi.issealing.com/api/index/userRecordList?page=${this.page}&user_id=${JSON.parse(localStorage.getItem('YinShunUser')).id}&start=${time[0]}&end=${time[1]}`, "GET")
+                    .then(res => {
+                        console.log(111, res)
+                        if (res.code === 200) {
+                            this.userRecordListList = res.data.data;
+                            this.total = res.data.total;
+                        }
+                    })
+            },
+            information() {
+                fetchFun(`http://webapi.issealing.com/api/index/information?page=${this.page}`, "GET")
+                    .then(res => {
+                        console.log(111, res)
+                        if (res.code === 200) {
+                            this.informationList = res.data.data;
+                            this.total = res.data.total;
+                        }
+                    })
+            },
+            informationList_details(item) {
+                fetchFun(`http://webapi.issealing.com/api/index/informationAdd?id=${item.id}`, "GET")
+                    .then(res => {
+                        const a = document.createElement('a');
+                        a.style.display = 'none';
+                        a.setAttribute('target', '_blank');
+                        a.setAttribute('download', item.title);
+                        a.href = item.url;
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                    })
+            },
+            details() {
+                fetchFun('http://webapi.issealing.com/api/login/details?id=' + JSON.parse(localStorage.getItem('YinShunUser')).id, "GET")
+                    .then(res => {
+                        this.detailsList = res.data
+                    })
+            },
+        }
+    })
+</script>

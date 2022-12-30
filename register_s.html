@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>胤舜密封</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,body {
+            width: 100%;
+            height: 100%;
+        }
+
+        #app {
+            width: 100%;
+            height: 100%;
+            background-image: url("./img/login.jpeg");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            color: #FFFFFF;
+        }
+
+        .content_list {
+            padding: 100px 240px 0;
+            box-sizing: border-box;
+        }
+
+        .content_lists {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            padding: 40px;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .content_lists_title {
+            width: 100px;
+            height: 20px;
+            font-size: 18px;
+            line-height: 20px;
+            text-align: center;
+            position: absolute;
+            display: block;
+            top: -10px;
+            left: 40px;
+            background: #FFFFFF;
+        }
+
+        .content_lists_form {
+            width: 30%;
+        }
+
+        .select_sou {
+            cursor: pointer;
+            color: #FFFFFF;
+            line-height: 40px;
+            width: 120px;
+            height: 40px;
+            background: linear-gradient(-90deg, #0646AF, #025CE8);
+            text-align: center;
+            margin-left: 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .select_chong {
+            cursor: pointer;
+            color: #FFFFFF;
+            line-height: 40px;
+            width: 120px;
+            height: 40px;
+            text-align: center;
+            margin-left: 10px;
+            border-radius: 20px;
+            border: 1px solid #B7B7B7;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .buttonList {
+            /*position: absolute;*/
+            /*bottom: 20px;*/
+            /*right: -70px;*/
+            /*display: flex;*/
+            /*flex-direction: row;*/
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+        }
+
+        .Collection {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            cursor:pointer;
+        }
+        .Collection img {
+            width: 15px;
+            margin-right: 5px;
+        }
+        .Collection span {
+            display: block;
+            font-size: 14px;
+            line-height: 14px;
+            margin-top: 3px;
+        }
+
+        .el-form-item__label {
+            color: #FFFFFF;
+            border-bottom: 1px solid #FFFFFF;
+        }
+
+        .el-input__inner {
+            background: none;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-radius: 0;
+            border-color: #FFFFFF;
+            color: #FFFFFF;
+        }
+
+        .el-input.is-active .el-input__inner, .el-input__inner:focus {
+            border-color: #FFFFFF;
+        }
+
+        .codeButton {
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 10px;
+            background: linear-gradient(-90deg, #0646AF, #025CE8);
+        }
+    </style>
+</head>
+<body>
+<div id="app" class="appVue">
+    <div class="content">
+        <div class="content_list">
+            <div class="content_lists">
+                <div class="content_lists_form">
+                    <el-form style="widht:50%" ref="searchForm" :rules="rules" label-position="left" :model="form" label-width="80px">
+                        <el-form-item prop="name" label="姓名">
+                            <el-input v-model="form.name"></el-input>
+                        </el-form-item>
+                        <el-form-item prop="department" label="公司">
+                            <el-input v-model="form.department"></el-input>
+<!--                            <el-select style="width: 100%" v-model="form.department">-->
+<!--                                <el-option-->
+<!--                                    v-for="(item,key) in departmentList"-->
+<!--                                    :key="key"-->
+<!--                                    :label="item.title"-->
+<!--                                    :value="item.id"-->
+<!--                                ></el-option>-->
+<!--                            </el-select>-->
+                        </el-form-item>
+                        <el-form-item prop="post" label="职务">
+                            <el-input v-model="form.post"></el-input>
+<!--                            <el-select style="width: 100%" v-model="form.post">-->
+<!--                                <el-option-->
+<!--                                    v-for="(item,key) in userPostList"-->
+<!--                                    :key="key"-->
+<!--                                    :label="item.title"-->
+<!--                                    :value="item.id"-->
+<!--                                ></el-option>-->
+<!--                            </el-select>-->
+                        </el-form-item>
+                        <el-form-item prop="pid" label="推荐人">
+                            <el-input v-model="form.pid"></el-input>
+<!--                            <el-select style="width: 100%" v-model="form.pid">-->
+<!--                                <el-option-->
+<!--                                    v-for="(item,key) in userListList"-->
+<!--                                    :key="key"-->
+<!--                                    :label="item.name"-->
+<!--                                    :value="item.id"-->
+<!--                                ></el-option>-->
+<!--                            </el-select>-->
+                        </el-form-item>
+                        <el-form-item prop="mailbox" label="邮箱">
+                            <el-input v-model="form.mailbox"></el-input>
+                        </el-form-item>
+                        <el-form-item prop="phone" label="手机号">
+                            <el-row :gutter="20">
+                                <el-col style="padding: 0" :span="16">
+                                    <el-input type="number" v-model="form.phone"></el-input>
+                                </el-col>
+                                <el-col :span="4">
+                                    <div v-if="codeStatus" @click="codePhone" class="codeButton">获取验证码</div>
+                                    <div v-else class="codeButton">{{code}}s</div>
+<!--                                    <el-button v-if="codeStatus" @click="codePhone">获取验证码</el-button>-->
+<!--                                    <el-button disabled v-else>{{code}}s</el-button>-->
+                                </el-col>
+                            </el-row>
+                        </el-form-item>
+                        <el-form-item prop="code" label="验证码">
+                            <el-input v-model="form.code"></el-input>
+                        </el-form-item>
+                        <el-form-item prop="password" label="登录密码">
+                            <el-input type="password" v-model="form.password"></el-input>
+                        </el-form-item>
+                        <el-form-item prop="password_S" label="确认密码">
+                            <el-input type="password" v-model="form.password_S"></el-input>
+                        </el-form-item>
+                        <el-form-item>
+                            <el-col :span="12">
+                                <div @click="addSubmit('searchForm')" class="select_sou">注 册</div>
+                            </el-col>
+                            <el-col :span="12">
+                                <div @click="resetForm('searchForm')" class="select_chong">重 置</div>
+                            </el-col>
+                        </el-form-item>
+                    </el-form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="fetchS.js"></script>
+<script>
+
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                codeStatus:true,
+                codeSetInterval:null,
+                code:60,
+                userPostList:[],
+                departmentList:[],
+                userListList:[],
+                form: {
+                    post: '',
+                    mailbox: '',
+                    department: '',
+                    phone: '',
+                    password: '',
+                    password_S: '',
+                    code: '',
+                    name: '',
+                    pid: '',
+                },
+                rules: {
+                    post: [
+                        {required: true, message: '请选择职务', trigger: 'blur'}
+                    ],
+                    mailbox: [
+                        {required: true, message: '请输入邮箱', trigger: 'blur'}
+                    ],
+                    department: [
+                        {required: true, message: '请选择公司', trigger: 'blur'}
+                    ],
+                    phone: [
+                        {required: true, message: '请输入手机号', trigger: 'blur'}
+                    ],
+                    password: [
+                        {required: true, message: '请输入密码', trigger: 'blur'}
+                    ],
+                    password_S: [
+                        {required: true, message: '请输入确认密码', trigger: 'blur'}
+                    ],
+                    code: [
+                        {required: true, message: '请输入验证码', trigger: 'blur'}
+                    ],
+                    name: [
+                        {required: true, message: '请输入姓名', trigger: 'blur'}
+                    ],
+                },
+            }
+        },
+        mounted() {
+            // post职务   mailbox邮箱    department公司
+            // phone手机号    password密码    code验证码   name姓名    pid推荐人
+            // this.userPost(); // 职务
+            // this.department(); // 公司
+            // this.userList(); // 推荐人
+        },
+        methods: {
+            submit(){
+                const {
+                    post,
+                    mailbox,
+                    department,
+                    phone,
+                    password,
+                    password_S,
+                    code,
+                    name,
+                    pid,
+                } = this.form;
+                if (password !== password_S){
+                    this.$message({
+                        message: '请确认登录密码和确认密码一致',
+                        type: 'warning'
+                    });
+                    return;
+                }
+                let formData = new FormData();
+                formData.append('post',post);
+                formData.append('mailbox',mailbox);
+                formData.append('department',department);
+                formData.append('phone',phone);
+                formData.append('password',password);
+                formData.append('code',code);
+                formData.append('name',name);
+                formData.append('pid',pid);
+                fetchFun('http://webapi.issealing.com/api/login/register',"POST",formData)
+                    .then(res => {
+                        console.log(111, res)
+                        this.$message({
+                            message: res.message,
+                            type: 'warning'
+                        });
+                        if (res.code === 200) {
+
+                        }
+                    })
+            },
+            addSubmit(formName) {
+                this.$refs[formName].validate((valid) => {
+                    if (valid) {
+                        console.log('成功');
+                        this.submit();
+                    } else {
+                        console.log('error submit!!');
+                        return false;
+                    }
+                });
+            },
+            resetForm(formName) {
+                console.log(123, formName)
+                this.$refs[formName].resetFields();
+            },
+            codePhone() {
+                if (!this.form.phone || this.form.phone.length !== 11){
+                    this.$message({
+                        message: '请输入正确的手机号',
+                        type: 'warning'
+                    });
+                    return;
+                }
+                let formData = new FormData();
+                formData.append('phone',this.form.phone);
+                fetchFun('http://webapi.issealing.com/api/verification/code',"POST",formData)
+                    .then(res => {
+                        console.log(111, res)
+                        if (res.code === 200) {
+                            this.codeStatus = false;
+                            this.codeSetInterval = setInterval(()=>{
+                                this.code --;
+                                if (this.code<=0){
+                                    this.codeStatus = true;
+                                    clearInterval(this.codeSetInterval);
+                                }
+                            },1000)
+                        }
+                    })
+            },
+            userPost() {
+                fetchFun('http://webapi.issealing.com/api/login/post',"GET")
+                    .then(res => {
+                        console.log(111, res)
+                        if (res.code === 200) {
+                            this.userPostList = res.data;
+                        }
+                    })
+            },
+            department() {
+                fetchFun('http://webapi.issealing.com/api/login/department',"GET")
+                    .then(res => {
+                        console.log(111, res)
+                        if (res.code === 200) {
+                            this.departmentList = res.data;
+                        }
+                    })
+            },
+            userList() {
+                fetchFun('http://webapi.issealing.com/api/login/userList',"GET")
+                    .then(res => {
+                        console.log(111, res)
+                        if (res.code === 200) {
+                            this.userListList = res.data;
+                        }
+                    })
+            },
+        }
+    })
+
+</script>

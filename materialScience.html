@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>胤舜密封</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" type="text/css" href="headerS.css">
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #app {
+            padding-top: 140px;
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 150;
+            width: 100%;
+            height: 144px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header_left {
+            width: 26%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header_left img {
+            width: 282px;
+            height: 77px;
+        }
+
+        .header_right {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .header_right_index {
+            width: 122px;
+            height: 43px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background-image: url("./img/index(3).png");
+            background-size: 100% 100%;
+            font-size: 22px;
+            line-height: 22px;
+            color: #ffffff;
+            margin-right: 30px;
+        }
+
+        .header_right_indexs {
+            font-size: 22px;
+            line-height: 22px;
+            color: #666666;
+            margin-right: 24px;
+            border: none;
+            text-decoration: none;
+        }
+
+        .content_header {
+            height: 50px;
+            width: 100%;
+            background-color: #F2F2F2;
+            padding: 0 240px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            color: #666666;
+        }
+
+        .content_list {
+            padding: 60px 240px;
+            box-sizing: border-box;
+        }
+
+        .content_lists {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #B7B7B7;
+            position: relative;
+            padding: 40px;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .content_lists_title {
+            width: 100px;
+            height: 20px;
+            font-size: 18px;
+            line-height: 20px;
+            text-align: center;
+            position: absolute;
+            display: block;
+            top: -10px;
+            left: 40px;
+            background: #FFFFFF;
+        }
+
+        .content_lists_form {
+            width: 60%;
+        }
+
+        .select_sou {
+            display: inline-block;
+            cursor: pointer;
+            color: #FFFFFF;
+            line-height: 40px;
+            width: 120px;
+            height: 40px;
+            background: linear-gradient(-90deg, #0646AF, #025CE8);
+            text-align: center;
+            margin-left: 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .select_chong {
+            cursor: pointer;
+            color: #353535;
+            line-height: 40px;
+            width: 120px;
+            height: 40px;
+            text-align: center;
+            margin-left: 10px;
+            border-radius: 20px;
+            border: 1px solid #B7B7B7;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .buttonList {
+            position: absolute;
+            bottom: -32px;
+            right: -123px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+        }
+
+        .Collection {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .Collection img {
+            width: 15px;
+            margin-right: 5px;
+        }
+
+        .Collection span {
+            display: block;
+            font-size: 14px;
+            line-height: 14px;
+            margin-top: 3px;
+        }
+
+        .elFormItems {
+            width: 500px;
+        }
+
+        .elInput {
+            width: 100%;
+        }
+
+        .bottomsDiv {
+            width: 100%;
+        }
+
+        .bottomsDiv_top {
+            height: 12px;
+            background-color: #358FE5;
+        }
+
+        .bottomsDiv_div {
+            width: 100%;
+            height: 227px;
+            background: #001D39;
+            display: flex;
+            flex-direction: row;
+            padding: 57px 12% 0;
+            box-sizing: border-box;
+        }
+
+        .bottomsDiv_div_div {
+            display: flex;
+            flex-direction: column;
+            padding-top: 28px;
+            margin-left: 20px;
+            font-size: 14px;
+            line-height: 24px;
+            color: #FFFFFF;
+        }
+
+        .header_img {
+            width: 100%;
+        }
+
+        .header_img img {
+            width: 100%;
+        }
+
+        .chaxunListDiv {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .chaxunList {
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+</head>
+<body>
+<div id="app" class="appVue">
+    <top-header></top-header>
+    <top-header-s></top-header-s>
+    <div class="header_img">
+        <img src="./img/bottoms_2.png" alt="">
+    </div>
+    <div class="content">
+        <div class="content_header">
+            当前位置：首页 > 材料
+        </div>
+        <div class="content_list">
+            <div class="content_lists">
+                <span class="content_lists_title">材料选型</span>
+                <div class="content_lists_form">
+                    <el-form style="widht:50%" ref="searchForm" :rules="rules" :model="form" label-width="80px">
+                        <el-form-item class="elFormItems" prop="medium" label="选择介质">
+                            <el-select class="elInput" filterable multiple v-model="form.medium"
+                                       placeholder="请选择介质">
+                                <el-option v-for="(item,key) in mediumList" :key="key" :label="item.medium_c"
+                                           :value="item.medium_c"></el-option>
+                            </el-select>
+                        </el-form-item>
+                        <el-form-item class="elFormItems" prop="min" label="工作温度">
+                            <el-col :span="11">
+                                <el-input v-model="form.min">
+                                    <template slot="append">min</template>
+                                </el-input>
+                            </el-col>
+                            <el-col style="text-align: center" class="line" :span="2">~</el-col>
+                            <el-col :span="11">
+                                <el-input v-model="form.max">
+                                    <template slot="append">max</template>
+                                </el-input>
+                            </el-col>
+                        </el-form-item>
+                        <el-form-item class="elFormItems" prop="value" label="兼容性">
+                            <el-select class="elInput" v-model="form.value" placeholder="请选择兼容性">
+                                <el-option label="优选" value="1"></el-option>
+                                <el-option label="可考虑" value="2"></el-option>
+                            </el-select>
+                        </el-form-item>
+                        <el-form-item class="elFormItems" prop="hard_min_max" label="硬度选择">
+                            <el-select class="elInput" v-model="form.hard_min_max" placeholder="请选择硬度">
+                                <el-option label="70-80" value="70-80"></el-option>
+                                <el-option label="90" value="90"></el-option>
+                                <el-option label="RGD" value="RGD"></el-option>
+                            </el-select>
+                        </el-form-item>
+                        <el-form-item>
+                            <div class="buttonList">
+                                <div @click="addSubmit('searchForm')" class="select_sou">搜 索</div>
+                                <div @click="resetForm('searchForm')" class="select_chong">重 置</div>
+                            </div>
+
+                        </el-form-item>
+                    </el-form>
+                </div>
+            </div>
+            <div style="margin-top: 30px" class="content_lists">
+                <span class="content_lists_title">查询结果</span>
+                <div class="chaxunListDiv">
+                    <div class="chaxunList">
+                        <el-table
+                                :data="routine"
+                                @selection-change="handleSelectionChange"
+                        >
+                            <el-table-column
+                                    type="selection"
+                                    width="55">
+                            </el-table-column>
+                            <el-table-column
+                                    prop="name"
+                                    label="常规">
+                                <template slot-scope="scope">
+                                    <span style="cursor:pointer;"
+                                          @click="detailsClick(scope.row)">{{ scope.row }}</span>
+                                </template>
+                            </el-table-column>
+                            <el-table-column>
+                                <template slot-scope="scope">
+                                    <div @click="collectionAdd(scope.row)" class="Collection">
+                                        <img src="./img/Collection2.png" alt="">
+                                        <span>收藏</span>
+                                    </div>
+                                </template>
+                            </el-table-column>
+                        </el-table>
+                        <el-table
+                                @selection-change="handleSelectionChangeA"
+                                :data="perfluoride"
+                        >
+                            <el-table-column
+                                    type="selection"
+                                    width="55">
+                            </el-table-column>
+                            <el-table-column
+                                    prop="name"
+                                    label="全氟">
+                                <template slot-scope="scope">
+                                    <span style="cursor:pointer;"
+                                          @click="detailsClick(scope.row)">{{ scope.row }}</span>
+                                </template>
+                            </el-table-column>
+                            <el-table-column>
+                                <template slot-scope="scope">
+                                    <div @click="collectionAdd(scope.row)" class="Collection">
+                                        <img src="./img/Collection2.png" alt="">
+                                        <span>收藏</span>
+                                    </div>
+                                </template>
+                            </el-table-column>
+                        </el-table>
+                    </div>
+                    <div class="chaxunList">
+                        <div @click="collectionButton" class="select_sou">收藏</div>
+                        <div @click="pdf" class="select_sou">打印(所选材料)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottomsDiv">
+        <div class="bottomsDiv_top"></div>
+        <div class="bottomsDiv_div">
+            <img src="./img/bottoms_1.png" alt="">
+            <div class="bottomsDiv_div_div">
+                <span>公司地址：上海市天目西路511号锦程大厦807-808室 200070   /   公司电话：(8621)63800019 传真：(8621)63800089</span>
+                <span>上海胤舜密封技术有限公司 版权所有  CopyRight @ 2021-2025 All Rights Reserved    沪ICP备13031219号-2</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="./header.js"></script>
+<script src="./header_s.js"></script>
+<script src="fetchS.js"></script>
+<script>
+
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                routine: [],
+                routine_select: [],
+                perfluoride: [],
+                perfluoride_select: [],
+                form: {
+                    medium: '',
+                    user_id: JSON.parse(localStorage.getItem('YinShunUser')).id,
+                    min: '',
+                    max: '',
+                    value: '',
+                    hard_min_max: '',
+                },
+                rules: {
+                    medium: [
+                        {required: true, message: '请选择介质', trigger: 'blur'}
+                    ],
+                    value: [
+                        {required: true, message: '请选择兼容性', trigger: 'blur'}
+                    ],
+                    hard_min_max: [
+                        {required: true, message: '请选择硬度', trigger: 'blur'}
+                    ],
+                },
+                mediumList: [],
+                selectList: [],
+            }
+        },
+        mounted() {
+            let form = JSON.parse(localStorage.getItem('materialScienceForm'));
+            console.log(form);
+            if (form){
+                form['user_id'] = JSON.parse(localStorage.getItem('YinShunUser')).id;
+                this.form = form
+            }
+            // this.medium();
+            this.aass();
+        },
+        methods: {
+            onSubmit() {
+                console.log('submit!');
+            },
+            handleSelectionChangeA(val) {
+                console.log(222, val);
+                this.perfluoride_select = val;
+                // this.selectList = val;
+            },
+            handleSelectionChange(val) {
+                console.log(111, val);
+                this.routine_select = val;
+                // this.selectList = val;
+            },
+            resetForm(formName) {
+                console.log(123, formName)
+                this.$refs[formName].resetFields();
+                this.form.max = "";
+                localStorage.removeItem('materialScienceForm')
+            },
+            addSubmit(formName) {
+                this.$refs[formName].validate((valid) => {
+                    if (valid) {
+                        console.log('成功');
+                        this.material();
+                    } else {
+                        console.log('error submit!!');
+                        return false;
+                    }
+                });
+            },
+            medium() {
+                let user = JSON.parse(localStorage.getItem('YinShunUser'));
+                fetchFun('http://webapi.issealing.com/api/index/medium', "GET")
+                    .then(res => {
+                        console.log(111, res)
+                        if (res.code === 200) {
+                            this.mediumList = res.data;
+                        }
+                    })
+            },
+            collectionButton() {
+                let arr = [];
+                console.log(this.routine_select, this.perfluoride_select)
+                if (this.routine_select.length > 0 || this.perfluoride_select.length > 0) {
+                    let list = arr.concat(this.routine_select, this.perfluoride_select);
+                    list.map((value, key) => {
+                        arr.push(value);
+                    })
+                } else {
+                    this.$message({
+                        message: '请选择至少一个材质',
+                        type: 'warning'
+                    });
+                    return;
+                }
+                console.log(333, arr);
+                this.collectionAdd(arr.toString());
+            },
+            collectionAdd(id) {
+                const {medium, user_id, min, max, value, hard_min_max} = this.form;
+                let formData = new FormData();
+                formData.append('medium', medium.toString());
+                formData.append('user_id', user_id);
+                formData.append('min', min);
+                formData.append('max', max);
+                formData.append('value', value);
+                formData.append('hard_min_max', hard_min_max);
+                formData.append('material', id);
+                fetchFun('http://webapi.issealing.com/api/index/collectionAdd', "POST", formData)
+                    .then(res => {
+                        console.log(111, res)
+                        this.$message({
+                            message: res.message,
+                        });
+                        if (res.code === 200) {
+
+                        }
+                    })
+            },
+            material() {
+                const {medium, user_id, min, max, value, hard_min_max} = this.form;
+                localStorage.setItem('materialScienceForm',JSON.stringify({medium, min, max, value, hard_min_max}));
+                fetchFun(`http://webapi.issealing.com/api/index/material?medium=${medium.toString()}&user_id=${user_id}&min=${min}&max=${max}&value=${value}&hard_min_max=${hard_min_max}`,"GET")
+                    .then(res => {
+                        console.log(111, res)
+                        if (res.code === 200) {
+                            this.routine = res.data.data;
+                            this.perfluoride = res.data.arr;
+                        }
+                    })
+            },
+            pdf() {
+                let arr = [];
+                console.log(this.routine_select, this.perfluoride_select)
+                if (this.routine_select.length > 0 || this.perfluoride_select.length > 0) {
+                    let list = arr.concat(this.routine_select, this.perfluoride_select);
+                    list.map((value, key) => {
+                        arr.push(value);
+                    })
+                } else {
+                    this.$message({
+                        message: '请选择至少一个材质',
+                        type: 'warning'
+                    });
+                    return;
+                }
+                console.log(333, arr);
+                const {medium, user_id, min, max, value, hard_min_max} = this.form;
+                window.location.href = `http://webapi.issealing.com/api/index/pdf?medium=${medium.toString()}&min=${min}&max=${max}&hard_min_max=${hard_min_max}&material=${arr.toString()}`
+            },
+            detailsClick(name) {
+                window.location.href = `./materialScience_detals.html?name=${name}`
+            },
+            aass() {
+                fetchFun('http://webapi.issealing.com/api/index/medium', "GET").then(e => {
+                    console.log(111, e)
+                    if (e.code === 200) {
+                        this.mediumList = e.data;
+                    }
+                })
+            },
+        }
+    })
+
+</script>

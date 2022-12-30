@@ -1,0 +1,1108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>胤舜密封</title>
+    <link href="./video-js.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="headerS.css">
+    <style>
+        html {
+            font-size: 0.36px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #app {
+            padding-top: 44px;
+        }
+        .header {
+            background-color: #257DD1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            width: 100%;
+            height: 44px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header_left {
+            width: 26%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        .header_left img {
+            width: 71px;
+            height: 19px;
+            margin-left: 21px;
+        }
+        .header_center {
+            width: 1rem;
+            height: 60rem;
+            background-color: #cccccc;
+        }
+        .header_right {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .header_right img {
+            width: 22px;
+            height: 18px;
+            margin-right: 10px;
+        }
+        .header_right_index {
+            width: 122rem;
+            height: 43rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background-image: url("./img/index(3).png");
+            background-size: 100% 100%;
+            font-size: 22rem;
+            line-height: 22rem;
+            color: #ffffff;
+            margin-right: 30rem;
+            margin-left: 110rem;
+        }
+        .header_right_indexs {
+            font-size: 22rem;
+            line-height: 22rem;
+            color: #666666;
+            margin-right: 30rem;
+            border: none;
+            text-decoration:none;
+        }
+
+        .el-carousel__item h3 {
+            color: #475669;
+            font-size: 14rem;
+            opacity: 0.75;
+            line-height: 200rem;
+            margin: 0;
+        }
+
+        .el-carousel__item:nth-child(2n) {
+            background-color: #99a9bf;
+        }
+
+        .el-carousel__item:nth-child(2n+1) {
+            background-color: #d3dce6;
+        }
+
+        .introduce {
+            margin-top: -15px;
+            width: 100%;
+            height: 329px;
+            overflow: hidden;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            background-color: #FFFFFF;
+            position: relative;
+        }
+        .introduce_div1 {
+            width: 156px;
+            height: 104px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 5;
+            background: #257DD1;
+            display: flex;
+            flex-direction: column;
+            padding-left: 40px;
+            box-sizing: border-box;
+        }
+        .introduce_div1_div {
+            width: 29px;
+            height: 3px;
+            margin-top: 41px;
+            background-color: #FFFFFF;
+        }
+        .introduce_div1_span {
+            font-size: 17px;
+            line-height: 17px;
+            color: #FFFFFF;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+        .introduce10 {
+            width: 189px;
+            height: 27px;
+            position: absolute;
+            top: 57px;
+            right: 24px;
+        }
+        .introduce_div2 {
+            width: 336px;
+            height: 199px;
+            background: #B9D8F1;
+            position: absolute;
+            top: 83px;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            padding: 25px 22px 32px 24px;
+            box-sizing: border-box;
+        }
+        .introduce_div2_span1 {
+            font-size: 15px;
+            font-family: PingFang SC;
+            font-weight: 400;
+            color: #303030;
+            line-height: 21px;
+        }
+        .introduce_div2_span2 {
+            margin-top: 15px;
+            font-size: 12px;
+            font-family: PingFang SC;
+            font-weight: 400;
+            color: #303030;
+            line-height: 15px;
+        }
+
+        .technologyS {
+            width: 100%;
+            height: 1489rem;
+            background-color: #F2F2F2;
+            /*height: 1200rem;*/
+            position: relative;
+        }
+        .technology {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            width: 100%;
+            height: 482px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .technology_title {
+            font-size: 43rem;
+            font-family: PingFang SC;
+            font-weight: 500;
+            color: #666666;
+            line-height: 43rem;
+        }
+        .technology_xian {
+            width: 100%;
+            height: 2rem;
+            background: #FFFFFF;
+            position: relative;
+            margin-top: 28rem;
+        }
+        .technology_xian div {
+            width: 181rem;
+            height: 5rem;
+            background: #328BE0;
+            position: absolute;
+            top: -3rem;
+            left: 50%;
+            margin-left: -90.5rem;
+        }
+        .technology_list {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        .technology_list_div {
+            width: 109px;
+            height: 121px;
+            background-image: url("./img/technology_list_div.png");
+            background-size: 100% 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 18rem;
+        }
+        .technology_list_div_title {
+            font-size: 29rem;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: #FFFFFF;
+            line-height: 29rem;
+            margin-bottom: 84rem;
+        }
+        .technology_list_div img {
+            margin-bottom: 25px;
+            margin-top: 37px;
+        }
+        .technology_list_div_title1 {
+            font-size: 35rem;
+            font-weight: 400;
+            color: #666666;
+            line-height: 29rem;
+        }
+        .technology_title1 {
+            font-size: 15px;
+            font-family: PingFang SC;
+            font-weight: 400;
+            color: #FFFFFF;
+            line-height: 21px;
+            margin-bottom: 60rem;
+        }
+        .technology_title2 {
+            padding: 0 20px;
+            font-size: 12px;
+            font-family: PingFang SC;
+            font-weight: 400;
+            color: #FFFFFF;
+            line-height: 14px;
+        }
+        .range {
+            width: 100%;
+            /*height: 515px;*/
+            padding: 30px 0;
+            background-color: #F2F2F2;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .range_title {
+            font-size: 15px;
+            font-family: PingFang SC;
+            font-weight: 400;
+            color: #303030;
+            line-height: 24px;
+            margin-top: 24px;
+        }
+        .programme {
+            width: 100%;
+            padding: 20px;
+            background-image: url("./img/index(1).png");
+            background-size: 100% 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .programme_list {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-top: 48rem;
+        }
+        .programme_list_div1 {
+            flex: 1;
+            height: 40px;
+            background-image: url("./img/index(29).png");
+            background-size: 100% 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            font-size: 19rem;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: #FFFFFF;
+            line-height: 14px;
+            box-sizing: border-box;
+            margin: 0 12rem;
+            padding: 0 6px 10px;
+        }
+        .programme_list_div2 {
+            padding: 0 6px;
+            flex: 1;
+            height: 36px;
+            background-image: url("./img/index(28).png");
+            background-size: 100% 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            font-size: 19rem;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: #FFFFFF;
+            line-height: 14px;
+            margin: 0 12rem;
+        }
+        .programme_content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-top: 58rem;
+        }
+        .programme_contentS {
+            display: none;
+        }
+        .programme_content_img {
+            width: 100%;
+            height: 100%;
+        }
+        .programme_content_div {
+            width: 100%;
+            /*height: 185px;*/
+            background-color: #FFFFFF;
+            padding: 37rem 41rem;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+        .programme_content_div_span1 {
+            font-size: 15px;
+            font-family: PingFang SC;
+            font-weight: 400;
+            color: #333333;
+            line-height: 21px;
+            margin-bottom: 38rem;
+        }
+        .programme_content_div_span2 {
+            font-size: 12px;
+            font-family: PingFang SC;
+            font-weight: 400;
+            color: #666666;
+            line-height: 15px;
+        }
+        .programme_content_div_buttons {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-end;
+            width: 100%;
+            margin-top: 59rem;
+        }
+        .programme_content_div_button {
+            width: 204rem;
+            height: 58rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background-color: #358FE5;
+            border-radius: 5rem;
+        }
+        .programme_content_div_button span {
+            font-size: 18rem;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: #FFFFFF;
+            line-height: 18rem;
+        }
+        .programme_content_div_button img {
+            width: 38rem;
+            height: 12rem;
+            margin-left: 23rem;
+        }
+        .tool {
+            width: 100%;
+            height: 493px;
+            background-color: #F2F2F2;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0 40px;
+        }
+        .tool_title1 {
+            font-size: 13px;
+            font-family: PingFang SC;
+            font-weight: 400;
+            color: #303030;
+            line-height: 16px;
+        }
+        .tool_title2 {
+            font-size: 15px;
+            font-family: PingFang SC;
+            font-weight: 400;
+            color: #303030;
+            line-height: 21px;
+            margin-bottom: 45rem;
+        }
+        .tool_list {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            align-items: center;
+            margin-top: 59rem;
+            justify-content: center;
+        }
+        .tool_list_div {
+            width: 44%;
+            height: 142px;
+            background-color: #E7E7E7;
+            margin: 0 15rem 13px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5rem;
+            }
+        .tool_list_div_div {
+            width: 104rem;
+            height: 104rem;
+            background-color: #358FE5;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        .tool_list_div_span1 {
+            font-size: 13px;
+            font-family: PingFang SC;
+            font-weight: 400;
+            color: #333333;
+            line-height: 16px;
+            margin-top: 20rem;
+            margin-bottom: 37rem;
+        }
+        .tool_list_div_span2 {
+            word-wrap: break-word;
+            word-break: normal;
+            max-width: 100%;
+            font-size: 24rem;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: #666666;
+            line-height: 40rem;
+        }
+        .supplier {
+            width: 100%;
+            height: 778rem;
+            background-color: #D1E9FF;
+            padding: 0 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .bottom {
+            width: 100%;
+            height: 886rem;
+            padding: 0 20px;
+            background-image: url("./img/index(35).png");
+            background-size: 100% 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .bottom_title {
+            font-size: 43rem;
+            font-family: PingFang SC;
+            font-weight: 500;
+            color: #FFFFFF;
+            line-height: 43rem;
+        }
+        .bottom_xian {
+            width: 100%;
+            height: 2rem;
+            background: #FFFFFF;
+            margin-top: 24rem;
+        }
+        .bottom_button {
+            display: flex;
+            flex-direction: row;
+            margin-top: 49rem;
+        }
+        .bottom_button_div {
+            width: 243rem;
+            height: 100rem;
+            background: #358FE5;
+            border-radius: 6rem;
+            margin: 0 12rem;
+            font-size: 26rem;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: #FFFFFF;
+            line-height: 100rem;
+            text-align: center;
+        }
+        .bottom img {
+            width: 400rem;
+            margin-top: 118rem;
+        }
+        .bottom_span {
+            font-size: 28rem;
+            font-family: PingFang SC;
+            font-weight: 400;
+            color: #FFFFFF;
+            line-height: 32rem;
+        }
+        .swiper {
+            height: 191px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            background-color: #F2F2F2;
+        }
+        .swiper img {
+            z-index: 100;
+            width: 80%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -55px;
+            margin-left: -40%;
+        }
+        .range_list {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+        }
+        .range_list_divs_s {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .range_list_divs {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .range_list_divsA {
+            display: flex;
+            flex-direction: row;
+        }
+        .range_list_divs_span {
+            font-size: 36rem;
+            font-family: PingFang SC;
+            font-weight: 400;
+            color: #303030;
+            line-height: 58rem;
+        }
+        .range_list_div {
+            /*width: 50%;*/
+            height: 163px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0 24rem;
+            box-sizing: border-box;
+        }
+        .range_list_div img {
+            width: 101rem;
+        }
+        .range_list_div_title {
+            font-size: 15px;
+            font-weight: 400;
+            color: #666666;
+            line-height: 21px;
+            margin-top: -25rem;
+            margin-bottom: 40rem;
+        }
+        .range_list_div_titles {
+            font-size: 12px;
+            font-weight: 400;
+            color: #303030;
+            line-height: 15px;
+        }
+        .range_list_img {
+            width: 50%;
+            height: 163px;
+        }
+        .supplier_img {
+            width: 396rem;
+        }
+        .supplier_title {
+            font-size: 15px;
+            font-weight: 500;
+            color: #303030;
+            line-height: 21px;
+            margin-top: 70rem;
+        }
+        .supplier_titles {
+            font-size: 12px;
+            font-family: PingFang SC;
+            font-weight: 400;
+            color: #303030;
+            line-height: 15px;
+        }
+        .title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .title_span {
+            font-size: 18px;
+            font-family: PingFang SC;
+            font-weight: 500;
+            color: #FFFFFF;
+            line-height: 15px;
+            margin-bottom: 11px;
+        }
+        .title_div {
+            width: 375px;
+            height: 1px;
+            background: #FFFFFF;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        .title_div span {
+            width: 76px;
+            height: 2px;
+            background: #004F9A;
+        }
+
+        .tan {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+        .tan_divss {
+            flex: 1;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        .tan_div {
+            width: 40%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        .tan_div a {
+            background-color: #FFFFFF;
+            text-align: center;
+            color: #666666;
+            font-size: 16px;
+            line-height: 16px;
+            padding: 10px 0 ;
+            border-bottom: 1px solid #666666;
+            text-decoration: none;
+        }
+        video {
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <top-header-s></top-header-s>
+        <div class="swiper">
+            <img src="./img/index(2).png" alt="">
+            <!--<video id="swiperVideo" poster autoplay muted loop playsinline src="./img/1.mp4">
+            </video>-->
+            <video
+                poster
+                style="width: 100%;height: 100%;"
+                autoplay
+                muted
+                loop
+                playsinline
+                id="my-video"
+                preload="auto"
+                data-setup="{}"
+            >
+                <source src="./img/1.mp4" type="video/mp4" />
+            </video>
+        </div>
+        <div id="introduce" class="introduce">
+            <div class="introduce_div1">
+                <div class="introduce_div1_div"></div>
+                <span class="introduce_div1_span">关于胤舜</span>
+            </div>
+            <img class="introduce10" src="./img/introduce10.png" alt="">
+            <div class="introduce_div2">
+                <span class="introduce_div2_span1">凭借我们不断提升的专业能力，</span>
+                <span class="introduce_div2_span1">成为客户长期的合作伙伴</span>
+                <span class="introduce_div2_span2">胤舜密封专业为客户提供橡胶、塑料及金属等相关静密封产品，长久以来一
+直为半导体及电子、石油化工、石油天然气、能源电力等行业高端装备提供
+成熟稳定的密封产品。随着科技水平的逐步提高，每个工业领域的要求也不
+断升级，我们努力通过专业的产品（材料）、技术及服务能力，为用户提供
+更优秀、更可靠、更安全、更加可持续的密封解决方案。
+</span>
+            </div>
+        </div>
+        <div class="technologyS">
+<!--            <video id="aaaVideo" style="width:100%; height:100%; object-fit: fill" poster autoplay muted loop playsinline src="./img/4.mp4"></video>-->
+            <video
+                    poster
+                    style="width: 100%;height: 100%;"
+                    autoplay
+                    muted loop playsinline
+                    id="my-videoA"
+                    preload="auto"
+                    data-setup="{}"
+            >
+                <source src="./img/4.mp4" type="video/mp4" />
+            </video>
+            <div id="technology" class="technology">
+                <div style="margin-bottom: 25px" class="title">
+                        <span class="title_span">技术能力</span>
+                    <div class="title_div">
+                        <span></span>
+                    </div>
+                </div>
+                <span class="technology_title1">当您对选择仍有疑问,我们会用专业的能为帮您解答</span>
+                <span class="technology_title2">胤舜密封为客户提供全产品周期内技术支持服务,包括产品设计开发、选型、可靠性验证、对比测试、失效分析等，帮客户寻找最适合的密封选择；资深的团队以及专业完备的实验室能够为客户选择做出有力的技术支撑。</span>
+<!--                <span class="technology_title2"></span>-->
+<!--                <span class="technology_title2">帮客户寻找最适合的密封选择；</span>-->
+<!--                <span class="technology_title2">资深的团队以及专业完备的实验室能够为客户选择做出有力的技术支撑。</span>-->
+                <span class="technology_title2"></span>
+                <div style="margin-top: 59rem" class="technology_list">
+                    <div class="technology_list_div">
+<!--                        <span class="technology_list_div_title">密封方案推荐</span>-->
+                        <img style="width: 80rem" src="./img/index(14).png" alt="">
+                        <span class="technology_list_div_title1">密封方案推荐</span>
+                        <span class="technology_list_div_title1"></span>
+                    </div>
+                    <div class="technology_list_div">
+<!--                        <span class="technology_list_div_title">密封受力分析</span>-->
+                        <img style="width: 78rem" src="./img/index(13).png" alt="">
+                        <span class="technology_list_div_title1">密封受力分析</span>
+                        <span class="technology_list_div_title1"></span>
+                    </div>
+                    <div class="technology_list_div">
+<!--                        <span class="technology_list_div_title">长效寿命模拟</span>-->
+                        <img style="width: 79rem" src="./img/index(12).png" alt="">
+                        <span class="technology_list_div_title1">长效寿命模拟</span>
+                        <span class="technology_list_div_title1"></span>
+                    </div>
+                </div>
+                <div style="margin-top: 53rem" class="technology_list">
+                    <div class="technology_list_div">
+<!--                        <span class="technology_list_div_title">沟槽优化</span>-->
+                        <img style="width: 84rem" src="./img/index(11).png" alt="">
+                        <span class="technology_list_div_title1">沟槽优化</span>
+                        <span class="technology_list_div_title1"></span>
+                    </div>
+                    <div class="technology_list_div">
+<!--                        <span class="technology_list_div_title">失效分析建议</span>-->
+                        <img style="width: 76rem" src="./img/index(10).png" alt="">
+                        <span class="technology_list_div_title1">失效分析建议</span>
+                        <span class="technology_list_div_title1"></span>
+                    </div>
+                    <div class="technology_list_div">
+<!--                        <span class="technology_list_div_title">逆向产品分析</span>-->
+                        <img style="width: 74rem" src="./img/index(9).png" alt="">
+                        <span class="technology_list_div_title1">逆向产品分析</span>
+                        <span class="technology_list_div_title1"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="range" class="range">
+            <div class="title">
+                <span style="color: #666666" class="title_span">产品范围</span>
+                <div style="background-color: #CCCCCC" class="title_div">
+                    <span style="background-color: #358FE5"></span>
+                </div>
+            </div>
+            <span class="range_title">恰当的密封选择  带来成本价值的最优化</span>
+            <div style="margin-top: 50rem" class="range_list">
+                <img class="range_list_img" src="./img/ji01.jpg" alt="">
+                <div style="background-color: #358FE5" class="range_list_div">
+                    <img src="./img/range(2).png" alt="">
+                    <span style="color: #FFFFFF" class="range_list_div_title">标准结构密封件</span>
+                    <span style="color: #FFFFFF" class="range_list_div_titles">包括各种结构形式及标准的密封产品，如O型圈、矩形垫圈、星型圈、</span>
+                </div>
+                <!--                <div style="background-color: #2266D1" class="range_list_div">-->
+                <!--                    <img src="./img/range(5).png" alt="">-->
+                <!--                    <span style="color: #FFFFFF" class="range_list_div_title">金属密封</span>-->
+                <!--                    <span style="color: #FFFFFF" class="range_list_div_titles">金属制造的密封圈及特殊形状的密封产品</span>-->
+                <!--                </div>-->
+            </div>
+            <div class="range_list">
+                <div class="range_list_divs">
+                    <div class="range_list_divsA">
+                        <!--<div style="background-color: #FFFFFF" class="range_list_div">
+                            <img src="./img/range(2).png" alt="">
+                            <span class="range_list_div_title">标准结构密封件</span>
+                            <span class="range_list_div_titles">包括各种结构形式及标准的密封产品，如O型圈、矩形垫圈、星型圈、</span>
+                        </div>-->
+                        <div style="background-color: #E7E7E7" class="range_list_div">
+                            <img src="./img/range(3).png" alt="">
+                            <span class="range_list_div_title">定制件</span>
+                            <span class="range_list_div_titles">针对专业需求的结构密封件及为客户定制加工的密封零部件</span>
+                        </div>
+                    </div>
+
+                </div>
+                <img class="range_list_img" src="./img/tu(5).png" alt="">
+            </div>
+            <div class="range_list">
+                <img class="range_list_img" src="./img/tu(6).png" alt="">
+                <div style="background-color: #358FE5" class="range_list_div">
+                    <img src="./img/range(4).png" alt="">
+                    <span style="color: #FFFFFF" class="range_list_div_title">高分子材料密封</span>
+                    <span style="color: #FFFFFF" class="range_list_div_titles">PEEK\PTFE\PCTFE等高端工程塑料型材及密封件</span>
+                </div>
+<!--                <div style="background-color: #2266D1" class="range_list_div">-->
+<!--                    <img src="./img/range(5).png" alt="">-->
+<!--                    <span style="color: #FFFFFF" class="range_list_div_title">金属密封</span>-->
+<!--                    <span style="color: #FFFFFF" class="range_list_div_titles">金属制造的密封圈及特殊形状的密封产品</span>-->
+<!--                </div>-->
+            </div>
+            <div class="range_list">
+                <div class="range_list_divs">
+                    <div class="range_list_divsA">
+                        <div style="background-color: #E7E7E7" class="range_list_div">
+                            <img src="./img/range(5).png" alt="">
+                            <span class="range_list_div_title">金属密封</span>
+                            <span class="range_list_div_titles">金属制造的密封圈及特殊形状的密封产品</span>
+                        </div>
+                    </div>
+
+                </div>
+                <img class="range_list_img" src="./img/range(9).jpg" alt="">
+            </div>
+        </div>
+        <div id="programme" class="programme">
+            <div class="title">
+                <span style="color: #666666" class="title_span">解决方案</span>
+                <div style="background-color: #CCCCCC" class="title_div">
+                    <span style="background-color: #358FE5"></span>
+                </div>
+            </div>
+            <!--<div class="programme_list">
+                <div onclick="aaa(this,'programme_ones')" id="programme_ones" class="programme_list_div1">
+                    CPI过程设备
+                </div>
+                <div onclick="aaa(this,'programme_twos')" id="programme_twos" class="programme_list_div2">
+                    半导体晶圆 加工设备
+                </div>
+                <div onclick="aaa(this,'programme_threes')" id="programme_threes" class="programme_list_div2">
+                    石油井下设备
+                </div>
+                <div onclick="aaa(this,'programme_fours')" id="programme_fours" class="programme_list_div2">
+                    燃气及蒸汽透平
+                </div>
+            </div>-->
+            <div id="programme_one" class="programme_content">
+                <img class="programme_content_img" src="./img/tu(2).png" alt="">
+                <div class="programme_content_div">
+                    <span class="programme_content_div_span1">半导体工艺设备</span>
+                    <span class="programme_content_div_span2">专门针对半导体制程开发的材料经过行业领先用户长期的使用，证明能够在苛刻复杂的等离子环境、高温工艺中解决客户的密封需要，新一代的Perfrez®全氟材料极低金属离子含量能满足更高阶制程需要</span>
+                </div>
+            </div>
+            <div id="programme_two" class="programme_content">
+                <img class="programme_content_img" src="./img/tu(1).png" alt="">
+                <div class="programme_content_div">
+                    <span class="programme_content_div_span1">CPI过程装备</span>
+                    <span class="programme_content_div_span2">流程工业因生产环境苛刻，生产过程中包含复杂的物理、化学过程及各种突变和不确定因素，而且会因操作过程中出现的各种温度压力变化，导致其生产流程中所涉及的各种泵、阀、压缩机等的技术要求各不相同，采用不间断连续生产方式，需要应对其中出现的复杂物理化学过程以及其他的温度压力变化等。</span>
+                </div>
+            </div>
+            <div id="programme_three" class="programme_content">
+                <img class="programme_content_img" src="./img/tu(3).png" alt="">
+                <div class="programme_content_div">
+                    <span class="programme_content_div_span1">石油生产工具</span>
+                    <span class="programme_content_div_span2">为石油和天然气工业提供有效的密封解决方案是一个极大的挑战，井下工具中密封件所面对的都是极端严苛的使用环境，必须能够抵抗低温环境，向下钻进时产生的高温和超高压力，各种腐蚀性介质和硫化氢气体的侵蚀，快速泄压产生的气体泄压爆破（RGD)等极端使用工况。</span>
+                </div>
+            </div>
+            <div id="programme_four" class="programme_content">
+                <img class="programme_content_img" src="./img/tu(4).png" alt="">
+                <div class="programme_content_div">
+                    <span class="programme_content_div_span1">燃气及蒸汽透平</span>
+                    <span class="programme_content_div_span2">能源领域的燃气发电技术，需要将天然气燃烧的产生的蒸汽推动透平进行发电作业，面对高温密封及寿命要求，和用户一起为节能降耗保驾护航。</span>
+                </div>
+            </div>
+        </div>
+        <div id="tool" class="tool">
+            <div style="margin-bottom: 10px" class="title">
+                <span style="color: #666666" class="title_span">辅助工具</span>
+                <div style="background-color: #CCCCCC" class="title_div">
+                    <span style="background-color: #358FE5"></span>
+                </div>
+            </div>
+            <span class="tool_title2">工程师助手，协助客户改善选型偏差的风险</span>
+            <span class="tool_title1">致力于帮助工程师提供设计选型的基础分析， </span>
+            <span class="tool_title1">协助客户改善密封件使用条件，提供专业化的密封方案建议。</span>
+            <div class="tool_list">
+                <div onclick="urlClick('./materialScience.html')" class="tool_list_div">
+                    <div class="tool_list_div_div">
+                        <img style="width: 48rem;" src="./img/index(8).png" alt="">
+                    </div>
+                    <span class="tool_list_div_span1">化学介质兼容性</span>
+<!--                    <a href="http://wx.zhongqinchina.com/app/index.php?i=6&c=yinshun&a=query&wxref=mp.weixin.qq.com#wechat_redirect" class="tool_list_div_span2">1500余种化学品与各类常规橡胶的兼容性选择</a>-->
+                </div>
+                <div onclick="urlClick('./dimensionTools.html')" class="tool_list_div">
+                    <div class="tool_list_div_div">
+                        <img style="width: 48rem;" src="./img/index(16).png" alt="">
+                    </div>
+                    <span class="tool_list_div_span1">沟槽设计</span>
+<!--                    <a href="http://wx.zhongqinchina.com/app/index.php?i=6&c=yinshun&a=reckon" class="tool_list_div_span2">标准O型圈槽型选择参数推荐</a>-->
+                </div>
+                <div onclick="urlClick('./video.html')" class="tool_list_div">
+                    <div class="tool_list_div_div">
+                        <img style="width: 48rem;" src="./img/index(7).png" alt="">
+                    </div>
+                    <span class="tool_list_div_span1">培训视频</span>
+<!--                    <a href="http://wx.zhongqinchina.com/app/index.php?i=6&c=yinshun&a=yanweicao" class="tool_list_div_span2">针对燕尾槽沟槽设计建议</a>-->
+                </div>
+                <div onclick="goUrl('https://work.weixin.qq.com/kfid/kfc457f30c4ee392f07')" class="tool_list_div">
+                    <div class="tool_list_div_div">
+                        <img style="width: 48rem;" src="./img/index(15).png" alt="">
+                    </div>
+                    <span class="tool_list_div_span1">在线工程师</span>
+<!--                    <a href="https://work.weixin.qq.com/kfid/kfc457f30c4ee392f07" class="tool_list_div_span2">提供实时的技术问题解答</a>-->
+                </div>
+            </div>
+        </div>
+        <div id="supplier" class="supplier">
+            <a href="https://www.appliedseals.com">
+                <img class="supplier_img" src="./img/supplier.png" alt="">
+            </a>
+            <span class="supplier_title">与APPLIED SEALS 携手合作</span>
+            <span style="margin-top: 50rem" class="supplier_titles">茂诠应用密封元件，台湾地区唯一半导体OEM设备商认可之合格供应商，通过AS 9100航太产品制造品质认证、ISO 13485医疗器材品质系统，拥有业界最高规格生产制程环境class 10,000无尘室，检验包裝清洗class100无尘室，为半导体/FPD/LED/医疗级客戶提供最高洁净度的全氟化密封元件。</span>
+<!--            <span class="supplier_titles"></span>-->
+<!--            <span class="supplier_titles"></span>-->
+<!--            <span class="supplier_titles"></span>-->
+        </div>
+        <div id="bottom" class="bottom">
+            <span class="bottom_title">携手用户一起，助力中国高端装备制造</span>
+            <div class="bottom_xian"></div>
+            <div class="bottom_button">
+                <a style="text-decoration:none" href="http://issealing.com/">
+                    <div class="bottom_button_div">
+                        资料下载
+                    </div>
+                </a>
+                <a style="text-decoration:none" href="http://issealing.com/">
+                    <div class="bottom_button_div">
+                        信息登录
+                    </div>
+                </a>
+                <a style="text-decoration:none" href="https://work.weixin.qq.com/kfid/kfc0bd17c2dec023658">
+                    <div class="bottom_button_div">
+                        在线咨询
+                    </div>
+                </a>
+            </div>
+            <img src="./img/index(5).png" alt="">
+            <span class="bottom_span">公司地址：上海市天目西路511号锦程大厦807-808室  200070</span>
+            <span class="bottom_span">公司电话：(8621)63800019  传真：(8621)63800089</span>
+            <span class="bottom_span">胤舜密封技术有限公司  版权所有  Copyright  2022 沪ICP备13031219号-2</span>
+        </div>
+    </div>
+</body>
+</html>
+<script src="./video.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+<script src="fetchS.js"></script>
+<script src="./header_s.js"></script>
+<script>
+    if (this._isMobile()){
+
+    } else {
+        window.location.href = "index.html"
+        console.log('我是pc');
+    }
+
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                type:1,
+            }
+        },
+        mounted() {
+
+        },
+        methods: {}
+    })
+
+    function urlClick(url) {
+        let user = JSON.parse(localStorage.getItem('YinShunUser'));
+        if (user) {
+            window.location.href = url;
+        } else {
+            window.location.href = './login.html';
+        }
+    }
+
+    var player = videojs('my-video',{
+      autoplay: true,
+      muted: true,
+      controls : false,
+      loop : true,
+      auto : true,
+      preload:'auto',
+    },function onPlayerReady(){
+      videojs.log('播放器1已经准备好了');
+      this.play();
+    });
+
+    var players = videojs('my-videoA',{
+      autoplay: true,
+      muted: true,
+      controls : false,
+      loop : true,
+      auto : true,
+      preload:'auto',
+    },function onPlayerReady(){
+      videojs.log('播放器2已经准备好了');
+      this.play();
+    });
+
+     document.addEventListener("WeixinJSBridgeReady", function () {
+       player.play();
+       players.play();
+     }, false);
+
+    document.addEventListener('touchstart', function() {
+      player.play();
+      players.play();
+    })
+
+    setInterval(()=>{
+      console.log(222)
+      player.play();
+      players.play();
+    },2000)
+
+    function goUrl(url){
+      window.location.href = url
+    }
+
+    function _isMobile(){
+        let flag = navigator.userAgent.match(
+            /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+        );
+        return flag;
+    }
+    function tanChange(){
+        let tans = document.getElementById('tans');
+        tans.style.display = "none"
+    }
+    function tanChangeA(){
+        let tans = document.getElementById('tans');
+        tans.style.display = "flex"
+    }
+    function aaa(e,name){
+        let arr = ['programme_ones','programme_twos','programme_threes','programme_fours'];
+        let arrs = ['programme_one','programme_two','programme_three','programme_four'];
+        arr.map((value,key)=>{
+            if (name != value){
+                document.getElementById(value).className = "programme_list_div2";
+                document.getElementById(arrs[key]).className = "programme_content programme_contentS";
+            } else {
+                document.getElementById(value).className = "programme_list_div1";
+                document.getElementById(arrs[key]).className = "programme_content";
+            }
+        })
+    }
+</script>

@@ -1,0 +1,2409 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>胤舜密封</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" type="text/css" href="headerS.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            min-width: 1300px;
+        }
+
+        #app {
+            padding-top: 140px;
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 150;
+            width: 100%;
+            height: 144px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header_left {
+            width: 26%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header_left img {
+            width: 282px;
+            height: 77px;
+        }
+
+        .header_right {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .header_right_index {
+            width: 122px;
+            height: 43px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background-image: url("./img/index(3).png");
+            background-size: 100% 100%;
+            font-size: 22px;
+            line-height: 22px;
+            color: #ffffff;
+            margin-right: 30px;
+        }
+
+        .header_right_indexs {
+            font-size: 22px;
+            line-height: 22px;
+            color: #666666;
+            margin-right: 24px;
+            border: none;
+            text-decoration: none;
+        }
+
+        .content_header {
+            height: 50px;
+            width: 100%;
+            background-color: #F2F2F2;
+            padding: 0 12%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            color: #666666;
+        }
+
+        .content_list {
+            padding: 60px 12%;
+            box-sizing: border-box;
+        }
+
+        .content_lists {
+            min-width: 700px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #B7B7B7;
+            position: relative;
+            padding: 40px;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .content_lists_title {
+            width: 100px;
+            height: 20px;
+            font-size: 18px;
+            line-height: 20px;
+            text-align: center;
+            position: absolute;
+            display: block;
+            top: -10px;
+            left: 40px;
+            background: #FFFFFF;
+        }
+
+        .content_lists_form {
+            width: 100%;
+        }
+
+        .select_sou {
+            cursor: pointer;
+            color: #FFFFFF;
+            line-height: 40px;
+            width: 120px;
+            height: 40px;
+            background: linear-gradient(-90deg, #0646AF, #025CE8);
+            text-align: center;
+            margin-left: 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .select_chong {
+            cursor: pointer;
+            color: #353535;
+            line-height: 40px;
+            width: 120px;
+            height: 40px;
+            text-align: center;
+            margin-left: 10px;
+            border-radius: 20px;
+            border: 1px solid #B7B7B7;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .buttonList {
+            /*position: absolute;*/
+            /*bottom: 20px;*/
+            /*right: -70px;*/
+            /*display: flex;*/
+            /*flex-direction: row;*/
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+        }
+
+        .kaolv {
+            background-color: #DFDFDF;
+            border: 1px solid #DFDFDF;
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        .listButton {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .listButton_div {
+            width: 140px;
+            height: 48px;
+            background: linear-gradient(-90deg, #257DD1, #358FE5);
+            border-radius: 5px;
+            margin-right: 10px;
+            font-size: 14px;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: #FFFFFF;
+            line-height: 48px;
+            text-align: center;
+            position: relative;
+        }
+
+        .listButton_divs {
+            width: 140px;
+            height: 48px;
+            background: #DDDDDD;
+            border-radius: 5px;
+            margin-right: 10px;
+            font-size: 14px;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: #353535;
+            line-height: 48px;
+            text-align: center;
+            position: relative;
+        }
+
+        .listButton_divs .listButton_divs, .listButton_divs .listButton_div {
+            position: absolute;
+            bottom: -52px;
+            left: 0;
+            z-index: 10;
+        }
+
+        .listButton_div .listButton_divs, .listButton_div .listButton_div {
+            position: absolute;
+            bottom: -52px;
+            left: 0;
+            z-index: 10;
+        }
+
+        .listButton_elRow td {
+            display: inline-block;
+            margin: 6px;
+            width: 140px;
+            text-align: center;
+        }
+
+        .submit_button {
+            width: 132px;
+            height: 48px;
+            background: linear-gradient(-90deg, #257DD1, #358FE5);
+            border-radius: 24px;
+            text-align: center;
+            line-height: 48px;
+            font-size: 14px;
+            color: #FFFFFF;
+            margin: 0 6px;
+        }
+
+        .submit_buttons {
+            width: 132px;
+            height: 48px;
+            border: 1px solid #B7B7B7;
+            border-radius: 24px;
+            text-align: center;
+            line-height: 48px;
+            font-size: 14px;
+            color: #353535;
+            margin: 0 6px;
+        }
+
+        .submit_div {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        img {
+            width: 400px;
+            max-width: 100%;
+        }
+
+        .listButton_elRow {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .listButton_elRow_div {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header_img {
+            width: 100%;
+        }
+
+        .header_img img {
+            width: 100%;
+        }
+
+        .bottomsDiv {
+            width: 100%;
+        }
+
+        .bottomsDiv_top {
+            height: 12px;
+            background-color: #358FE5;
+        }
+
+        .bottomsDiv_div {
+            width: 100%;
+            height: 227px;
+            background: #001D39;
+            display: flex;
+            flex-direction: row;
+            padding: 57px 12% 0;
+            box-sizing: border-box;
+        }
+
+        .bottomsDiv_div_div {
+            display: flex;
+            flex-direction: column;
+            padding-top: 28px;
+            margin-left: 20px;
+            font-size: 14px;
+            line-height: 24px;
+            color: #FFFFFF;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app" class="appVue">
+    <top-header></top-header>
+    <top-header-s></top-header-s>
+    <div class="header_img">
+        <img src="./img/bottoms_2.png" alt="">
+    </div>
+    <div class="content">
+        <div class="content_header">
+            当前位置：首页 > 沟槽设计工具
+        </div>
+        <div class="content_list">
+            <div class="content_lists">
+                <span class="content_lists_title">沟槽设计</span>
+                <div class="content_lists_form">
+                    <el-form style="widht:50%" ref="searchForm" :rules="rules" :model="form" label-width="100px">
+                        <el-row>
+                            <el-col style="min-width: 500px" :span="12">
+                                <el-form-item style="width: 80%" prop="standard" label="标准选择">
+                                    <el-select @change="standardChange" style="width: 100%" filterable
+                                               v-model="form.standard"
+                                               placeholder="请选择标准">
+                                        <el-option label="手工输入及非标" :value="0"></el-option>
+                                        <el-option v-for="(item,key) in standard_classificationList" :key="key"
+                                                   :label="item.title"
+                                                   :value="item.id"></el-option>
+                                    </el-select>
+                                </el-form-item>
+                            </el-col>
+                            <el-col style="min-width: 500px" :span="12">
+                                <el-form-item style="width: 80%" v-if="form.standard !== 0" prop="number"
+                                              label="编号选择">
+                                    <el-select @change="numberChange" style="width: 100%" filterable collapse-tags
+                                               v-model="form.number"
+                                               placeholder="请选择编号">
+                                        <el-option v-for="(item,key) in standard_sizeList" :key="key"
+                                                   :label="item.number + '\xa0\xa0\xa0' + item.inside_diameter + 'x' + item.wire_diameter"
+                                                   :value="item.id"></el-option>
+                                    </el-select>
+                                </el-form-item>
+                            </el-col>
+                        </el-row>
+                        <el-row>
+                            <el-col style="min-width: 500px" :span="12">
+                                <el-form-item style="width: 80%" prop="inside_diameter" label="内径尺寸">
+                                    <el-col :span="11">
+                                        <el-input :disabled="form.standard !== 0" type="number"
+                                                  v-model="form.inside_diameter">
+                                            <template slot="append">Dim</template>
+                                        </el-input>
+                                    </el-col>
+                                    <el-col style="text-align: center" class="line" :span="2">~</el-col>
+                                    <el-col :span="11">
+                                        <el-input disabled type="number" v-model="form.inside_diameter_tolerance">
+                                            <template slot="append">Tol(±)</template>
+                                        </el-input>
+                                    </el-col>
+                                </el-form-item>
+                            </el-col>
+                            <el-col style="min-width: 500px" :span="12">
+                                <el-form-item style="width: 80%" prop="wire_diameter" label="线经尺寸">
+                                    <el-col :span="11">
+                                        <el-input :disabled="form.standard !== 0" type="number"
+                                                  v-model="form.wire_diameter">
+                                            <template slot="append">Dim</template>
+                                        </el-input>
+                                    </el-col>
+                                    <el-col style="text-align: center" class="line" :span="2">~</el-col>
+                                    <el-col :span="11">
+                                        <el-input disabled type="number" v-model="form.wire_diameter_tolerance">
+                                            <template slot="append">Tol(±)</template>
+                                        </el-input>
+                                    </el-col>
+                                </el-form-item>
+                            </el-col>
+                        </el-row>
+                        <el-row>
+                            <el-col :span="12">
+                                <el-form-item prop="working_condition">
+                                    <el-checkbox v-model="form.working_condition">考虑工况情况</el-checkbox>
+                                </el-form-item>
+                            </el-col>
+                        </el-row>
+                        <div class="kaolv" v-if="form.working_condition">
+                            <el-row>
+                                <el-col :span="12">
+                                    <el-form-item label-width="160px" prop="Ref_Temp" label="参考温度 Ref. Temp">
+                                        <el-input type="number" style="width: 60%" v-model="form.Ref_Temp"></el-input>
+                                    </el-form-item>
+                                    <el-form-item label-width="160px" prop="wrk_Temp" label="工作温度 wrk. Temp">
+                                        <el-input type="number" style="width: 60%" v-model="form.wrk_Temp"></el-input>
+                                    </el-form-item>
+                                </el-col>
+                                <el-col :span="12">
+                                    <el-form-item prop="Material_ScienceA" label="沟槽A材料">
+                                        <el-select filterable collapse-tags v-model="form.Material_ScienceA"
+                                                   placeholder="请选择沟槽A材料">
+                                            <el-option v-for="(item,key) in standardFunctionList" :key="key"
+                                                       :label="item.standard"
+                                                       :value="item.value"></el-option>
+                                        </el-select>
+                                    </el-form-item>
+                                    <el-form-item prop="Material_ScienceB" label="沟槽B材料">
+                                        <el-select filterable collapse-tags v-model="form.Material_ScienceB"
+                                                   placeholder="请选择沟槽B材料">
+                                            <el-option v-for="(item,key) in standardFunctionList" :key="key"
+                                                       :label="item.standard"
+                                                       :value="item.value"></el-option>
+                                        </el-select>
+                                    </el-form-item>
+                                    <el-form-item prop="Material_Science_seal_up" label="密封材料">
+                                        <el-select filterable collapse-tags v-model="form.Material_Science_seal_up"
+                                                   placeholder="请选择密封材料">
+                                            <el-option v-for="(item,key) in standardListList" :key="key"
+                                                       :label="item.standard"
+                                                       :value="item.value"></el-option>
+                                        </el-select>
+                                    </el-form-item>
+                                </el-col>
+                            </el-row>
+                        </div>
+                        <el-form-item>
+                            <el-row style="margin-top: 15px">
+                                <!--                                <el-col :span="4">-->
+                                <!--                                    <div @click="addSubmit('searchForm')" class="select_sou">搜 索</div>-->
+                                <!--                                </el-col>-->
+                                <el-col :span="4">
+                                    <div @click="resetForm('searchForm')" class="select_chong">重 置</div>
+                                </el-col>
+                            </el-row>
+                        </el-form-item>
+                    </el-form>
+                </div>
+            </div>
+            <div class="listButton">
+                <div @click="statusButton = 0" :class="statusButton === 0 ? 'listButton_div' : 'listButton_divs'">
+                    矩形槽
+                </div>
+                <div @click="statusButton = 2"
+                     :class="statusButton === 1 || statusButton === 2 ? 'listButton_div' : 'listButton_divs'">
+                    燕尾槽
+                </div>
+                <div @click="classButtonClick" class="listButton_divs">半燕尾槽</div>
+                <div @click="classButtonClick" class="listButton_divs">三角形槽</div>
+            </div>
+            <div v-if="statusButton === 0" style="margin-top: 30px" class="content_lists">
+                <div>
+                    <span style="margin-right: 20px">类型:</span>
+                    <el-radio v-model="bottomForm_0.classStatus" label="1">孔用密封</el-radio>
+                    <el-radio v-model="bottomForm_0.classStatus" label="2">轴用密封</el-radio>
+                    <el-radio v-model="bottomForm_0.classStatus" label="3">端面外压</el-radio>
+                    <el-radio v-model="bottomForm_0.classStatus" label="4">端面内压</el-radio>
+                </div>
+                <div class="listButton_elRow" style="margin-bottom: 30px">
+                    <table style="margin-top: 20px;width: 620px;">
+                        <tr>
+                            <td></td>
+                            <td>Dim.</td>
+                            <td>UTol</td>
+                            <td>LTol</td>
+                        </tr>
+                        <tr>
+                            <td>A</td>
+                            <td>
+                                <el-input type="number" v-model="bottomForm_0.A1"></el-input>
+                            </td>
+                            <td>
+                                <el-input type="number" v-model="bottomForm_0.A2"></el-input>
+                            </td>
+                            <td>
+                                <el-input type="number" v-model="bottomForm_0.A3"></el-input>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>B</td>
+                            <td>
+                                <el-input type="number" v-model="bottomForm_0.B1"></el-input>
+                            </td>
+                            <td>
+                                <el-input type="number" v-model="bottomForm_0.B2"></el-input>
+                            </td>
+                            <td>
+                                <el-input type="number" v-model="bottomForm_0.B3"></el-input>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>C</td>
+                            <td>
+                                <el-input type="number" v-model="bottomForm_0.C1"></el-input>
+                            </td>
+                            <td>
+                                <el-input type="number" v-model="bottomForm_0.C2"></el-input>
+                            </td>
+                            <td>
+                                <el-input type="number" v-model="bottomForm_0.C3"></el-input>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>R</td>
+                            <td>
+                                <el-input type="number" v-model="bottomForm_0.R1"></el-input>
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <div class="listButton_elRow_div">
+                        <img v-if="bottomForm_0.classStatus === '1'" src="./img/kymf.jpg" alt="">
+                        <img v-else-if="bottomForm_0.classStatus === '2'" src="./img/zymf.jpg" alt="">
+                        <img v-else-if="bottomForm_0.classStatus === '3'" src="./img/dmwy.jpg" alt="">
+                        <img v-else-if="bottomForm_0.classStatus === '4'" src="./img/dmny.jpg" alt="">
+                    </div>
+                </div>
+                <div class="submit_div">
+                    <div @click="bottomForm_0_submit(1)" class="submit_button">中差计算</div>
+                    <div @click="bottomForm_0_submit(0)" class="submit_button">范围计算</div>
+                    <div @click="bottomForm_0_chong" class="submit_buttons">重置</div>
+                </div>
+            </div>
+            <div v-else-if="statusButton === 1 || statusButton === 2" style="margin-top: 30px" class="content_lists">
+                <div>
+                    <span style="margin-right: 20px">类型:</span>
+                    <el-radio v-model="statusButton" :label="2">环形燕尾</el-radio>
+                    <el-radio v-model="statusButton" :label="1">方形燕尾</el-radio>
+                </div>
+                <template v-if="statusButton === 1">
+                    <div class="listButton_elRow">
+                        <div style="display: flex;flex-direction: column">
+                            <table style="margin-top: 20px">
+                                <tr>
+                                    <td></td>
+                                    <td>Dim.</td>
+                                    <td>Tol(±)</td>
+                                </tr>
+                                <tr>
+                                    <td>h</td>
+                                    <td>
+                                        <el-input v-model="bottomForm_1.h11"></el-input>
+                                    </td>
+                                    <td>
+                                        <el-input v-model="bottomForm_1.h12"></el-input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>α</td>
+                                    <td>
+                                        <el-input v-model="bottomForm_1.a"></el-input>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>F1</td>
+                                    <td>
+                                        <el-input v-model="bottomForm_1.F11"></el-input>
+                                    </td>
+                                    <td>
+                                        <el-input v-model="bottomForm_1.F12"></el-input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>F2</td>
+                                    <td>
+                                        <el-input v-model="bottomForm_1.F21"></el-input>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>r1</td>
+                                    <td>
+                                        <el-input v-model="bottomForm_1.r1"></el-input>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>r2</td>
+                                    <td>
+                                        <el-input v-model="bottomForm_1.r2"></el-input>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                            <table style="margin-top: 20px">
+                                <tr>
+                                    <td></td>
+                                    <td>Dim.</td>
+                                    <td>Tol(+)</td>
+                                </tr>
+                                <tr>
+                                    <td>CLL.</td>
+                                    <td>
+                                        <el-input v-model="bottomForm_1.CLL1"></el-input>
+                                    </td>
+                                    <td>
+                                        <el-input v-model="bottomForm_1.CLL2"></el-input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>CLW.</td>
+                                    <td>
+                                        <el-input v-model="bottomForm_1.CLW1"></el-input>
+                                    </td>
+                                    <td>
+                                        <el-input v-model="bottomForm_1.CLW2"></el-input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>R1</td>
+                                    <td>
+                                        <el-input v-model="bottomForm_1.R11"></el-input>
+                                    </td>
+                                    <td>
+                                        <el-input v-model="bottomForm_1.R12"></el-input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>R2</td>
+                                    <td>
+                                        <el-input v-model="bottomForm_1.R21"></el-input>
+                                    </td>
+                                    <td>
+                                        <el-input v-model="bottomForm_1.R22"></el-input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>R3</td>
+                                    <td>
+                                        <el-input v-model="bottomForm_1.R31"></el-input>
+                                    </td>
+                                    <td>
+                                        <el-input v-model="bottomForm_1.R32"></el-input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>R4</td>
+                                    <td>
+                                        <el-input v-model="bottomForm_1.R41"></el-input>
+                                    </td>
+                                    <td>
+                                        <el-input v-model="bottomForm_1.R42"></el-input>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="listButton_elRow_div">
+                            <img style="width: 400px" src="img/zhanShi4.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="submit_div">
+                        <div @click="bottomForm_1_submit(1)" class="submit_button">AT计算</div>
+                        <div @click="bottomForm_1_submit(0)" class="submit_button">RT计算</div>
+                        <div @click="bottomForm_1_chong" class="submit_buttons">重置</div>
+                    </div>
+                </template>
+                <template v-else-if="statusButton === 2">
+                    <div class="listButton_elRow" style="margin-bottom: 30px">
+                        <table style="margin-top: 20px">
+                            <tr>
+                                <td></td>
+                                <td>Dim.</td>
+                                <td>Tol(±)</td>
+                            </tr>
+                            <tr>
+                                <td>CL</td>
+                                <td>
+                                    <el-input type="number" v-model="bottomForm_2.CL1"></el-input>
+                                </td>
+                                <td>
+                                    <el-input type="number" v-model="bottomForm_2.CL2"></el-input>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>h</td>
+                                <td>
+                                    <el-input type="number" v-model="bottomForm_2.h1"></el-input>
+                                </td>
+                                <td>
+                                    <el-input type="number" v-model="bottomForm_2.h2"></el-input>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>α</td>
+                                <td>
+                                    <el-input @input="F2inputChange" type="number" v-model="bottomForm_2.a"></el-input>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>r1</td>
+                                <td>
+                                    <el-input @input="F2inputChange" type="number" v-model="bottomForm_2.R1"></el-input>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>r2</td>
+                                <td>
+                                    <el-input type="number" v-model="bottomForm_2.R2"></el-input>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>F1</td>
+                                <td>
+                                    <el-input type="number" @input="F2inputChange" v-model="bottomForm_2.F1"></el-input>
+                                </td>
+                                <td>
+                                    <el-input type="number" @input="F2inputChange" v-model="bottomForm_2.F2"></el-input>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>F2</td>
+                                <td>
+                                    <el-input type="number" disabled v-model="bottomForm_2.F21"></el-input>
+                                </td>
+                                <td>
+                                    <el-input type="number" disabled v-model="bottomForm_2.F22"></el-input>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="listButton_elRow_div">
+                            <img style="width: 300px" src="./img/zhanShi3.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="submit_div">
+                        <div @click="bottomForm_2_submit(1)" class="submit_button">AT计算</div>
+                        <div @click="bottomForm_2_submit(0)" class="submit_button">RT计算</div>
+                        <div @click="bottomForm_2_chong" class="submit_buttons">重置</div>
+                    </div>
+                </template>
+            </div>
+            <div v-else-if="statusButton === 2" style="margin-top: 30px" class="content_lists">
+
+            </div>
+        </div>
+    </div>
+    <div class="bottomsDiv">
+        <div class="bottomsDiv_top"></div>
+        <div class="bottomsDiv_div">
+            <img src="./img/bottoms_1.png" alt="">
+            <div class="bottomsDiv_div_div">
+                <span>公司地址：上海市天目西路511号锦程大厦807-808室 200070   /   公司电话：(8621)63800019 传真：(8621)63800089</span>
+                <span>上海胤舜密封技术有限公司 版权所有  CopyRight @ 2021-2025 All Rights Reserved    沪ICP备13031219号-2</span>
+            </div>
+        </div>
+    </div>
+    <el-dialog width="30%" title="轴用孔用沟槽" :visible.sync="oneStatus">
+        <el-descriptions style="width: auto" :column="1">
+            <el-descriptions-item label="Stretch Ratio">{{ oneStatusDate.Stretch_Ratio }}</el-descriptions-item>
+            <el-descriptions-item label="Compression Ratio">{{ oneStatusDate.Compression_Ratio }}</el-descriptions-item>
+            <el-descriptions-item label="Groove Fill">{{ oneStatusDate.Groove_Fill }}</el-descriptions-item>
+            <el-descriptions-item label="Recommended E">{{ oneStatusDate.Recommended_E }}</el-descriptions-item>
+            <el-descriptions-item label="Recommended h">{{ oneStatusDate.Recommended_h }}</el-descriptions-item>
+            <el-descriptions-item label="Rec.Dia.Clearance">{{ oneStatusDate.Rec_Dia_Clearance }}</el-descriptions-item>
+        </el-descriptions>
+        <div @click="MiFengPDF" style="margin: 0 auto;" class="submit_button">下载计算结果</div>
+    </el-dialog>
+    <el-dialog width="30%" title="端面内外压沟槽" :visible.sync="twoStatus">
+        <el-descriptions style="width: auto" :column="1">
+            <el-descriptions-item label="Stretch Ratio">{{ twoStatusDate.Stretch_Ratio }}</el-descriptions-item>
+            <el-descriptions-item label="Compression Ratio">{{ twoStatusDate.Compression_Ratio }}</el-descriptions-item>
+            <el-descriptions-item label="Groove Fill">{{ twoStatusDate.Groove_Fill }}</el-descriptions-item>
+            <el-descriptions-item label="Recommended D">{{ twoStatusDate.Recommended_D }}</el-descriptions-item>
+            <el-descriptions-item label="Recommended F">{{ twoStatusDate.Recommended_F }}</el-descriptions-item>
+        </el-descriptions>
+        <div @click="DuanMianPDF" style="margin: 0 auto;" class="submit_button">下载计算结果</div>
+    </el-dialog>
+    <el-dialog width="30%" title="全燕尾槽" :visible.sync="threeStatus">
+        <el-descriptions style="width: auto" :column="1">
+            <el-descriptions-item label="Stretch Ratio,%">{{ threeStatusDate.Stretch_Ratio }}</el-descriptions-item>
+            <el-descriptions-item label="Compress.Ratio,%">{{ threeStatusDate.Compress_Ratio }}</el-descriptions-item>
+            <el-descriptions-item label="F2 Over.Ratio,%">{{ threeStatusDate.F2_Over_Ratio }}</el-descriptions-item>
+            <el-descriptions-item label="Prelim.CS.Fill,%">{{ threeStatusDate.Prelim_CS_Fill }}</el-descriptions-item>
+            <el-descriptions-item label="Volume Fill,%">{{ threeStatusDate.Volume_Fill }}</el-descriptions-item>
+        </el-descriptions>
+        <div @click="yanPDF" style="margin: 0 auto;" class="submit_button">下载计算结果</div>
+    </el-dialog>
+</div>
+</body>
+</html>
+<script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="./header.js"></script>
+<script src="fetchS.js"></script>
+<script src="./header_s.js"></script>
+<script>
+    Number.prototype.toPercentage = function () {
+        return (this * 100).toFixed(2) + '%';
+    }
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                statusButton: 0,
+                oneStatus: false,
+                oneStatusDate: {
+                    Stretch_Ratio: 0,
+                    Compression_Ratio: 0,
+                    Groove_Fill: 0,
+                    Recommended_E: 0,
+                    Recommended_h: 0,
+                    Rec_Dia_Clearance: 0,
+                },
+                twoStatus: false,
+                twoStatusDate: {
+                    Stretch_Ratio: 0,
+                    Compression_Ratio: 0,
+                    Groove_Fill: 0,
+                    Recommended_D: 0,
+                    Recommended_F: 0,
+                },
+                threeStatus: false,
+                threeStatusDate: {
+                    Stretch_Ratio: 0,
+                    Compress_Ratio: 0,
+                    F2_Over_Ratio: 0,
+                    Prelim_CS_Fill: 0,
+                    Volume_Fill: 0,
+                },
+                form: {
+                    standard: "",//标准
+                    number: "",//编号
+                    inside_diameter: 0,//内径
+                    inside_diameter_tolerance: 0,//内径偏差
+                    wire_diameter: 0,//线经
+                    wire_diameter_tolerance: 0,//线经偏差
+                    working_condition: true,//考虑工况情况
+                    Ref_Temp: 25,//参考温度
+                    wrk_Temp: 25,//工作温度
+                    Material_ScienceA: 0,//沟槽A材料
+                    Material_ScienceB: 0,//沟槽B材料
+                    Material_Science_seal_up: 0,//密封材料
+                },
+                rules: {
+                    standard: [
+                        {required: true, message: '请选择标准', trigger: 'blur'}
+                    ],
+                    number: [
+                        {required: true, message: '请选择编号', trigger: 'blur'}
+                    ],
+                },
+                bottomForm_0: {
+                    classStatus: "1",
+                    A1: 0,
+                    A2: 0,
+                    A3: 0,
+                    B1: 0,
+                    B2: 0,
+                    B3: 0,
+                    C1: 0,
+                    C2: 0,
+                    C3: 0,
+                    R1: 0,
+                },
+                bottomForm_1: {
+                    h11: 0,
+                    h12: 0,
+                    a: 0,
+                    F11: 0,
+                    F12: 0,
+                    F21: 0,
+                    r1: 0,
+                    r2: 0,
+                    CLL1: 0,
+                    CLL2: 0,
+                    CLW1: 0,
+                    CLW2: 0,
+                    R11: 0,
+                    R12: 0,
+                    R21: 0,
+                    R22: 0,
+                    R31: 0,
+                    R32: 0,
+                    R41: 0,
+                    R42: 0,
+                },
+                bottomForm_2: {
+                    classStatus: "1",
+                    CL1: 0,
+                    CL2: 0,
+                    h1: 0,
+                    h2: 0,
+                    F1: 0,
+                    F2: 0,
+                    R1: 0,
+                    R2: 0,
+                    a: 0,
+                    F21: 0,
+                    F22: 0,
+                },
+                mediumList: [],
+                standard_classificationList: [],
+                standard_sizeList: [],
+                standardFunctionList: [],
+                standardListList: [],
+                classButtonStatus: false,
+            }
+        },
+        mounted() {
+            this.standard_classification();
+            this.standardFunction();
+            this.standardList();
+            // console.log(this.submit())
+        },
+        methods: {
+            F2inputChange() {
+                // 燕尾槽F2与F1关系公式：F2=F1+2*(R1/TAN(RADIANS((90-α)/2))-R1);
+                const {F1, R1, a, F2} = this.bottomForm_2;
+                this.bottomForm_2.F21 = Number(F1) + 2 * (Number(R1) / Math.tan(this.RADIANS((90 - Number(a)) / 2)) - Number(R1));
+                this.bottomForm_2.F22 = F2;
+            },
+            yanPDF() {
+                const form = this.form;
+                const threeStatusDate = this.threeStatusDate;
+                let standard_classification = form.standard;
+                let number = form.number;
+                let inside_diameter = Number(form.inside_diameter);
+                let inside_diameter_tolerance = Number(form.inside_diameter_tolerance);
+                let wire_diameter = Number(form.wire_diameter);
+                let wire_diameter_tolerance = Number(form.wire_diameter_tolerance);
+                let RefTemp = form.Ref_Temp;
+                let MaterialA = form.Material_ScienceA;
+                let wrkTemp = form.wrk_Temp;
+                let MaterialB = form.Material_ScienceB;
+                let sealingMaterial = form.Material_Science_seal_up;
+                let StretchRatio = threeStatusDate.Stretch_Ratio;
+                let CompressRatio = threeStatusDate.Compress_Ratio;
+                let F2OverRatio = threeStatusDate.F2_Over_Ratio;
+                let PrelimCSFill = threeStatusDate.Prelim_CS_Fill;
+                let VolumeFill = threeStatusDate.Volume_Fill;
+
+                window.location.href = `http://webapi.issealing.com/api/index/pdfSize?standard_classification=${standard_classification}&number=${number}&inside_diameter=${inside_diameter}&inside_diameter_tolerance=${inside_diameter_tolerance}&wire_diameter=${wire_diameter}&wire_diameter_tolerance=${wire_diameter_tolerance}&RefTemp=${RefTemp}&MaterialA=${MaterialA}&wrkTemp=${wrkTemp}&MaterialB=${MaterialB}&sealingMaterial=${sealingMaterial}&StretchRatio=${StretchRatio}&CompressRatio=${CompressRatio}&F2OverRatio=${F2OverRatio}&PrelimCSFill=${PrelimCSFill}&VolumeFill=${VolumeFill}`
+
+                // fetchFun(`http://webapi.issealing.com/api/index/pdfSize?standard_classification=${standard_classification}&number=${number}&inside_diameter=${inside_diameter}&inside_diameter_tolerance=${inside_diameter_tolerance}&wire_diameter=${wire_diameter}&wire_diameter_tolerance=${wire_diameter_tolerance}&RefTemp=${RefTemp}&MaterialA=${MaterialA}&wrkTemp=${wrkTemp}&MaterialB=${MaterialB}&sealingMaterial=${sealingMaterial}&StretchRatio=${StretchRatio}&CompressRatio=${CompressRatio}&F2OverRatio=${F2OverRatio}&PrelimCSFill=${PrelimCSFill}&VolumeFill=${VolumeFill}`, "GET")
+                //     .then(res => {
+                //         console.log(111, res)
+                //         if (res.code === 200) {
+                //
+                //         }
+                //     })
+            },
+            MiFengPDF() {
+                const form = this.form;
+                const oneStatusDate = this.oneStatusDate;
+                let standard_classification = form.standard;
+                let number = form.number;
+                let inside_diameter = Number(form.inside_diameter);
+                let inside_diameter_tolerance = Number(form.inside_diameter_tolerance);
+                let wire_diameter = Number(form.wire_diameter);
+                let wire_diameter_tolerance = Number(form.wire_diameter_tolerance);
+                let RefTemp = form.Ref_Temp;
+                let MaterialA = form.Material_ScienceA;
+                let wrkTemp = form.wrk_Temp;
+                let MaterialB = form.Material_ScienceB;
+                let sealingMaterial = form.Material_Science_seal_up;
+                let StretchRatio = oneStatusDate.Stretch_Ratio;
+                let CompressRatio = oneStatusDate.Compression_Ratio;
+                let GrooveFill = oneStatusDate.Groove_Fill;
+                let RecommendedE = oneStatusDate.Recommended_E;
+                let Recommendedh = oneStatusDate.Recommended_h;
+                let RecDiaClearance = oneStatusDate.Rec_Dia_Clearance;
+                // oneStatusDate: {
+                //     Stretch_Ratio: 0,
+                //         Compression_Ratio: 0,
+                //         Groove_Fill: 0,
+                //         Recommended_E: 0,
+                //         Recommended_h: 0,
+                //         Rec_Dia_Clearance: 0,
+                // },
+
+                window.location.href = `http://webapi.issealing.com/api/index/pdfSizeMiFeng?standard_classification=${standard_classification}&number=${number}&inside_diameter=${inside_diameter}&inside_diameter_tolerance=${inside_diameter_tolerance}&wire_diameter=${wire_diameter}&wire_diameter_tolerance=${wire_diameter_tolerance}&RefTemp=${RefTemp}&MaterialA=${MaterialA}&wrkTemp=${wrkTemp}&MaterialB=${MaterialB}&sealingMaterial=${sealingMaterial}&StretchRatio=${StretchRatio}&CompressRatio=${CompressRatio}&GrooveFill=${GrooveFill}&RecommendedE=${RecommendedE}&Recommendedh=${Recommendedh}&RecDiaClearance=${RecDiaClearance}`
+
+                // fetchFun(`http://webapi.issealing.com/api/index/pdfSize?standard_classification=${standard_classification}&number=${number}&inside_diameter=${inside_diameter}&inside_diameter_tolerance=${inside_diameter_tolerance}&wire_diameter=${wire_diameter}&wire_diameter_tolerance=${wire_diameter_tolerance}&RefTemp=${RefTemp}&MaterialA=${MaterialA}&wrkTemp=${wrkTemp}&MaterialB=${MaterialB}&sealingMaterial=${sealingMaterial}&StretchRatio=${StretchRatio}&CompressRatio=${CompressRatio}&F2OverRatio=${F2OverRatio}&PrelimCSFill=${PrelimCSFill}&VolumeFill=${VolumeFill}`, "GET")
+                //     .then(res => {
+                //         console.log(111, res)
+                //         if (res.code === 200) {
+                //
+                //         }
+                //     })
+            },
+            DuanMianPDF() {
+                const form = this.form;
+                const twoStatusDate = this.twoStatusDate;
+                let standard_classification = form.standard;
+                let number = form.number;
+                let inside_diameter = Number(form.inside_diameter);
+                let inside_diameter_tolerance = Number(form.inside_diameter_tolerance);
+                let wire_diameter = Number(form.wire_diameter);
+                let wire_diameter_tolerance = Number(form.wire_diameter_tolerance);
+                let RefTemp = form.Ref_Temp;
+                let MaterialA = form.Material_ScienceA;
+                let wrkTemp = form.wrk_Temp;
+                let MaterialB = form.Material_ScienceB;
+                let sealingMaterial = form.Material_Science_seal_up;
+                let StretchRatio = twoStatusDate.Stretch_Ratio;
+                let CompressRatio = twoStatusDate.Compression_Ratio;
+                let GrooveFill = twoStatusDate.Groove_Fill;
+                let RecommendedD = twoStatusDate.Recommended_D;
+                let RecommendedF = twoStatusDate.Recommended_F;
+                // twoStatusDate: {
+                //     Stretch_Ratio: 0,
+                //         Compression_Ratio: 0,
+                //         Groove_Fill: 0,
+                //         Recommended_D: 0,
+                //         Recommended_F: 0,
+                // },
+
+                window.location.href = `http://webapi.issealing.com/api/index/pdfSizeDuanMian?standard_classification=${standard_classification}&number=${number}&inside_diameter=${inside_diameter}&inside_diameter_tolerance=${inside_diameter_tolerance}&wire_diameter=${wire_diameter}&wire_diameter_tolerance=${wire_diameter_tolerance}&RefTemp=${RefTemp}&MaterialA=${MaterialA}&wrkTemp=${wrkTemp}&MaterialB=${MaterialB}&sealingMaterial=${sealingMaterial}&StretchRatio=${StretchRatio}&CompressRatio=${CompressRatio}&GrooveFill=${GrooveFill}&RecommendedD=${RecommendedD}&RecommendedF=${RecommendedF}`
+
+                // fetchFun(`http://webapi.issealing.com/api/index/pdfSize?standard_classification=${standard_classification}&number=${number}&inside_diameter=${inside_diameter}&inside_diameter_tolerance=${inside_diameter_tolerance}&wire_diameter=${wire_diameter}&wire_diameter_tolerance=${wire_diameter_tolerance}&RefTemp=${RefTemp}&MaterialA=${MaterialA}&wrkTemp=${wrkTemp}&MaterialB=${MaterialB}&sealingMaterial=${sealingMaterial}&StretchRatio=${StretchRatio}&CompressRatio=${CompressRatio}&F2OverRatio=${F2OverRatio}&PrelimCSFill=${PrelimCSFill}&VolumeFill=${VolumeFill}`, "GET")
+                //     .then(res => {
+                //         console.log(111, res)
+                //         if (res.code === 200) {
+                //
+                //         }
+                //     })
+            },
+            classButtonClick() {
+                alert('请联系胤舜相关人员')
+            },
+            biaoZhunChange() {
+
+            },
+            numberPercentage(num) {
+                return (num * 100).toFixed(2) + '%'
+            },
+            RADIANS(num) {
+                return (num * Math.PI) / 180
+            },
+            bottomForm_0_class1(type) {
+                const bottomForm_0 = this.bottomForm_0;
+                const form = this.form;
+                const SearchForm = {
+                    F6: Number(bottomForm_0.A1),
+                    G6: Number(bottomForm_0.A2),
+                    H6: Number(bottomForm_0.A3),
+                    I6: Number(bottomForm_0.B1),
+                    J6: Number(bottomForm_0.B2),
+                    K6: Number(bottomForm_0.B3),
+                    L6: Number(bottomForm_0.C1),
+                    M6: Number(bottomForm_0.C2),
+                    N6: Number(bottomForm_0.C3),
+                    O6: Number(bottomForm_0.R1),
+                    classStatus: Number(bottomForm_0.classStatus), // 1为孔用密封,2为轴用密封,3为端面外压,4为端面内压
+                    standard: form.standard, //标准
+                    number: form.number, //编号
+                    B6: Number(form.inside_diameter), //内径
+                    C6: Number(form.inside_diameter_tolerance), //内径偏差
+                    D6: Number(form.wire_diameter), //线经
+                    E6: Number(form.wire_diameter_tolerance), //线经偏差
+                    working_condition: form.working_condition, //考虑工况情况
+                    $S$6: form.Ref_Temp, //参考温度
+                    $T$6: form.wrk_Temp, //工作温度
+                    $Q$6: form.Material_ScienceA, //沟槽A材料
+                    $R$6: form.Material_ScienceB, //沟槽B材料
+                    $P$6: form.Material_Science_seal_up, //密封材料
+                }
+                const {
+                    F6,
+                    I6,
+                    L6,
+                    O6,
+                    B6,
+                    D6,
+                    $S$6,
+                    $T$6,
+                    $Q$6,
+                    $R$6,
+                    $P$6,
+                    G6,
+                    H6,
+                    J6,
+                    K6,
+                    M6,
+                    N6,
+                    C6,
+                    E6,
+                } = SearchForm;
+
+                let Stretch_Ratio = '';
+                let Stretch_Ratio_Min = '';
+                let Stretch_Ratio_Max = '';
+                let Compression_Ratio = '';
+                let Compression_Ratio_Min = '';
+                let Compression_Ratio_Max = '';
+                let Groove_Fill = '';
+                let Groove_Fill_Min = '';
+                let Groove_Fill_Max = '';
+                let Recommended_E = '';
+                let Recommended_h = '';
+                let Rec_Dia_Clearance = '';
+
+                let AE6 = F6 * (1 + $Q$6 * ($T$6 - $S$6));
+                let V6 = B6 * (1 + $P$6 * ($T$6 - $S$6));
+                let AH6 = I6 * (1 + $R$6 * ($T$6 - $S$6));
+                let Y6 = D6 * (1 + $P$6 * ($T$6 - $S$6));
+                let AK6 = L6 * (1 + $Q$6 * ($T$6 - $S$6));
+                let AM6 = O6 * (1 + $Q$6 * ($T$6 - $S$6));
+                let AU6 = AK6 - AM6 * 2;
+                let BA6 = Math.PI * AU6 * (Math.pow((AH6 / 2), 2) - Math.pow((AE6 / 2), 2));
+                let AB6 = 1 / 4 * Math.PI * Math.pow(Y6, 2) * (V6 + Y6) * Math.PI;
+                let AR6 = AH6 / 2;
+                let AO6 = AE6 / 2 + AM6;
+                let AX6 = Math.PI * AM6 * (Math.pow(AR6, 2) - Math.pow(AO6, 2) + 1 / 2 * AO6 * Math.PI * AM6 - 2 / 3 * Math.pow((AM6), 2));
+                let BD6 = BA6 + AX6 * 2;
+                let AD6 = (F6 + H6) * (1 + $Q$6 * ($T$6 - $S$6));
+                let W6 = (B6 + C6) * (1 + $P$6 * ($T$6 - $S$6));
+                let AF6 = (F6 + G6) * (1 + $Q$6 * ($T$6 - $S$6));
+                let U6 = (B6 - C6) * (1 + $P$6 * ($T$6 - $S$6));
+                let AI6 = (I6 + J6) * (1 + $R$6 * ($T$6 - $S$6));
+                let X6 = (D6 - E6) * (1 + $P$6 * ($T$6 - $S$6));
+                let AG6 = (I6 + K6) * (1 + $R$6 * ($T$6 - $S$6));
+                let Z6 = (D6 + E6) * (1 + $P$6 * ($T$6 - $S$6));
+                let AJ6 = (L6 + N6) * (1 + $Q$6 * ($T$6 - $S$6));
+                let AT6 = AJ6 - AM6 * 2;
+                let AQ6 = AG6 / 2;
+                let AP6 = AF6 / 2 + AM6;
+                let AS6 = AI6 / 2;
+                let AN6 = AD6 / 2 + AM6;
+                let AL6 = (L6 + M6) * (1 + $Q$6 * ($T$6 - $S$6));
+                let AV6 = AL6 - AM6 * 2;
+                let AZ6 = Math.PI * AT6 * (Math.pow((AG6 / 2), 2) - Math.pow((AF6 / 2), 2));
+                let AW6 = Math.PI * AM6 * (Math.pow(AQ6, 2) - Math.pow(AP6, 2) + 1 / 2 * AP6 * Math.PI * AM6 - 2 / 3 * Math.pow(AM6, 2));
+                let BB6 = Math.PI * AV6 * (Math.pow((AI6 / 2), 2) - Math.pow((AD6 / 2), 2))
+                let AY6 = Math.PI * AM6 * (Math.pow(AS6, 2) - Math.pow(AN6, 2) + 1 / 2 * AN6 * Math.PI * AM6 - 2 / 3 * Math.pow(AM6, 2));
+                let AA6 = 1 / 4 * Math.PI * Math.pow(X6, 2) * (U6 + X6) * Math.PI;
+                let BC6 = AZ6 + AW6 * 2;
+                let AC6 = 1 / 4 * Math.PI * Math.pow(Z6, 2) * (W6 + Z6) * Math.PI;
+                let BE6 = BB6 + AY6 * 2;
+
+                Stretch_Ratio = ((AE6 - V6) / V6).toPercentage();
+                Stretch_Ratio_Min = ((AD6 - W6) / W6).toPercentage();
+                Stretch_Ratio_Max = ((AF6 - U6) / U6).toPercentage();
+                Compression_Ratio = (1 - (AH6 - AE6) / (2 * Y6)).toPercentage();
+                Compression_Ratio_Min = (1 - (AI6 - AD6) / (2 * X6)).toPercentage();
+                Compression_Ratio_Max = (1 - (AG6 - AF6) / (2 * Z6)).toPercentage();
+                Groove_Fill = (AB6 / BD6).toPercentage();
+                Groove_Fill_Min = (AA6 / BE6).toPercentage();
+                Groove_Fill_Max = (AC6 / BC6).toPercentage();
+
+                console.log({
+                    AE6,
+                    V6,
+                    AH6,
+                    Y6,
+                    AK6,
+                    AM6,
+                    AU6,
+                    BA6,
+                    AB6,
+                    AR6,
+                    AO6,
+                    AX6,
+                    BD6,
+                    AD6,
+                    W6,
+                    AF6,
+                    U6,
+                    AI6,
+                    X6,
+                    AG6,
+                    Z6,
+                    AJ6,
+                    AT6,
+                    AQ6,
+                    AP6,
+                    AS6,
+                    AN6,
+                    AL6,
+                    AV6,
+                    AZ6,
+                    AW6,
+                    BB6,
+                    AY6,
+                    AA6,
+                    BC6,
+                    AC6,
+                    BE6,
+                })
+
+                if (I6 >= 2.99 && I6 < 6) {
+                    Recommended_E = 0.005;
+                } else if (I6 >= 6 && I6 < 10) {
+                    Recommended_E = 0.006;
+                } else if (I6 >= 10 && I6 < 18) {
+                    Recommended_E = 0.008;
+                } else if (I6 >= 18 && I6 < 30) {
+                    Recommended_E = 0.01;
+                } else if (I6 >= 30 && I6 < 50) {
+                    Recommended_E = 0.012;
+                } else if (I6 >= 50 && I6 < 120) {
+                    Recommended_E = 0.015;
+                } else if (I6 >= 120 && I6 < 250) {
+                    Recommended_E = 0.02;
+                } else if (I6 >= 250 && I6 < 500) {
+                    Recommended_E = 0.025;
+                }
+
+                if (D6 >= 0.000000001 && D6 < 1.95) {
+                    Recommended_h = 1.5;
+                } else if (D6 >= 1.95 && D6 < 2.8) {
+                    Recommended_h = 2;
+                } else if (D6 >= 2.8 && D6 < 3.8) {
+                    Recommended_h = 2.5;
+                } else if (D6 >= 3.8 && D6 < 5.5) {
+                    Recommended_h = 3.5;
+                } else if (D6 >= 5.5 && D6 < 7.2) {
+                    Recommended_h = 4;
+                } else if (D6 >= 7.2 && D6 < 10.1) {
+                    Recommended_h = 4.5;
+                }
+
+                if (D6 >= 0 && D6 < 1.78) {
+                    Rec_Dia_Clearance = 0.04 + '~' + 0.10;
+                } else if (D6 >= 1.78 && D6 < 2.62) {
+                    Rec_Dia_Clearance = 0.05 + '~' + 0.13;
+                } else if (D6 >= 2.62 && D6 < 3.53) {
+                    Rec_Dia_Clearance = 0.08 + '~' + 0.15;
+                } else if (D6 >= 3.53 && D6 < 5.33) {
+                    Rec_Dia_Clearance = 0.08 + '~' + 0.15;
+                } else if (D6 >= 5.33 && D6 < 6.99) {
+                    Rec_Dia_Clearance = 0.10 + '~' + 0.18;
+                }
+
+                if (type) {
+                    this.oneStatusDate = {
+                        Stretch_Ratio,
+                        Compression_Ratio,
+                        Groove_Fill,
+                        Recommended_E,
+                        Recommended_h,
+                        Rec_Dia_Clearance,
+                    }
+                } else {
+                    this.oneStatusDate = {
+                        Stretch_Ratio: Stretch_Ratio_Min + ' ~ ' + Stretch_Ratio_Max,
+                        Compression_Ratio: Compression_Ratio_Min + ' ~ ' + Compression_Ratio_Max,
+                        Groove_Fill: Groove_Fill_Min + ' ~ ' + Groove_Fill_Max,
+                        Recommended_E,
+                        Recommended_h,
+                        Rec_Dia_Clearance,
+                    }
+                }
+                this.oneStatus = true;
+            },
+            bottomForm_0_class2(type) {
+                const bottomForm_0 = this.bottomForm_0;
+                const form = this.form;
+                const SearchForm = {
+                    F5: Number(bottomForm_0.A1),
+                    G5: Number(bottomForm_0.A2),
+                    H5: Number(bottomForm_0.A3),
+                    I5: Number(bottomForm_0.B1),
+                    J5: Number(bottomForm_0.B2),
+                    K5: Number(bottomForm_0.B3),
+                    L5: Number(bottomForm_0.C1),
+                    M5: Number(bottomForm_0.C2),
+                    N5: Number(bottomForm_0.C3),
+                    O5: Number(bottomForm_0.R1),
+                    classStatus: Number(bottomForm_0.classStatus), // 1为孔用密封,2为轴用密封,3为端面外压,4为端面内压
+                    standard: form.standard, //标准
+                    number: form.number, //编号
+                    B5: Number(form.inside_diameter), //内径
+                    C5: Number(form.inside_diameter_tolerance), //内径偏差
+                    D5: Number(form.wire_diameter), //线经
+                    E5: Number(form.wire_diameter_tolerance), //线经偏差
+                    working_condition: form.working_condition, //考虑工况情况
+                    $S$5: form.Ref_Temp, //参考温度
+                    $T$5: form.wrk_Temp, //工作温度
+                    $Q$5: form.Material_ScienceA, //沟槽A材料
+                    $R$5: form.Material_ScienceB, //沟槽B材料
+                    $P$5: form.Material_Science_seal_up, //密封材料
+                }
+                const {
+                    B5,
+                    D5,
+                    $P$5,
+                    $T$5,
+                    $S$5,
+                    $R$5,
+                    I5,
+                    F5,
+                    L5,
+                    O5,
+                    G5,
+                    H5,
+                    J5,
+                    K5,
+                    M5,
+                    N5,
+                    C5,
+                    E5,
+                } = SearchForm;
+
+                let Stretch_Ratio = '';
+                let Stretch_Ratio_Min = '';
+                let Stretch_Ratio_Max = '';
+                let Compression_Ratio = '';
+                let Compression_Ratio_Min = '';
+                let Compression_Ratio_Max = '';
+                let Groove_Fill = '';
+                let Groove_Fill_Min = '';
+                let Groove_Fill_Max = '';
+                let Recommended_E = '';
+                let Recommended_h = '';
+                let Rec_Dia_Clearance = '';
+
+                let V5 = ((B5 + 2 * D5) * ($P$5 * ($T$5 - $S$5) + 1));
+                let AE5 = ($R$5 * ($T$5 - $S$5) + 1) * I5;
+                let Y5 = ($P$5 * ($T$5 - $S$5) + 1) * D5;
+                let AB5 = ($R$5 * ($T$5 - $S$5) + 1) * F5;
+                let AX5 = B5 * ($P$5 * ($T$5 - $S$5) + 1);
+                let AH5 = ($R$5 * ($T$5 - $S$5) + 1) * L5;
+                let AJ5 = ($R$5 * ($T$5 - $S$5) + 1) * O5;
+                let U5 = ((B5 + 2 * D5 - C5 - 2 * E5) * ($P$5 * ($T$5 - $S$5) + 1));
+                let AF5 = ($R$5 * ($T$5 - $S$5) + 1) * (I5 + J5);
+                let W5 = ((B5 + 2 * D5 + C5 + 2 * E5) * ($P$5 * ($T$5 - $S$5) + 1));
+                let AD5 = ($R$5 * ($T$5 - $S$5) + 1) * (I5 + K5);
+                let X5 = ($P$5 * ($T$5 - $S$5) + 1) * (D5 - E5);
+                let AA5 = ($R$5 * ($T$5 - $S$5) + 1) * (F5 + H5);
+                let Z5 = ($P$5 * ($T$5 - $S$5) + 1) * (D5 + E5);
+                let AC5 = ($R$5 * ($T$5 - $S$5) + 1) * (F5 + G5);
+                let AW5 = (B5 - C5) * ($P$5 * ($T$5 - $S$5) + 1);
+                let AI5 = ($R$5 * ($T$5 - $S$5) + 1) * (L5 + M5);
+                let AY5 = (B5 + C5) * ($P$5 * ($T$5 - $S$5) + 1);
+                let AG5 = ($R$5 * ($T$5 - $S$5) + 1) * (L5 + N5);
+                Stretch_Ratio = ((V5 - AE5) / V5).toPercentage();
+                Stretch_Ratio_Min = ((U5 - AF5) / U5).toPercentage();
+                Stretch_Ratio_Max = ((W5 - AD5) / W5).toPercentage();
+                Compression_Ratio = ((Y5 - (AE5 - AB5) / 2) / Y5).toPercentage();
+                Compression_Ratio_Min = ((X5 - (AF5 - AA5) / 2) / X5).toPercentage();
+                Compression_Ratio_Max = ((Z5 - (AD5 - AC5) / 2) / Z5).toPercentage();
+                Groove_Fill = ((Math.PI * Math.pow(Y5, 2) / 4 * (Y5 + AX5) * Math.PI) / ((AH5 - 2 * AJ5) * Math.PI * (Math.pow(AE5, 2) / 4 - Math.pow(AB5, 2) / 4) + 2 * (Math.PI * (Math.pow((AE5 / 2 - AJ5), 2) - Math.pow((AB5 / 2), 2)) * AJ5 + Math.pow((Math.PI), 2) / 2 * (AE5 / 2 - AJ5) * Math.pow(AJ5, 2) + 2 / 3 * Math.PI * Math.pow(AJ5, 3)))).toPercentage();
+                Groove_Fill_Min = ((Math.PI * Math.pow(X5, 2) / 4 * (X5 + AW5) * Math.PI) / ((AI5 - 2 * AJ5) * Math.PI * (Math.pow(AF5, 2) / 4 - Math.pow(AA5, 2) / 4) + 2 * (Math.PI * (Math.pow((AF5 / 2 - AJ5), 2) - Math.pow((AA5 / 2), 2)) * AJ5 + Math.pow((Math.PI), 2) / 2 * (AF5 / 2 - AJ5) * Math.pow(AJ5, 2) + 2 / 3 * Math.PI * Math.pow(AJ5, 3)))).toPercentage();
+                Groove_Fill_Max = ((Math.PI * Math.pow(Z5, 2) / 4 * (Z5 + AY5) * Math.PI) / ((AG5 - 2 * AJ5) * Math.PI * (Math.pow(AD5, 2) / 4 - Math.pow(AC5, 2) / 4) + 2 * (Math.PI * (Math.pow((AD5 / 2 - AJ5), 2) - Math.pow((AC5 / 2), 2)) * AJ5 + Math.pow((Math.PI), 2) / 2 * (AD5 / 2 - AJ5) * Math.pow(AJ5, 2) + 2 / 3 * Math.PI * Math.pow(AJ5, 3)))).toPercentage();
+
+                console.log({
+                    V5,
+                    AE5,
+                    Y5,
+                    AB5,
+                    AX5,
+                    AH5,
+                    AJ5,
+                    U5,
+                    AF5,
+                    W5,
+                    AD5,
+                    X5,
+                    AA5,
+                    Z5,
+                    AC5,
+                    AW5,
+                    AI5,
+                    AY5,
+                    AG5,
+                })
+
+                if (I5 >= 2.99 && I5 < 6) {
+                    Recommended_E = 0.005;
+                } else if (I5 >= 6 && I5 < 10) {
+                    Recommended_E = 0.006;
+                } else if (I5 >= 10 && I5 < 18) {
+                    Recommended_E = 0.008;
+                } else if (I5 >= 18 && I5 < 30) {
+                    Recommended_E = 0.01;
+                } else if (I5 >= 30 && I5 < 50) {
+                    Recommended_E = 0.012;
+                } else if (I5 >= 50 && I5 < 120) {
+                    Recommended_E = 0.015;
+                } else if (I5 >= 120 && I5 < 250) {
+                    Recommended_E = 0.02;
+                } else if (I5 >= 250 && I5 < 500) {
+                    Recommended_E = 0.025;
+                }
+
+                if (D5 >= 0.000000001 && D5 < 1.95) {
+                    Recommended_h = 1.5;
+                } else if (D5 >= 1.95 && D5 < 2.8) {
+                    Recommended_h = 2;
+                } else if (D5 >= 2.8 && D5 < 3.8) {
+                    Recommended_h = 2.5;
+                } else if (D5 >= 3.8 && D5 < 5.5) {
+                    Recommended_h = 3.5;
+                } else if (D5 >= 5.5 && D5 < 7.2) {
+                    Recommended_h = 4;
+                } else if (D5 >= 7.2 && D5 < 10.1) {
+                    Recommended_h = 4.5;
+                }
+
+                if (type) {
+                    this.oneStatusDate = {
+                        Stretch_Ratio,
+                        Compression_Ratio,
+                        Groove_Fill,
+                        Recommended_E,
+                        Recommended_h,
+                        Rec_Dia_Clearance,
+                    }
+                } else {
+                    this.oneStatusDate = {
+                        Stretch_Ratio: Stretch_Ratio_Min + ' ~ ' + Stretch_Ratio_Max,
+                        Compression_Ratio: Compression_Ratio_Min + ' ~ ' + Compression_Ratio_Max,
+                        Groove_Fill: Groove_Fill_Min + ' ~ ' + Groove_Fill_Max,
+                        Recommended_E,
+                        Recommended_h,
+                        Rec_Dia_Clearance,
+                    }
+                }
+                this.oneStatus = true;
+            },
+            bottomForm_0_class3(type) {
+                const bottomForm_0 = this.bottomForm_0;
+                const form = this.form;
+                const SearchForm = {
+                    F6: Number(bottomForm_0.A1),
+                    G6: Number(bottomForm_0.A2),
+                    H6: Number(bottomForm_0.A3),
+                    I6: Number(bottomForm_0.B1),
+                    J6: Number(bottomForm_0.B2),
+                    K6: Number(bottomForm_0.B3),
+                    L6: Number(bottomForm_0.C1),
+                    M6: Number(bottomForm_0.C2),
+                    N6: Number(bottomForm_0.C3),
+                    O6: Number(bottomForm_0.R1),
+                    classStatus: Number(bottomForm_0.classStatus), // 1为孔用密封,2为轴用密封,3为端面外压,4为端面内压
+                    standard: form.standard, //标准
+                    number: form.number, //编号
+                    B6: Number(form.inside_diameter), //内径
+                    C6: Number(form.inside_diameter_tolerance), //内径偏差
+                    D6: Number(form.wire_diameter), //线经
+                    E6: Number(form.wire_diameter_tolerance), //线经偏差
+                    working_condition: form.working_condition, //考虑工况情况
+                    $S$6: form.Ref_Temp, //参考温度
+                    $T$6: form.wrk_Temp, //工作温度
+                    $Q$6: form.Material_ScienceA, //沟槽A材料
+                    $R$6: form.Material_ScienceB, //沟槽B材料
+                    $P$6: form.Material_Science_seal_up, //密封材料
+                }
+                const {
+                    B6,
+                    F6,
+                    L6,
+                    D6,
+                    I6,
+                    O6,
+                    $Q$6,
+                    $T$6,
+                    $S$6,
+                    $P$6,
+                    G6,
+                    H6,
+                    J6,
+                    K6,
+                    M6,
+                    N6,
+                    C6,
+                    E6,
+                } = SearchForm;
+
+                let Stretch_Ratio = '';
+                let Stretch_Ratio_Min = '';
+                let Stretch_Ratio_Max = '';
+                let Compression_Ratio = '';
+                let Compression_Ratio_Min = '';
+                let Compression_Ratio_Max = '';
+                let Groove_Fill = '';
+                let Groove_Fill_Min = '';
+                let Groove_Fill_Max = '';
+                let Recommended_D = '';
+                let Recommended_F = '';
+
+                let $V$6 = 1 + ($T$6 - $S$6) * $Q$6;
+                let $U$6 = 1 + ($T$6 - $S$6) * $P$6;
+                let Y6 = B6 * $U$6;
+                let AE6 = $V$6 * F6;
+                let AK6 = $V$6 * L6;
+                let AB6 = $U$6 * D6;
+                let AH6 = $V$6 * I6;
+                let AM6 = O6 * $V$6;
+                let AU6 = Math.PI * Math.pow(AB6, 2) / 4 * Math.PI * (Y6 + AB6);
+                let AX6 = Math.PI * AK6 * (Math.pow((AH6 / 2), 2) - Math.pow((AE6 / 2), 2)) - ((AE6 + AH6) * (Math.PI - Math.pow(Math.PI, 2) / 4)) * Math.pow(AM6, 2);
+                let AD6 = $V$6 * (F6 + H6);
+                let Z6 = (B6 + C6) * $U$6;
+                let AF6 = $V$6 * (F6 + G6);
+                let X6 = (B6 - C6) * $U$6;
+                let AL6 = $V$6 * (L6 + M6);
+                let AA6 = $U$6 * (D6 - E6);
+                let AJ6 = $V$6 * (L6 + N6);
+                let AC6 = $U$6 * (D6 + E6);
+                let AI6 = $V$6 * (I6 + J6);
+                let AT6 = Math.PI * Math.pow(AA6, 2) / 4 * Math.PI * (X6 + AA6);
+                let AY6 = Math.PI * AL6 * (Math.pow((AI6 / 2), 2) - Math.pow((AD6 / 2), 2)) - ((AD6 + AI6) * (Math.PI - Math.pow(Math.PI, 2) / 4)) * Math.pow(AM6, 2);
+                let AV6 = Math.PI * Math.pow(AC6, 2) / 4 * Math.PI * (Z6 + AC6);
+                let AG6 = $V$6 * (I6 + K6);
+                let AW6 = Math.PI * AJ6 * (Math.pow((AG6 / 2), 2) - Math.pow((AF6 / 2), 2)) - ((AF6 + AG6) * (Math.PI - Math.pow(Math.PI, 2) / 4)) * Math.pow(AM6, 2);
+                Stretch_Ratio = ((AE6 - Y6) / Y6).toPercentage();
+                Stretch_Ratio_Min = (AD6 / Z6 - 1).toPercentage();
+                Stretch_Ratio_Max = (AF6 / X6 - 1).toPercentage();
+                Compression_Ratio = (1 - AK6 / AB6).toPercentage();
+                Compression_Ratio_Min = (1 - AL6 / AA6).toPercentage();
+                Compression_Ratio_Max = (1 - AJ6 / AC6).toPercentage();
+                Groove_Fill = (AU6 / AX6).toPercentage();
+                Groove_Fill_Min = (AT6 / AY6).toPercentage();
+                Groove_Fill_Max = (AV6 / AW6).toPercentage();
+
+                console.log({
+                    $V$6,
+                    $U$6,
+                    Y6,
+                    AE6,
+                    AK6,
+                    AB6,
+                    AH6,
+                    AM6,
+                    AU6,
+                    AX6,
+                    AD6,
+                    Z6,
+                    AF6,
+                    X6,
+                    AL6,
+                    AA6,
+                    AJ6,
+                    AC6,
+                    AI6,
+                    AT6,
+                    AY6,
+                    AV6,
+                    AG6,
+                    AW6,
+                })
+
+                // 0.003
+                // 0.004
+                // 0.005
+                // 0.006
+                // 0.008
+                // 0.01
+                // 0.012
+                // 0.015
+                // 0.02
+                // 0.025
+
+                if (F6 >= 1 && F6 < 10) {
+                    Recommended_D = 0.008;
+                    Recommended_F = 0.003;
+                } else if (F6 >= 10 && F6 < 16) {
+                    Recommended_D = 0.01;
+                    Recommended_F = 0.004;
+                } else if (F6 >= 16 && F6 < 25) {
+                    Recommended_D = 0.012;
+                    Recommended_F = 0.005;
+                } else if (F6 >= 25 && F6 < 40) {
+                    Recommended_D = 0.015;
+                    Recommended_F = 0.006;
+                } else if (F6 >= 40 && F6 < 63) {
+                    Recommended_D = 0.02;
+                    Recommended_F = 0.008;
+                } else if (F6 >= 63 && F6 < 100) {
+                    Recommended_D = 0.025;
+                    Recommended_F = 0.01;
+                } else if (F6 >= 100 && F6 < 160) {
+                    Recommended_D = 0.03;
+                    Recommended_F = 0.012;
+                } else if (F6 >= 160 && F6 < 250) {
+                    Recommended_D = 0.04;
+                    Recommended_F = 0.015;
+                } else if (F6 >= 250 && F6 < 400) {
+                    Recommended_D = 0.05;
+                    Recommended_F = 0.02;
+                } else if (F6 >= 400 && F6 < 630) {
+                    Recommended_D = 0.06;
+                    Recommended_F = 0.025;
+                }
+
+                if (type) {
+                    this.twoStatusDate = {
+                        Stretch_Ratio,
+                        Compression_Ratio,
+                        Groove_Fill,
+                        Recommended_D,
+                        Recommended_F
+                    }
+                } else {
+                    this.twoStatusDate = {
+                        Stretch_Ratio: Stretch_Ratio_Min + ' ~ ' + Stretch_Ratio_Max,
+                        Compression_Ratio: Compression_Ratio_Min + ' ~ ' + Compression_Ratio_Max,
+                        Groove_Fill: Groove_Fill_Min + ' ~ ' + Groove_Fill_Max,
+                        Recommended_D,
+                        Recommended_F
+                    }
+                }
+                this.twoStatus = true;
+
+            },
+            bottomForm_0_class4(type) {
+
+                const bottomForm_0 = this.bottomForm_0;
+                const form = this.form;
+                const SearchForm = {
+                    F5: Number(bottomForm_0.A1),
+                    G5: Number(bottomForm_0.A2),
+                    H5: Number(bottomForm_0.A3),
+                    I5: Number(bottomForm_0.B1),
+                    J5: Number(bottomForm_0.B2),
+                    K5: Number(bottomForm_0.B3),
+                    L5: Number(bottomForm_0.C1),
+                    M5: Number(bottomForm_0.C2),
+                    N5: Number(bottomForm_0.C3),
+                    O5: Number(bottomForm_0.R1),
+                    classStatus: Number(bottomForm_0.classStatus), // 1为孔用密封,2为轴用密封,3为端面外压,4为端面内压
+                    standard: form.standard, //标准
+                    number: form.number, //编号
+                    B5: Number(form.inside_diameter), //内径
+                    C5: Number(form.inside_diameter_tolerance), //内径偏差
+                    D5: Number(form.wire_diameter), //线经
+                    E5: Number(form.wire_diameter_tolerance), //线经偏差
+                    working_condition: form.working_condition, //考虑工况情况
+                    $S$5: form.Ref_Temp, //参考温度
+                    $T$5: form.wrk_Temp, //工作温度
+                    $Q$5: form.Material_ScienceA, //沟槽A材料
+                    $R$5: form.Material_ScienceB, //沟槽B材料
+                    $P$5: form.Material_Science_seal_up, //密封材料
+                }
+                const {
+                    B5,
+                    C5,
+                    D5,
+                    E5,
+                    J5,
+                    K5,
+                    M5,
+                    N5,
+                    G5,
+                    H5,
+                    $P$5,
+                    $T$5,
+                    $S$5,
+                    $R$5,
+                    $Q$5,
+                    I5,
+                    F5,
+                    L5,
+                    O5,
+                } = SearchForm;
+
+                let Stretch_Ratio = '';
+                let Stretch_Ratio_Min = '';
+                let Stretch_Ratio_Max = '';
+                let Compression_Ratio = '';
+                let Compression_Ratio_Min = '';
+                let Compression_Ratio_Max = '';
+                let Groove_Fill = '';
+                let Groove_Fill_Min = '';
+                let Groove_Fill_Max = '';
+                let Recommended_D = '';
+                let Recommended_F = '';
+
+                let Y5 = (B5 + 2 * D5) * (1 + $P$5 * ($T$5 - $S$5));
+                let AK5 = I5 * (1 + $Q$5 * ($T$5 - $S$5));
+                let AN5 = L5 * (1 + $Q$5 * ($T$5 - $S$5));
+                let AB5 = D5 * (1 + $P$5 * ($T$5 - $S$5));
+                let V5 = B5 * (1 + $P$5 * ($T$5 - $S$5));
+                let AP5 = O5 * (1 + $Q$5 * ($T$5 - $S$5));
+                let AH5 = F5 * (1 + $Q$5 * ($T$5 - $S$5));
+                let AE5 = Math.PI * AB5 / 4 * AB5 * (V5 + AB5) * Math.PI;
+                let BM5 = Math.PI * (AN5 - AP5) * (AK5 / 4 * AK5 - AH5 / 4 * AH5) + Math.PI * (AK5 - 2 * AP5) / 4 * (AK5 - 2 * AP5) * AP5 - Math.PI * AP5 * (AH5 / 2 + AP5) * (AH5 / 2 + AP5) + (AK5 + AH5) * Math.PI * AP5 * Math.PI * AP5 / 4;
+                let X5 = (B5 - C5 + D5 - E5 + D5 - E5) * (1 + $P$5 * ($T$5 - $S$5));
+                let AL5 = (I5 + J5) * (1 + $Q$5 * ($T$5 - $S$5));
+                let Z5 = (B5 + C5 + D5 + E5 + D5 + E5) * (1 + $P$5 * ($T$5 - $S$5));
+                let AJ5 = (I5 + K5) * (1 + $Q$5 * ($T$5 - $S$5));
+                let AA5 = (D5 - E5) * (1 + $P$5 * ($T$5 - $S$5));
+                let AO5 = (L5 + M5) * (1 + $Q$5 * ($T$5 - $S$5));
+                let AC5 = (D5 + E5) * (1 + $P$5 * ($T$5 - $S$5));
+                let AM5 = (L5 + N5) * (1 + $Q$5 * ($T$5 - $S$5));
+                let U5 = (B5 - C5) * (1 + $P$5 * ($T$5 - $S$5));
+                let AG5 = (F5 + H5) * (1 + $Q$5 * ($T$5 - $S$5));
+                let AD5 = Math.PI * AA5 / 4 * AA5 * (U5 + AA5) * Math.PI;
+                let BN5 = Math.PI * (AO5 - AP5) * (AL5 / 4 * AL5 - AG5 / 4 * AG5) + Math.PI * (AL5 - 2 * AP5) / 4 * (AL5 - 2 * AP5) * AP5 - Math.PI * AP5 * (AG5 / 2 + AP5) * (AG5 / 2 + AP5) + (AL5 + AG5) * Math.PI * AP5 * Math.PI * AP5 / 4;
+                let W5 = (B5 + C5) * (1 + $P$5 * ($T$5 - $S$5));
+                let AF5 = Math.PI * AC5 / 4 * AC5 * (W5 + AC5) * Math.PI;
+                let AI5 = (F5 + G5) * (1 + $Q$5 * ($T$5 - $S$5));
+                let BL5 = Math.PI * (AM5 - AP5) * (AJ5 / 4 * AJ5 - AI5 / 4 * AI5) + Math.PI * (AJ5 - 2 * AP5) / 4 * (AJ5 - 2 * AP5) * AP5 - Math.PI * AP5 * (AI5 / 2 + AP5) * (AI5 / 2 + AP5) + (AJ5 + AI5) * Math.PI * AP5 * Math.PI * AP5 / 4;
+                Stretch_Ratio = ((Y5 - AK5) / Y5).toPercentage();
+                Stretch_Ratio_Min = ((X5 - AL5) / X5).toPercentage();
+                Stretch_Ratio_Max = ((Z5 - AJ5) / Z5).toPercentage();
+                Compression_Ratio = ((AB5 - AN5) / AB5).toPercentage();
+                Compression_Ratio_Min = ((AA5 - AO5) / AA5).toPercentage();
+                Compression_Ratio_Max = ((AC5 - AM5) / AC5).toPercentage();
+                Groove_Fill = (AE5 / BM5).toPercentage();
+                Groove_Fill_Min = (AD5 / BN5).toPercentage();
+                Groove_Fill_Max = (AF5 / BL5).toPercentage();
+
+                console.log({
+                    Y5,
+                    AK5,
+                    AN5,
+                    AB5,
+                    V5,
+                    AP5,
+                    AH5,
+                    AE5,
+                    BM5,
+                    X5,
+                    AL5,
+                    Z5,
+                    AJ5,
+                    AA5,
+                    AO5,
+                    AC5,
+                    AM5,
+                    U5,
+                    AG5,
+                    AD5,
+                    BN5,
+                    W5,
+                    AF5,
+                    AI5,
+                    BL5,
+                })
+
+                if (F5 >= 1 && F5 < 10) {
+                    Recommended_D = 0.008;
+                    Recommended_F = 0.003;
+                } else if (F5 >= 10 && F5 < 16) {
+                    Recommended_D = 0.01;
+                    Recommended_F = 0.004;
+                } else if (F5 >= 16 && F5 < 25) {
+                    Recommended_D = 0.012;
+                    Recommended_F = 0.005;
+                } else if (F5 >= 25 && F5 < 40) {
+                    Recommended_D = 0.015;
+                    Recommended_F = 0.006;
+                } else if (F5 >= 40 && F5 < 63) {
+                    Recommended_D = 0.02;
+                    Recommended_F = 0.008;
+                } else if (F5 >= 63 && F5 < 100) {
+                    Recommended_D = 0.025;
+                    Recommended_F = 0.01;
+                } else if (F5 >= 100 && F5 < 160) {
+                    Recommended_D = 0.03;
+                    Recommended_F = 0.012;
+                } else if (F5 >= 160 && F5 < 250) {
+                    Recommended_D = 0.04;
+                    Recommended_F = 0.015;
+                } else if (F5 >= 250 && F5 < 400) {
+                    Recommended_D = 0.05;
+                    Recommended_F = 0.02;
+                } else if (F5 >= 400 && F5 < 630) {
+                    Recommended_D = 0.06;
+                    Recommended_F = 0.025;
+                }
+
+                if (type) {
+                    this.twoStatusDate = {
+                        Stretch_Ratio,
+                        Compression_Ratio,
+                        Groove_Fill,
+                        Recommended_D,
+                        Recommended_F
+                    }
+                } else {
+                    this.twoStatusDate = {
+                        Stretch_Ratio: Stretch_Ratio_Min + ' ~ ' + Stretch_Ratio_Max,
+                        Compression_Ratio: Compression_Ratio_Min + ' ~ ' + Compression_Ratio_Max,
+                        Groove_Fill: Groove_Fill_Min + ' ~ ' + Groove_Fill_Max,
+                        Recommended_D,
+                        Recommended_F
+                    }
+                }
+                this.twoStatus = true;
+            },
+            bottomForm_2_class1(type) {
+
+                const bottomForm_2 = this.bottomForm_2;
+                const form = this.form;
+                const SearchForm = {
+                    N3: Number(bottomForm_2.CL1),
+                    O3: Number(bottomForm_2.CL2),
+                    P3: Number(bottomForm_2.h1),
+                    Q3: Number(bottomForm_2.h2),
+                    R3: Number(bottomForm_2.F1),
+                    S3: Number(bottomForm_2.F2),
+                    T3: Number(bottomForm_2.R1),
+                    U3: Number(bottomForm_2.R2),
+                    V3: Number(bottomForm_2.a),
+                    standard: form.standard, //标准
+                    number: form.number, //编号
+                    B3: Number(form.inside_diameter), //内径
+                    C3: Number(form.inside_diameter_tolerance), //内径偏差
+                    B4: Number(form.wire_diameter), //线经
+                    C4: Number(form.wire_diameter_tolerance), //线经偏差
+                    working_condition: form.working_condition, //考虑工况情况
+                    $S$5: form.Ref_Temp, //参考温度
+                    $T$5: form.wrk_Temp, //工作温度
+                    $B$13: form.Material_ScienceA, //沟槽A材料
+                    $B$14: form.Material_ScienceB, //沟槽B材料
+                    $B$10: form.Material_Science_seal_up, //密封材料
+                }
+                const {
+                    N3,
+                    O3,
+                    P3,
+                    Q3,
+                    R3,
+                    S3,
+                    T3,
+                    U3,
+                    $S$5,
+                    $T$5,
+                    V3,
+                    B3,
+                    C3,
+                    B4,
+                    C4,
+                    $B$13,
+                    $B$14,
+                    $B$10,
+                } = SearchForm;
+                let $B$11 = $T$5 - $S$5;
+
+                let D3 = B3 + C3;
+                let D4 = B4 + C4;
+                let E3 = B3 - C3;
+                let E4 = B4 - C4;
+                let F4 = (D4 + E4) / 2;
+                let F3 = (D3 + E3) / 2;
+                let N4 = Number(((1 + $B$11 * $B$13) * N3).toFixed(4));
+                let O4 = Number(((1 + $B$11 * $B$13) * O3).toFixed(4));
+                let P4 = Number(((1 + $B$11 * $B$13) * P3).toFixed(4));
+                let Q4 = Number(((1 + $B$11 * $B$13) * Q3).toFixed(4));
+                let R4 = Number(((1 + $B$11 * $B$13) * R3).toFixed(4));
+                let S4 = Number(((1 + $B$11 * $B$13) * S3).toFixed(4));
+                let T4 = Number(((1 + $B$11 * $B$13) * T3).toFixed(4));
+                let U4 = Number(((1 + $B$11 * $B$13) * U3).toFixed(4));
+                let V4 = V3;
+                let F5 = (1 + $B$11 * $B$10) * F3;
+                let F6 = (1 + $B$11 * $B$10) * F4;
+                let D5 = (1 + $B$11 * $B$10) * D3;
+                let D6 = (1 + $B$11 * $B$10) * D4;
+                let E5 = (1 + $B$11 * $B$10) * E3;
+                let E6 = (1 + $B$11 * $B$10) * E4;
+                let I6 = Math.PI * (Math.pow(F6, 2)) / 4;
+                let W19 = N4;
+                let W20 = U4;
+                let W21 = V4;
+                let W23 = T4;
+                let W24 = P4;
+                let W22 = W24 - (W20 + W20 * Math.sin(this.RADIANS(W21)) + W23 + W23 * Math.sin(this.RADIANS(W21)));
+                let W25 = R4 + 2 * (T4 / Math.tan(this.RADIANS((90 - V4) / 2)) - T4);
+                let V19 = N4 + O4;
+                let V20 = U4;
+                let V21 = V4;
+                let V23 = T4;
+                let V24 = P4 + Q4;
+                let V22 = V24 - (V20 + V20 * Math.sin(this.RADIANS(V21)) + V23 + V23 * Math.sin(this.RADIANS(V21)));
+                let V25 = R4 + S4 + 2 * (T4 / Math.tan(this.RADIANS((90 - V4) / 2)) - T4);
+                let U19 = N4 - O4;
+                let U20 = U4;
+                let U21 = V4;
+                let U23 = T4;
+                let U24 = P4 - Q4;
+                let U22 = U24 - (U20 + U20 * Math.sin(this.RADIANS(U21)) + U23 + U23 * Math.sin(this.RADIANS(U21)));
+                let U25 = R4 - S4 + 2 * (T4 / Math.tan(this.RADIANS((90 - V4) / 2)) - T4);
+                let Y4 = (R4 + P4 / (Math.tan(this.RADIANS(90 - V4)))) * P4 - 2 * (1 / Math.tan(this.RADIANS((90 - V4) / 2)) - 19 / 60 * Math.PI) * (Math.pow(U4, 2) - Math.pow(T4, 2)) - Math.pow(T4, 2) * (4 - Math.PI) / 2;
+                let H6 = Math.PI * (Math.pow(E6, 2)) / 4;
+                let X4 = (((R4 + S4) + (P4 + Q4) / (Math.tan(this.RADIANS(90 - V4)))) * (P4 + Q4) - 2 * (1 / Math.tan(this.RADIANS((90 - V4) / 2)) - 19 / 60 * Math.PI) * (Math.pow(U4, 2) - Math.pow(T4, 2)));
+                let G6 = Math.PI * (Math.pow(D6, 2)) / 4;
+                let W4 = (((R4 - S4) + (P4 - Q4) / (Math.tan(this.RADIANS(90 - V4)))) * (P4 - Q4) - 2 * (1 / Math.tan(this.RADIANS((90 - V4) / 2)) - 19 / 60 * Math.PI) * (Math.pow(U4, 2) - Math.pow(T4, 2)));
+                let L6 = I6 * Math.PI * (F5 + F6);
+                let AA19 = Math.PI * W19 * W20 * (W20 * Math.PI / 2 + W20 * W21 * Math.PI / 180 + W20 / 2 * Math.sin(2 * W21 * Math.PI / 180) + (1 + Math.sin(W21 * Math.PI / 180)) * (W25 + 2 * W22 * Math.tan(W21 * Math.PI / 180) + 2 * W23 * (1 - Math.cos(W21 * Math.PI / 180)) - 2 * W20 * Math.cos(W21 * Math.PI / 180)));
+                let AA20 = Math.PI * W19 / 2 * (2 * W25 + 4 * W23 * (1 - Math.cos(W21 * Math.PI / 180)) + 2 * W22 * Math.tan(W21 * Math.PI / 180)) * (W24 - (W20 + W23) * (1 + Math.sin(W21 * Math.PI / 180)));
+                let AA21 = Math.PI * W23 * (((W19 / 2 + W25 / 2 + W23) * (W19 / 2 + W25 / 2 + W23) - (W19 / 2 - W25 / 2 - W23) * (W19 / 2 - W25 / 2 - W23)) * (Math.sin(W21 * Math.PI / 180)) - W23 / 2 * W19 * (2 * W21 * Math.PI / 180 + Math.sin(2 * W21 * Math.PI / 180)));
+                let AA22 = Math.PI * (W19 / 2 + W25 / 2) * (W19 / 2 + W25 / 2) * W23 - Math.PI * (W19 / 2 - W25 / 2) * (W19 / 2 - W25 / 2) * W23;
+                let Z19 = Math.PI * V19 * V20 * (V20 * Math.PI / 2 + V20 * V21 * Math.PI / 180 + V20 / 2 * Math.sin(2 * V21 * Math.PI / 180) + (1 + Math.sin(V21 * Math.PI / 180)) * (V25 + 2 * V22 * Math.tan(V21 * Math.PI / 180) + 2 * V23 * (1 - Math.cos(V21 * Math.PI / 180)) - 2 * V20 * Math.cos(V21 * Math.PI / 180)));
+                let Z20 = Math.PI * V19 / 2 * (2 * V25 + 4 * V23 * (1 - Math.cos(V21 * Math.PI / 180)) + 2 * V22 * Math.tan(V21 * Math.PI / 180)) * (V24 - (V20 + V23) * (1 + Math.sin(V21 * Math.PI / 180)));
+                let Z21 = Math.PI * V23 * (((V19 / 2 + V25 / 2 + V23) * (V19 / 2 + V25 / 2 + V23) - (V19 / 2 - V25 / 2 - V23) * (V19 / 2 - V25 / 2 - V23)) * (Math.sin(V21 * Math.PI / 180)) - V23 / 2 * V19 * (2 * V21 * Math.PI / 180 + Math.sin(2 * V21 * Math.PI / 180)));
+                let Z22 = Math.PI * (V19 / 2 + V25 / 2) * (V19 / 2 + V25 / 2) * V23 - Math.PI * (V19 / 2 - V25 / 2) * (V19 / 2 - V25 / 2) * V23;
+                let Y19 = Math.PI * U19 * U20 * (U20 * Math.PI / 2 + U20 * U21 * Math.PI / 180 + U20 / 2 * Math.sin(2 * U21 * Math.PI / 180) + (1 + Math.sin(U21 * Math.PI / 180)) * (U25 + 2 * U22 * Math.tan(U21 * Math.PI / 180) + 2 * U23 * (1 - Math.cos(U21 * Math.PI / 180)) - 2 * U20 * Math.cos(U21 * Math.PI / 180)));
+                let Y20 = Math.PI * U19 / 2 * (2 * U25 + 4 * U23 * (1 - Math.cos(U21 * Math.PI / 180)) + 2 * U22 * Math.tan(U21 * Math.PI / 180)) * (U24 - (U20 + U23) * (1 + Math.sin(U21 * Math.PI / 180)));
+                let Y21 = Math.PI * U23 * (((U19 / 2 + U25 / 2 + U23) * (U19 / 2 + U25 / 2 + U23) - (U19 / 2 - U25 / 2 - U23) * (U19 / 2 - U25 / 2 - U23)) * (Math.sin(U21 * Math.PI / 180)) - U23 / 2 * U19 * (2 * U21 * Math.PI / 180 + Math.sin(2 * U21 * Math.PI / 180)));
+                let Y22 = Math.PI * (U19 / 2 + U25 / 2) * (U19 / 2 + U25 / 2) * U23 - Math.PI * (U19 / 2 - U25 / 2) * (U19 / 2 - U25 / 2) * U23;
+                let AB4 = AA19 + AA20 + AA21 + AA22;
+                let K6 = H6 * Math.PI * (E5 + E6);
+                let J6 = G6 * Math.PI * (D5 + D6);
+                let AA4 = Z19 + Z20 + Z21 + Z22;
+                let Z4 = Y19 + Y20 + Y21 + Y22;
+
+                let Stretch_Ratio = (N4 / (F5 + F6) - 1).toPercentage();
+                let Stretch_Ratio_Min = ((N4 - O4) / (D5 + D6) - 1).toPercentage();
+                let Stretch_Ratio_Max = ((N4 + O4) / (E5 + E6) - 1).toPercentage();
+                let Compress_Ratio = (1 - P4 / F6).toPercentage();
+                let Compress_Ratio_Min = (1 - (P4 + Q4) / E6).toPercentage();
+                let Compress_Ratio_Max = (1 - (P4 - Q4) / D6).toPercentage();
+                let F2_Over_Ratio = (1 - W25 / F6).toPercentage();
+                let F2_Over_Ratio_Min = (1 - V25 / E6).toPercentage();
+                let F2_Over_Ratio_Max = (1 - U25 / D6).toPercentage();
+                let Prelim_CS_Fill = (I6 / Y4).toPercentage();
+                let Prelim_CS_Fill_Min = (H6 / X4).toPercentage();
+                let Prelim_CS_Fill_Max = (G6 / W4).toPercentage();
+                let Volume_Fill = (L6 / AB4).toPercentage();
+                let Volume_Fill_Min = (K6 / AA4).toPercentage();
+                let Volume_Fill_Max = (J6 / Z4).toPercentage();
+
+                // F2 W25中间 V25Max U25Min
+
+                console.log(SearchForm);
+                console.log({
+                    'Stretch Ratio': Stretch_Ratio,
+                    'Stretch Ratio Min': Stretch_Ratio_Min,
+                    'Stretch Ratio Max': Stretch_Ratio_Max,
+                    'Compress Ratio': Compress_Ratio,
+                    'Compress Ratio Min': Compress_Ratio_Min,
+                    'Compress Ratio Max': Compress_Ratio_Max,
+                    'Volume Fill': Volume_Fill,
+                    'Volume Fill Min': Volume_Fill_Min,
+                    'Volume Fill Max': Volume_Fill_Max,
+                    'Prelim_CS Fill': Prelim_CS_Fill,
+                    'Prelim_CS Fill Min': Prelim_CS_Fill_Min,
+                    'Prelim_CS Fill Max': Prelim_CS_Fill_Max,
+                    'F2_Over_Ratio': F2_Over_Ratio,
+                    'F2_Over_Ratio_Min': F2_Over_Ratio_Min,
+                    'F2_Over_Ratio_Max': F2_Over_Ratio_Max,
+                });
+
+                if (type) {
+                    this.threeStatusDate = {
+                        Stretch_Ratio,
+                        Compress_Ratio,
+                        Volume_Fill,
+                        Prelim_CS_Fill,
+                        F2_Over_Ratio
+                    }
+                } else {
+                    this.threeStatusDate = {
+                        Stretch_Ratio: Stretch_Ratio_Min + ' ~ ' + Stretch_Ratio_Max,
+                        Compress_Ratio: Compress_Ratio_Min + ' ~ ' + Compress_Ratio_Max,
+                        Volume_Fill: Volume_Fill_Min + ' ~ ' + Volume_Fill_Max,
+                        Prelim_CS_Fill: Prelim_CS_Fill_Min + ' ~ ' + Prelim_CS_Fill_Max,
+                        F2_Over_Ratio: F2_Over_Ratio_Min + ' ~ ' + F2_Over_Ratio_Max
+                    }
+                }
+                this.threeStatus = true;
+            },
+            bottomForm_1_class1(type) {
+
+                const bottomForm_1 = this.bottomForm_1;
+                const form = this.form;
+                const SearchForm = {
+                    CLL1: Number(bottomForm_1.CLL1),
+                    CLL2: Number(bottomForm_1.CLL2),
+                    CLW1: Number(bottomForm_1.CLW1),
+                    CLW2: Number(bottomForm_1.CLW2),
+                    R11: Number(bottomForm_1.R11),
+                    R12: Number(bottomForm_1.R12),
+                    R21: Number(bottomForm_1.R21),
+                    R22: Number(bottomForm_1.R22),
+                    R31: Number(bottomForm_1.R31),
+                    R32: Number(bottomForm_1.R32),
+                    R41: Number(bottomForm_1.R41),
+                    R42: Number(bottomForm_1.R42),
+
+                    // N3: 0,
+                    // O3: 0,
+                    P3: Number(bottomForm_1.h11),
+                    Q3: Number(bottomForm_1.h12),
+                    R3: Number(bottomForm_1.F11),
+                    S3: Number(bottomForm_1.F12),
+                    T3: Number(bottomForm_1.r1),
+                    U3: Number(bottomForm_1.r2),
+                    V3: Number(bottomForm_1.a),
+                    standard: form.standard, //标准
+                    number: form.number, //编号
+                    B3: Number(form.inside_diameter), //内径
+                    C3: Number(form.inside_diameter_tolerance), //内径偏差
+                    B4: Number(form.wire_diameter), //线经
+                    C4: Number(form.wire_diameter_tolerance), //线经偏差
+                    working_condition: form.working_condition, //考虑工况情况
+                    $S$5: form.Ref_Temp, //参考温度
+                    $T$5: form.wrk_Temp, //工作温度
+                    $B$13: form.Material_ScienceA, //沟槽A材料
+                    $B$14: form.Material_ScienceB, //沟槽B材料
+                    $B$10: form.Material_Science_seal_up, //密封材料
+                }
+
+                const {
+                    $B$13,
+                    $B$10,
+                    $S$5,
+                    $T$5,
+                    CLL1,
+                    CLL2,
+                    CLW1,
+                    CLW2,
+                    R11,
+                    R12,
+                    R21,
+                    R22,
+                    R31,
+                    R32,
+                    R41,
+                    R42,
+
+                    P3,
+                    Q3,
+                    R3,
+                    S3,
+                    T3,
+                    U3,
+                    V3,
+                    B3,
+                    C3,
+                    B4,
+                    C4,
+                } = SearchForm;
+                let $B$11 = $T$5 - $S$5;
+                let N3 = (2 * CLL1 + 2 * CLW1 + (1 / 2 * Math.PI - 2) * (R11 + R21 + R31 + R41)) / Math.PI;
+                let O3 = (2 * CLL2 + 2 * CLW2 + (1 / 2 * Math.PI - 2) * -(R12 + R22 + R32 + R42)) / Math.PI;
+
+                let D3 = B3 + C3;
+                let D4 = B4 + C4;
+                let E3 = B3 - C3;
+                let E4 = B4 - C4;
+                let F4 = (D4 + E4) / 2;
+                let F3 = (D3 + E3) / 2;
+                let N4 = Number(((1 + $B$11 * $B$13) * N3).toFixed(4));
+                let O4 = Number(((1 + $B$11 * $B$13) * O3).toFixed(4));
+                let P4 = Number(((1 + $B$11 * $B$13) * P3).toFixed(4));
+                let Q4 = Number(((1 + $B$11 * $B$13) * Q3).toFixed(4));
+                let R4 = Number(((1 + $B$11 * $B$13) * R3).toFixed(4));
+                let S4 = Number(((1 + $B$11 * $B$13) * S3).toFixed(4));
+                let T4 = Number(((1 + $B$11 * $B$13) * T3).toFixed(4));
+                let U4 = Number(((1 + $B$11 * $B$13) * U3).toFixed(4));
+                let V4 = V3;
+                let F5 = (1 + $B$11 * $B$10) * F3;
+                let F6 = (1 + $B$11 * $B$10) * F4;
+                let D5 = (1 + $B$11 * $B$10) * D3;
+                let D6 = (1 + $B$11 * $B$10) * D4;
+                let E5 = (1 + $B$11 * $B$10) * E3;
+                let E6 = (1 + $B$11 * $B$10) * E4;
+                let I6 = Math.PI * (Math.pow(F6, 2)) / 4;
+                let W19 = N4;
+                let W20 = U4;
+                let W21 = V4;
+                let W23 = T4;
+                let W24 = P4;
+                let W22 = W24 - (W20 + W20 * Math.sin(this.RADIANS(W21)) + W23 + W23 * Math.sin(this.RADIANS(W21)));
+                let W25 = R4 + 2 * (T4 / Math.tan(this.RADIANS((90 - V4) / 2)) - T4);
+                let V19 = N4 + O4;
+                let V20 = U4;
+                let V21 = V4;
+                let V23 = T4;
+                let V24 = P4 + Q4;
+                let V22 = V24 - (V20 + V20 * Math.sin(this.RADIANS(V21)) + V23 + V23 * Math.sin(this.RADIANS(V21)));
+                let V25 = R4 + S4 + 2 * (T4 / Math.tan(this.RADIANS((90 - V4) / 2)) - T4);
+                let U19 = N4 - O4;
+                let U20 = U4;
+                let U21 = V4;
+                let U23 = T4;
+                let U24 = P4 - Q4;
+                let U22 = U24 - (U20 + U20 * Math.sin(this.RADIANS(U21)) + U23 + U23 * Math.sin(this.RADIANS(U21)));
+                let U25 = R4 - S4 + 2 * (T4 / Math.tan(this.RADIANS((90 - V4) / 2)) - T4);
+                let Y4 = (R4 + P4 / (Math.tan(this.RADIANS(90 - V4)))) * P4 - 2 * (1 / Math.tan(this.RADIANS((90 - V4) / 2)) - 19 / 60 * Math.PI) * (Math.pow(U4, 2) - Math.pow(T4, 2)) - Math.pow(T4, 2) * (4 - Math.PI) / 2;
+                let H6 = Math.PI * (Math.pow(E6, 2)) / 4;
+                let X4 = (((R4 + S4) + (P4 + Q4) / (Math.tan(this.RADIANS(90 - V4)))) * (P4 + Q4) - 2 * (1 / Math.tan(this.RADIANS((90 - V4) / 2)) - 19 / 60 * Math.PI) * (Math.pow(U4, 2) - Math.pow(T4, 2)));
+                let G6 = Math.PI * (Math.pow(D6, 2)) / 4;
+                let W4 = (((R4 - S4) + (P4 - Q4) / (Math.tan(this.RADIANS(90 - V4)))) * (P4 - Q4) - 2 * (1 / Math.tan(this.RADIANS((90 - V4) / 2)) - 19 / 60 * Math.PI) * (Math.pow(U4, 2) - Math.pow(T4, 2)));
+                let L6 = I6 * Math.PI * (F5 + F6);
+                let AA19 = Math.PI * W19 * W20 * (W20 * Math.PI / 2 + W20 * W21 * Math.PI / 180 + W20 / 2 * Math.sin(2 * W21 * Math.PI / 180) + (1 + Math.sin(W21 * Math.PI / 180)) * (W25 + 2 * W22 * Math.tan(W21 * Math.PI / 180) + 2 * W23 * (1 - Math.cos(W21 * Math.PI / 180)) - 2 * W20 * Math.cos(W21 * Math.PI / 180)));
+                let AA20 = Math.PI * W19 / 2 * (2 * W25 + 4 * W23 * (1 - Math.cos(W21 * Math.PI / 180)) + 2 * W22 * Math.tan(W21 * Math.PI / 180)) * (W24 - (W20 + W23) * (1 + Math.sin(W21 * Math.PI / 180)));
+                let AA21 = Math.PI * W23 * (((W19 / 2 + W25 / 2 + W23) * (W19 / 2 + W25 / 2 + W23) - (W19 / 2 - W25 / 2 - W23) * (W19 / 2 - W25 / 2 - W23)) * (Math.sin(W21 * Math.PI / 180)) - W23 / 2 * W19 * (2 * W21 * Math.PI / 180 + Math.sin(2 * W21 * Math.PI / 180)));
+                let AA22 = Math.PI * (W19 / 2 + W25 / 2) * (W19 / 2 + W25 / 2) * W23 - Math.PI * (W19 / 2 - W25 / 2) * (W19 / 2 - W25 / 2) * W23;
+                let Z19 = Math.PI * V19 * V20 * (V20 * Math.PI / 2 + V20 * V21 * Math.PI / 180 + V20 / 2 * Math.sin(2 * V21 * Math.PI / 180) + (1 + Math.sin(V21 * Math.PI / 180)) * (V25 + 2 * V22 * Math.tan(V21 * Math.PI / 180) + 2 * V23 * (1 - Math.cos(V21 * Math.PI / 180)) - 2 * V20 * Math.cos(V21 * Math.PI / 180)));
+                let Z20 = Math.PI * V19 / 2 * (2 * V25 + 4 * V23 * (1 - Math.cos(V21 * Math.PI / 180)) + 2 * V22 * Math.tan(V21 * Math.PI / 180)) * (V24 - (V20 + V23) * (1 + Math.sin(V21 * Math.PI / 180)));
+                let Z21 = Math.PI * V23 * (((V19 / 2 + V25 / 2 + V23) * (V19 / 2 + V25 / 2 + V23) - (V19 / 2 - V25 / 2 - V23) * (V19 / 2 - V25 / 2 - V23)) * (Math.sin(V21 * Math.PI / 180)) - V23 / 2 * V19 * (2 * V21 * Math.PI / 180 + Math.sin(2 * V21 * Math.PI / 180)));
+                let Z22 = Math.PI * (V19 / 2 + V25 / 2) * (V19 / 2 + V25 / 2) * V23 - Math.PI * (V19 / 2 - V25 / 2) * (V19 / 2 - V25 / 2) * V23;
+                let Y19 = Math.PI * U19 * U20 * (U20 * Math.PI / 2 + U20 * U21 * Math.PI / 180 + U20 / 2 * Math.sin(2 * U21 * Math.PI / 180) + (1 + Math.sin(U21 * Math.PI / 180)) * (U25 + 2 * U22 * Math.tan(U21 * Math.PI / 180) + 2 * U23 * (1 - Math.cos(U21 * Math.PI / 180)) - 2 * U20 * Math.cos(U21 * Math.PI / 180)));
+                let Y20 = Math.PI * U19 / 2 * (2 * U25 + 4 * U23 * (1 - Math.cos(U21 * Math.PI / 180)) + 2 * U22 * Math.tan(U21 * Math.PI / 180)) * (U24 - (U20 + U23) * (1 + Math.sin(U21 * Math.PI / 180)));
+                let Y21 = Math.PI * U23 * (((U19 / 2 + U25 / 2 + U23) * (U19 / 2 + U25 / 2 + U23) - (U19 / 2 - U25 / 2 - U23) * (U19 / 2 - U25 / 2 - U23)) * (Math.sin(U21 * Math.PI / 180)) - U23 / 2 * U19 * (2 * U21 * Math.PI / 180 + Math.sin(2 * U21 * Math.PI / 180)));
+                let Y22 = Math.PI * (U19 / 2 + U25 / 2) * (U19 / 2 + U25 / 2) * U23 - Math.PI * (U19 / 2 - U25 / 2) * (U19 / 2 - U25 / 2) * U23;
+                let AB4 = AA19 + AA20 + AA21 + AA22;
+                let K6 = H6 * Math.PI * (E5 + E6);
+                let J6 = G6 * Math.PI * (D5 + D6);
+                let AA4 = Z19 + Z20 + Z21 + Z22;
+                let Z4 = Y19 + Y20 + Y21 + Y22;
+
+                let Stretch_Ratio = (N4 / (F5 + F6) - 1).toPercentage();
+                let Stretch_Ratio_Min = ((N4 - O4) / (D5 + D6) - 1).toPercentage();
+                let Stretch_Ratio_Max = ((N4 + O4) / (E5 + E6) - 1).toPercentage();
+                let Compress_Ratio = (1 - P4 / F6).toPercentage();
+                let Compress_Ratio_Min = (1 - (P4 + Q4) / E6).toPercentage();
+                let Compress_Ratio_Max = (1 - (P4 - Q4) / D6).toPercentage();
+                let F2_Over_Ratio = (1 - W25 / F6).toPercentage();
+                let F2_Over_Ratio_Min = (1 - V25 / E6).toPercentage();
+                let F2_Over_Ratio_Max = (1 - U25 / D6).toPercentage();
+                let Prelim_CS_Fill = (I6 / Y4).toPercentage();
+                let Prelim_CS_Fill_Min = (H6 / X4).toPercentage();
+                let Prelim_CS_Fill_Max = (G6 / W4).toPercentage();
+                let Volume_Fill = (L6 / AB4).toPercentage();
+                let Volume_Fill_Min = (K6 / AA4).toPercentage();
+                let Volume_Fill_Max = (J6 / Z4).toPercentage();
+
+                console.log(
+                    {
+                        N3,
+                        O3,
+                    }
+                )
+                console.log(SearchForm);
+                console.log({
+                    'Stretch Ratio': Stretch_Ratio,
+                    'Stretch Ratio Min': Stretch_Ratio_Min,
+                    'Stretch Ratio Max': Stretch_Ratio_Max,
+                    'Compress Ratio': Compress_Ratio,
+                    'Compress Ratio Min': Compress_Ratio_Min,
+                    'Compress Ratio Max': Compress_Ratio_Max,
+                    'Volume Fill': Volume_Fill,
+                    'Volume Fill Min': Volume_Fill_Min,
+                    'Volume Fill Max': Volume_Fill_Max,
+                    'Prelim_CS Fill': Prelim_CS_Fill,
+                    'Prelim_CS Fill Min': Prelim_CS_Fill_Min,
+                    'Prelim_CS Fill Max': Prelim_CS_Fill_Max,
+                    'F2_Over_Ratio': F2_Over_Ratio,
+                    'F2_Over_Ratio_Min': F2_Over_Ratio_Min,
+                    'F2_Over_Ratio_Max': F2_Over_Ratio_Max,
+                });
+
+                if (type) {
+                    this.threeStatusDate = {
+                        Stretch_Ratio,
+                        Compress_Ratio,
+                        Volume_Fill,
+                        Prelim_CS_Fill,
+                        F2_Over_Ratio
+                    }
+                } else {
+                    this.threeStatusDate = {
+                        Stretch_Ratio: Stretch_Ratio_Min + ' ~ ' + Stretch_Ratio_Max,
+                        Compress_Ratio: Compress_Ratio_Min + ' ~ ' + Compress_Ratio_Max,
+                        Volume_Fill: Volume_Fill_Min + ' ~ ' + Volume_Fill_Max,
+                        Prelim_CS_Fill: Prelim_CS_Fill_Min + ' ~ ' + Prelim_CS_Fill_Max,
+                        F2_Over_Ratio: F2_Over_Ratio_Min + ' ~ ' + F2_Over_Ratio_Max
+                    }
+                }
+                this.threeStatus = true;
+            },
+            bottomForm_0_submit(type) {
+                this.$refs['searchForm'].validate((valid) => {
+                    if (valid) {
+                        console.log('成功');
+                        let classStatus = this.bottomForm_0.classStatus;
+                        if (classStatus === '1') {
+                            this.bottomForm_0_class1(type);
+                        } else if (classStatus === '2') {
+                            this.bottomForm_0_class2(type);
+                        } else if (classStatus === '3') {
+                            this.bottomForm_0_class3(type);
+                        } else if (classStatus === '4') {
+                            this.bottomForm_0_class4(type);
+                        }
+                    } else {
+                        console.log('error submit!!');
+                        return false;
+                    }
+                });
+            },
+            bottomForm_0_chong() {
+                this.bottomForm_0 = {
+                    classStatus: "1",
+                    A1: 0,
+                    A2: 0,
+                    A3: 0,
+                    B1: 0,
+                    B2: 0,
+                    B3: 0,
+                    C1: 0,
+                    C2: 0,
+                    C3: 0,
+                    R1: 0,
+                }
+            },
+            bottomForm_1_submit(type) {
+                this.threeStatus = true;
+                this.$refs['searchForm'].validate((valid) => {
+                    if (valid) {
+                        console.log('成功');
+                        this.bottomForm_1_class1(type);
+                    } else {
+                        console.log('error submit!!');
+                        return false;
+                    }
+                });
+            },
+            bottomForm_1_chong() {
+                this.bottomForm_1 = {
+                    h11: 0,
+                    h12: 0,
+                    a: 0,
+                    F11: 0,
+                    F12: 0,
+                    F21: 0,
+                    r1: 0,
+                    r2: 0,
+                    CLL1: 0,
+                    CLL2: 0,
+                    CLW1: 0,
+                    CLW2: 0,
+                    R11: 0,
+                    R12: 0,
+                    R21: 0,
+                    R22: 0,
+                    R31: 0,
+                    R32: 0,
+                    R41: 0,
+                    R42: 0,
+                }
+            },
+            bottomForm_2_submit(type) {
+                this.threeStatus = true;
+                this.$refs['searchForm'].validate((valid) => {
+                    if (valid) {
+                        console.log('成功');
+                        this.bottomForm_2_class1(type);
+                    } else {
+                        console.log('error submit!!');
+                        return false;
+                    }
+                });
+            },
+            bottomForm_2_chong() {
+                this.bottomForm_2 = {
+                    classStatus: "1",
+                    CL1: 0,
+                    CL2: 0,
+                    h1: 0,
+                    h2: 0,
+                    F1: 0,
+                    F2: 0,
+                    R1: 0,
+                    R2: 0,
+                    a: 0,
+                    F21: 0,
+                    F22: 0,
+                }
+            },
+
+            resetForm(formName) {
+                console.log(123, formName)
+                this.$refs[formName].resetFields();
+            },
+            numberChange(e) {
+                let date = this.standard_sizeList.find((value, key) => {
+                    return value.id === e;
+                });
+                this.form.inside_diameter = date.inside_diameter;
+                this.form.inside_diameter_tolerance = date.inside_diameter_tolerance;
+                this.form.wire_diameter = date.wire_diameter;
+                this.form.wire_diameter_tolerance = date.wire_diameter_tolerance;
+                console.log(111, date);
+            },
+            standardChange(e) {
+                this.form.number = "";
+                console.log(111, e);
+                if (e !== 0) {
+                    this.standard_size(e);
+                }
+            },
+            standard_classification() {
+                fetchFun('http://webapi.issealing.com/api/index/standard_classification', "GET").then(res => {
+                    console.log('standard_classification', res)
+                    if (res.code === 200) {
+                        this.standard_classificationList = res.data;
+                    }
+                })
+            },
+            standardList() {
+                fetchFun('http://webapi.issealing.com/api/index/standardList', "GET")
+                    .then(res => {
+                        console.log('standardList', res)
+                        if (res.code === 200) {
+                            this.standardListList = res.data;
+                        }
+                    })
+            },
+            standardFunction() {
+                fetchFun('http://webapi.issealing.com/api/index/standard', "GET")
+                    .then(res => {
+                        console.log('standardFunction', res)
+                        if (res.code === 200) {
+                            this.standardFunctionList = res.data;
+                        }
+                    })
+            },
+            standard_size(id) {
+                fetchFun('http://webapi.issealing.com/api/index/standard_size?standard_classification_id=' + id, "GET")
+                    .then(res => {
+                        console.log('standard_size', res)
+                        if (res.code === 200) {
+                            this.standard_sizeList = res.data;
+                        }
+                    })
+            },
+            dimensionsAdd() {
+                const bottomForm_0 = this.bottomForm_0;
+                const bottomForm_2 = this.bottomForm_2;
+                const SearchForm = {
+                    N3: Number(bottomForm_2.CL1),
+                    O3: Number(bottomForm_2.CL2),
+                    P3: Number(bottomForm_2.h1),
+                    Q3: Number(bottomForm_2.h2),
+                    R3: Number(bottomForm_2.F1),
+                    S3: Number(bottomForm_2.F2),
+                    T3: Number(bottomForm_2.R1),
+                    U3: Number(bottomForm_2.R2),
+                    V3: Number(bottomForm_2.a),
+                    standard: form.standard, //标准
+                    number: form.number, //编号
+                    B3: Number(form.inside_diameter), //内径
+                    C3: Number(form.inside_diameter_tolerance), //内径偏差
+                    B4: Number(form.wire_diameter), //线经
+                    C4: Number(form.wire_diameter_tolerance), //线经偏差
+                    working_condition: form.working_condition, //考虑工况情况
+                    $S$5: form.Ref_Temp, //参考温度
+                    $T$5: form.wrk_Temp, //工作温度
+                    B13: form.Material_ScienceA, //沟槽A材料
+                    B14: form.Material_ScienceB, //沟槽B材料
+                    B10: form.Material_Science_seal_up, //密封材料
+                }
+                const form = this.form;
+                let classStatusName = {
+                    1: '孔用密封',
+                    2: '轴用密封',
+                    3: '端面外压',
+                    4: '端面内压',
+                }
+                let statusButtonName = {
+                    1: '方形燕尾槽',
+                    2: '环形燕尾槽',
+                }
+                // statusButton 1 方形燕尾槽  2 环形燕尾槽
+                let formData = new FormData();
+                formData.append('user_id', JSON.parse(localStorage.getItem('YinShunUser')).id);
+                formData.append('standard_classification', form.standard);
+                formData.append('number', form.number);
+                formData.append('inside_diameter', form.inside_diameter);
+                formData.append('inside_diameter_tolerance', form.inside_diameter_tolerance);
+                formData.append('wire_diameter', form.wire_diameter);
+                formData.append('wire_diameter_tolerance', form.wire_diameter_tolerance);
+                formData.append('RefTemp', form.Ref_Temp);
+                formData.append('MaterialA', form.Material_ScienceA);
+                formData.append('wrkTemp', form.wrk_Temp);
+                formData.append('MaterialB', form.Material_ScienceB);
+                formData.append('sealingMaterial', form.Material_Science_seal_up);
+                formData.append('groove', this.statusButton === 0 ? `矩形槽.${classStatusName[Number(bottomForm_0.classStatus)]}` : this.statusButton === 2 ? `燕尾槽.${statusButtonName[this.statusButton]}` : '');
+                formData.append('DimA', Number(bottomForm_0.A1));
+                formData.append('UTolA', Number(bottomForm_0.A2));
+                formData.append('LTolA', Number(bottomForm_0.A3));
+                formData.append('DimB', Number(bottomForm_0.B1));
+                formData.append('UTolB', Number(bottomForm_0.B2));
+                formData.append('LTolB', Number(bottomForm_0.B3));
+                formData.append('DimC', Number(bottomForm_0.C1));
+                formData.append('UTolC', Number(bottomForm_0.C2));
+                formData.append('LTolC', Number(bottomForm_0.C3));
+                formData.append('DimR', Number(bottomForm_0.R1));
+                formData.append('DimCL', Number(bottomForm_2.CL1));
+                formData.append('TolCL', Number(bottomForm_2.CL2));
+                formData.append('DimH', Number(bottomForm_2.h1));
+                formData.append('TolH', Number(bottomForm_2.h2));
+                formData.append('Dimαo', Number(bottomForm_2.a));
+                formData.append('DimR1', Number(bottomForm_2.R1));
+                formData.append('DimR2', Number(bottomForm_2.R2));
+                formData.append('DimF1', Number(bottomForm_2.F1));
+                formData.append('TOLF1', Number(bottomForm_2.F2));
+                formData.append('DimF2', 0);
+                formData.append('DimR22', 0);
+                formData.append('FDimH', 0);
+                fetchFun('http://webapi.issealing.com/api/index/dimensionsAdd', "POST", formData)
+                    .then(res => {
+                        console.log(111, res)
+                        if (res.code === 200) {
+
+                        }
+                    })
+            },
+        }
+    })
+
+</script>

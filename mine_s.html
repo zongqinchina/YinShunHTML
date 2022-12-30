@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>胤舜密封</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" type="text/css" href="headerS.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #D5E0EB;
+            padding: 20px 0;
+        }
+        .top img {
+            width: 104px;
+        }
+        .top .top_name {
+            font-size: 18px;
+            font-weight: 500;
+            color: #353535;
+            line-height: 21px;
+            margin-bottom: 10px;
+        }
+        .top_gongsi {
+            font-size: 12px;
+            font-weight: 500;
+            color: #353535;
+            line-height: 12px;
+        }
+        .center {
+            display: flex;
+            flex-direction: column;
+        }
+        .center_top {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top: 25px;
+        }
+        .center_top_span {
+            width: 23%;
+            height: 30px;
+            background: linear-gradient(-90deg, #257DD1, #358FE5);
+            border-radius: 5px;
+            font-size: 12px;
+            line-height: 30px;
+            text-align: center;
+            color: #FFFFFF;
+            margin: 0 1%;
+        }
+        .center_top_spans {
+            width: 23%;
+            margin: 0 1%;
+            height: 30px;
+            background: #DDDDDD;
+            border-radius: 5px;
+            font-size: 12px;
+            line-height: 30px;
+            text-align: center;
+            color: #353535;
+        }
+        .center_list {
+            display: flex;
+            flex-direction: column;
+            padding: 0 1%;
+        }
+        .center_list_div {
+            width: 100%;
+            margin: 8px 0;
+            padding: 5px 13px;
+            box-sizing: border-box;
+            min-height: 60px;
+            background-color: #EBF1F7;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+        }
+        .center_list_div span {
+            font-size: 12px;
+            line-height: 12px;
+            color: #666666;
+            margin: 5px 0;
+        }
+        .bottomsDiv {
+            width: 100%;
+        }
+
+        .bottomsDiv_top {
+            height: 12px;
+            background-color: #358FE5;
+        }
+
+        .bottomsDiv_div {
+            width: 100%;
+            height: 227px;
+            background: #001D39;
+            display: flex;
+            flex-direction: row;
+            padding: 57px 12% 0;
+            box-sizing: border-box;
+        }
+
+        .bottomsDiv_div_div {
+            display: flex;
+            flex-direction: column;
+            padding-top: 28px;
+            margin-left: 20px;
+            font-size: 14px;
+            line-height: 24px;
+            color: #FFFFFF;
+        }
+
+        .center .center_list .shou {
+            cursor: pointer;
+            color: #409eff;
+        }
+
+        .caozuoList {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app" class="appVue">
+    <top-header></top-header>
+    <top-header-s></top-header-s>
+    <div class="top">
+        <img src="./img/mine1.png" alt="">
+        <span class="top_name">{{detailsList.name}}</span>
+        <span style="margin-bottom: 15px" class="top_gongsi">{{detailsList.department}}</span>
+        <span class="top_gongsi">职务：{{ detailsList.post }}    |    推荐人：{{ detailsList.pid }}</span>
+    </div>
+    <div class="center">
+        <div class="center_top">
+            <span @click="typeChange(1)" :class="type === 1 ? 'center_top_span' : 'center_top_spans'">介质查询收藏</span>
+            <span @click="typeChange(2)" :class="type === 2 ? 'center_top_span' : 'center_top_spans'">视频观看记录</span>
+            <span @click="typeChange(3)" :class="type === 3 ? 'center_top_span' : 'center_top_spans'">资料下载</span>
+            <!--            <span :class="type === 2 ? 'center_top_span' : 'center_top_spans'">尺寸查询收藏</span>-->
+        </div>
+        <div v-if="type === 1" class="center_list">
+            <div v-for="(val,keys) in collectionListList" class="center_list_div">
+                <span>介质:<span v-for="(item,key) in val.medium">{{ key === 0 ? '' : ',' }}{{ item }}</span></span>
+                <span>材料:<span class="shou" @click="detailsClick(item)"
+                                 v-for="(item,key) in val.material">{{ key === 0 ? '' : ',' }}{{ item }}</span></span>
+                <span>兼容性:{{val.value}}</span>
+                <span>硬度:{{val.hard_min_max}}</span>
+                <span>min温度:{{val.min}}</span>
+                <span>max温度:{{val.max}}</span>
+                <div class="caozuoList">
+                    <el-button style="margin-right: 10px;color: #FFFFFF" @click="materialScience_detals(val.id)"
+                               type="warning" size="mini">
+                        <span style="color: #FFFFFF">详情</span>
+                    </el-button>
+                    <el-button style="margin-right: 10px;color: #FFFFFF" @click="pdf(val)" type="primary" size="mini">
+                        <span style="color: #FFFFFF">打印该材料</span>
+                    </el-button>
+                    <el-popover
+                            placement="top"
+                            width="160"
+                            v-model="val.tanshan">
+                        <p>确定删除该收藏吗？</p>
+                        <div style="text-align: right; margin: 0">
+                            <el-button size="mini" type="text" @click="val.tanshan = false">取消
+                            </el-button>
+                            <el-button type="primary" size="mini"
+                                       @click="delList(val.id,val.tanshan)">确定
+                            </el-button>
+                        </div>
+                        <img style="width: 30px" slot="reference" class="deleteImg" src="./img/mine4.png"
+                             alt="">
+                        <!--                                <el-button slot="reference">删除</el-button>-->
+                    </el-popover>
+                </div>
+            </div>
+            <el-pagination
+                    background
+                    @current-change="handleCurrentChange"
+                    style="margin-top: 20px"
+                    :page-size="20"
+                    layout="prev, pager, next, total"
+                    :total="total">
+            </el-pagination>
+        </div>
+        <div v-if="type === 2" class="center_list">
+            <div v-for="(val,keys) in userRecordListList" class="center_list_div">
+                <span>标题:{{val.title}}</span>
+                <span>时长:{{val.number}}</span>
+                <span>观看时间:{{val.add_time}}</span>
+            </div>
+            <el-pagination
+                    background
+                    @current-change="handleCurrentChange"
+                    style="margin-top: 20px"
+                    :page-size="20"
+                    layout="prev, pager, next, total"
+                    :total="total">
+            </el-pagination>
+        </div>
+        <div v-if="type === 3" class="center_list">
+            <div v-for="(val,keys) in informationList" class="center_list_div">
+                <span>标题:{{val.title}}</span>
+                <span>说明:{{val.remarks}}</span>
+                <span>下载量:{{val.number}}</span>
+                <div class="caozuoList">
+                    <el-button @click="informationList_details(val)" type="primary" size="mini">
+                        <span style="color: #FFFFFF">下载</span>
+                    </el-button>
+                </div>
+            </div>
+            <el-pagination
+                    background
+                    @current-change="handleCurrentChange"
+                    style="margin-top: 20px"
+                    :page-size="20"
+                    layout="prev, pager, next, total"
+                    :total="total">
+            </el-pagination>
+        </div>
+    </div>
+    <div class="bottomsDiv">
+        <div class="bottomsDiv_top"></div>
+        <div class="bottomsDiv_div">
+            <img src="./img/bottoms_1.png" alt="">
+            <div class="bottomsDiv_div_div">
+                <span>公司地址：上海市天目西路511号锦程大厦807-808室 200070   /   公司电话：(8621)63800019 传真：(8621)63800089</span>
+                <span>上海胤舜密封技术有限公司 版权所有  CopyRight @ 2021-2025 All Rights Reserved    沪ICP备13031219号-2</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="fetchS.js"></script>
+<script src="./header.js"></script>
+<script src="./header_s.js"></script>
+<script>
+    function _isMobile() {
+        let flag = navigator.userAgent.match(
+            /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+        );
+        return flag;
+    }
+    if (this._isMobile()) {
+
+    } else {
+        window.location.href = "mine.html"
+        console.log('我是PC');
+    }
+
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                type:1,
+                form: {
+                    phone: '',
+                    password: '',
+                },
+                time:[],
+                collectionListList:[],
+                userRecordListList:[],
+                informationList:[],
+                page:1,
+                total:0,
+                detailsList:{}
+            }
+        },
+        mounted() {
+            this.collectionList();
+            this.details();
+        },
+        methods: {
+            details() {
+                fetchFun('http://webapi.issealing.com/api/login/details?id=' + JSON.parse(localStorage.getItem('YinShunUser')).id, "GET")
+                    .then(res => {
+                        this.detailsList = res.data
+                    })
+            },
+            informationList_details(item) {
+                fetchFun(`http://webapi.issealing.com/api/index/informationAdd?id=${item.id}`, "GET")
+                    .then(res => {
+                        const a = document.createElement('a');
+                        a.style.display = 'none';
+                        a.setAttribute('target', '_blank');
+                        a.setAttribute('download', item.title);
+                        a.href = item.url;
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                    })
+            },
+            materialScience_detals(id) {
+                window.location.href = `./materialScience_detalsA.html?id=${id}`
+            },
+            pdf(date) {
+                const {medium, min, max, hard_min_max, material} = date;
+                window.location.href = `http://webapi.issealing.com/api/index/pdf?medium=${medium.toString()}&min=${min}&max=${max}&hard_min_max=${hard_min_max}&material=${material.toString()}`
+            },
+            delList(id) {
+                fetchFun(`http://webapi.issealing.com/api/index/del?id=${id}`, "GET")
+                    .then(res => {
+                        console.log(111, res);
+                        this.visible = false;
+                        this.$message({
+                            message: res.message,
+                        });
+                        if (res.code === 200) {
+                            this.collectionList();
+                        }
+                    })
+            },
+            detailsClick(name) {
+                window.location.href = `./materialScience_detals.html?name=${name}`
+            },
+            handleCurrentChange(val) {
+                console.log(`当前页: ${val}`);
+                this.page = val;
+                if (this.type === 1){
+                    this.collectionList();
+                } else if (this.type === 2){
+
+                } else if (this.type === 3){
+
+                }
+            },
+            collectionList() {
+                let time = this.time.length > 0 ? this.time : ['', '']
+                fetchFun(`http://webapi.issealing.com/api/index/collectionList?page=${this.page}&user_id=${JSON.parse(localStorage.getItem('YinShunUser')).id}&start=${time[0]}&end=${time[1]}`, "GET")
+                    .then(res => {
+                        console.log(111, res)
+                        if (res.code === 200) {
+                            this.collectionListList = res.data.data;
+                            this.total = res.data.total;
+                        }
+                    })
+            },
+            userRecordList() {
+                let time = this.time.length > 0 ? this.time : ['', '']
+                fetchFun(`http://webapi.issealing.com/api/index/userRecordList?page=${this.page}&user_id=${JSON.parse(localStorage.getItem('YinShunUser')).id}&start=${time[0]}&end=${time[1]}`, "GET")
+                    .then(res => {
+                        console.log(111, res)
+                        if (res.code === 200) {
+                            this.userRecordListList = res.data.data;
+                            this.total = res.data.total;
+                        }
+                    })
+            },
+            information() {
+                fetchFun(`http://webapi.issealing.com/api/index/information?page=${this.page}`, "GET")
+                    .then(res => {
+                        console.log(111, res)
+                        if (res.code === 200) {
+                            this.informationList = res.data.data;
+                            this.total = res.data.total;
+                        }
+                    })
+            },
+            typeChange(type){
+                this.type = type;
+                if (type === 1){
+                    this.collectionList();
+                } else if (type === 2){
+                    this.userRecordList();
+                } else if (type === 3){
+                    this.information();
+                }
+            },
+        }
+    })
+
+</script>

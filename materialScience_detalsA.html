@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>胤舜密封</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #app {
+            padding-top: 140px;
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 150;
+            width: 100%;
+            height: 144px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header_left {
+            width: 26%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header_left img {
+            width: 282px;
+            height: 77px;
+        }
+
+        .header_right {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .header_right_index {
+            width: 122px;
+            height: 43px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background-image: url("./img/index(3).png");
+            background-size: 100% 100%;
+            font-size: 22px;
+            line-height: 22px;
+            color: #ffffff;
+            margin-right: 30px;
+        }
+
+        .header_right_indexs {
+            font-size: 22px;
+            line-height: 22px;
+            color: #666666;
+            margin-right: 24px;
+            border: none;
+            text-decoration: none;
+        }
+
+        .content_header {
+            height: 50px;
+            width: 100%;
+            background-color: #F2F2F2;
+            padding: 0 240px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            color: #666666;
+        }
+
+        .content_list {
+            padding: 60px 240px;
+            box-sizing: border-box;
+        }
+
+        .content_lists {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #B7B7B7;
+            position: relative;
+            padding: 40px;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .content_lists_title {
+            width: 100px;
+            height: 20px;
+            font-size: 18px;
+            line-height: 20px;
+            text-align: center;
+            position: absolute;
+            display: block;
+            top: -10px;
+            left: 40px;
+            background: #FFFFFF;
+        }
+
+        .content_lists_form {
+            width: 60%;
+        }
+
+        .select_sou {
+            cursor: pointer;
+            color: #FFFFFF;
+            line-height: 40px;
+            width: 120px;
+            height: 40px;
+            background: linear-gradient(-90deg, #0646AF, #025CE8);
+            text-align: center;
+            margin-left: 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .select_chong {
+            cursor: pointer;
+            color: #353535;
+            line-height: 40px;
+            width: 120px;
+            height: 40px;
+            text-align: center;
+            margin-left: 10px;
+            border-radius: 20px;
+            border: 1px solid #B7B7B7;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .buttonList {
+            position: absolute;
+            bottom: -32px;
+            right: -123px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+        }
+
+        .Collection {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .Collection img {
+            width: 15px;
+            margin-right: 5px;
+        }
+
+        .Collection span {
+            display: block;
+            font-size: 14px;
+            line-height: 14px;
+            margin-top: 3px;
+        }
+
+        .elFormItems {
+            width: 500px;
+        }
+
+        .elInput {
+            width: 100%;
+        }
+
+        .bottomsDiv {
+            width: 100%;
+        }
+
+        .bottomsDiv_top {
+            height: 12px;
+            background-color: #358FE5;
+        }
+
+        .bottomsDiv_div {
+            width: 100%;
+            height: 227px;
+            background: #001D39;
+            display: flex;
+            flex-direction: row;
+            padding: 57px 12% 0;
+            box-sizing: border-box;
+        }
+
+        .bottomsDiv_div_div {
+            display: flex;
+            flex-direction: column;
+            padding-top: 28px;
+            margin-left: 20px;
+            font-size: 14px;
+            line-height: 24px;
+            color: #FFFFFF;
+        }
+
+        .header_img {
+            width: 100%;
+        }
+
+        .header_img img {
+            width: 100%;
+        }
+        .shou {
+            cursor:pointer;
+            color: #409eff;
+        }
+    </style>
+</head>
+<body>
+<div id="app" class="appVue">
+    <top-header></top-header>
+    <div class="header_img">
+        <img src="./img/bottoms_2.png" alt="">
+    </div>
+    <div class="content">
+        <div class="content_header">
+            当前位置：首页 > 详情
+        </div>
+        <div class="content_list">
+            <div class="content_lists">
+                <span class="content_lists_title">详情</span>
+                <div class="content_lists_form">
+                    <el-descriptions :column="1" :title="materialDetailsList.name">
+                        <el-descriptions-item v-for="(item,key) in materialDetailsList.medium.split(',')" :label="'介质' + (key + 1)">{{ item }}</el-descriptions-item>
+                        <el-descriptions-item label="温度范围">{{ materialDetailsList.min || '' }} ~ {{materialDetailsList.max || ''}}</el-descriptions-item>
+                        <el-descriptions-item label="材料硬度">{{ materialDetailsList.hard_min_max }}</el-descriptions-item>
+                        <template v-for="(item,key) in materialDetailsList.materialList">
+                            <el-descriptions-item label="材料">
+                                <span class="shou" @click="detailsClick(item.name)">{{ item.name }}</span>
+                            </el-descriptions-item>
+                            <el-descriptions-item label="材料描述">{{ item.describe }}, 温度范围: {{item.proposal_tem_min}}~{{item.proposal_tem_max}}</el-descriptions-item>
+                        </template>
+                    </el-descriptions>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottomsDiv">
+        <div class="bottomsDiv_top"></div>
+        <div class="bottomsDiv_div">
+            <img src="./img/bottoms_1.png" alt="">
+            <div class="bottomsDiv_div_div">
+                <span>公司地址：上海市天目西路511号锦程大厦807-808室 200070   /   公司电话：(8621)63800019 传真：(8621)63800089</span>
+                <span>上海胤舜密封技术有限公司 版权所有  CopyRight @ 2021-2025 All Rights Reserved    沪ICP备13031219号-2</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="./header.js"></script>
+<script src="fetchS.js"></script>
+<script>
+
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                materialDetailsList: {
+                    medium:'',
+                },
+            }
+        },
+        mounted() {
+            this.materialDetails();
+        },
+        methods: {
+            detailsClick(name){
+                window.location.href= `./materialScience_detals.html?name=${name}`
+            },
+            materialDetails() {
+                fetchFun('http://webapi.issealing.com/api/index/collectionDetails?id=' + window.location.href.split('=')[1],"GET")
+                    .then(res => {
+                        console.log(111, res)
+                        if (res.code === 200) {
+                            this.materialDetailsList = res.data
+                        }
+                    })
+            },
+        }
+    })
+
+</script>

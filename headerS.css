@@ -1,0 +1,203 @@
+.headerS {
+    background-color: #257DD1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 44px;
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.headerS_left {
+    width: 26%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.headerS_left img {
+    width: 71px;
+    height: 19px;
+    margin-left: 21px;
+}
+.headerS_right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.headerS_right img {
+    width: 22px;
+    height: 18px;
+    margin-right: 10px;
+}
+
+.tan {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.tan_divss {
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.tan_div {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.tan_div a {
+    background-color: #FFFFFF;
+    text-align: center;
+    color: #666666;
+    font-size: 16px;
+    line-height: 16px;
+    padding: 10px 0 ;
+    border-bottom: 1px solid #666666;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) {
+    html,body {
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    html, body {
+        min-width: 375px!important;
+    }
+    #app {
+        padding-top: 44px!important;
+    }
+    #app .header {
+        display: none;
+    }
+    #app .headerS {
+        display: flex;
+    }
+    .content .content_list {
+        padding: 15px;
+    }
+    .content .content_header {
+        padding: 0 15px;
+    }
+    .content .el-form {
+        width: 100%;
+    }
+    .content .elFormItems {
+        width: 100%;
+    }
+    .content .content_lists_form {
+        width: 100%;
+        padding: 0;
+    }
+    .content .buttonList {
+        right: 10%;
+    }
+    .content .chaxunListDiv {
+        flex-direction: column;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        overflow: hidden;
+    }
+    .content .chaxunList {
+        margin-bottom: 10px;
+    }
+    #app .bottomsDiv_div img {
+        width: 50%;
+    }
+    #app .bottomsDiv_div {
+        flex-direction: column;
+        align-items: center;
+        padding: 25px 6%;
+        height: auto;
+    }
+    #app .bottomsDiv_div_div {
+        margin: 0;
+        padding: 0;
+    }
+    .content .content_lists {
+        min-width: 0;
+        padding: 10px;
+        border-color: #EBF1F7;
+        background-color: #EBF1F7;
+    }
+    .content .content_lists_title {
+        position: static;
+        left: 0;
+        background-color: #EBF1F7;
+        margin-bottom: 10px;
+        text-align: left;
+    }
+    .content .el-table, .el-table__expanded-cell {
+        background-color: #EBF1F7;
+    }
+    .content .el-table tr {
+        background-color: #2C85DA;
+    }
+    .content .el-table th.el-table__cell {
+        background-color: #2C85DA;
+        color: #FFFFFF;
+    }
+    .content .el-input-group__append, .el-input-group__prepend {
+        padding: 0 8px;
+    }
+
+    .content .listButton_elRow td {
+        margin: 1%;
+        width: 23%;
+        box-sizing: border-box;
+    }
+
+    .el-row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .el-col-12 {
+        width: 100%!important;
+        min-width: 100px!important;
+    }
+
+    .el-col-12 .el-form-item{
+        width: 100%!important;
+    }
+
+    .el-dialog {
+        width: 60%!important;
+    }
+
+    .content .content_list_list_div {
+        width: 100%;
+        height: auto;
+    }
+
+    .el-input {
+        max-width: 100%;
+    }
+
+    .content .select_sou {
+        width: 100px;
+    }
+
+    .content .select_chong {
+        width: 100px;
+    }
+
+    .content .dengluButton {
+        margin-left: -80px;
+    }
+
+}
