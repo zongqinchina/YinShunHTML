@@ -417,7 +417,7 @@
                                     <el-form-item prop="Material_ScienceA" label="沟槽A材料">
                                         <el-select filterable collapse-tags v-model="form.Material_ScienceA"
                                                    placeholder="请选择沟槽A材料">
-                                            <el-option v-for="(item,key) in standardFunctionList" :key="key"
+                                            <el-option v-for="(item,key) in standardListList" :key="key"
                                                        :label="item.standard"
                                                        :value="item.value"></el-option>
                                         </el-select>
@@ -425,7 +425,7 @@
                                     <el-form-item prop="Material_ScienceB" label="沟槽B材料">
                                         <el-select filterable collapse-tags v-model="form.Material_ScienceB"
                                                    placeholder="请选择沟槽B材料">
-                                            <el-option v-for="(item,key) in standardFunctionList" :key="key"
+                                            <el-option v-for="(item,key) in standardListList" :key="key"
                                                        :label="item.standard"
                                                        :value="item.value"></el-option>
                                         </el-select>
@@ -433,7 +433,7 @@
                                     <el-form-item prop="Material_Science_seal_up" label="密封材料">
                                         <el-select filterable collapse-tags v-model="form.Material_Science_seal_up"
                                                    placeholder="请选择密封材料">
-                                            <el-option v-for="(item,key) in standardListList" :key="key"
+                                            <el-option v-for="(item,key) in standardFunctionList" :key="key"
                                                        :label="item.standard"
                                                        :value="item.value"></el-option>
                                         </el-select>
@@ -765,7 +765,7 @@
             </div>
         </div>
     </div>
-    <el-dialog width="30%" title="轴用孔用沟槽" :visible.sync="oneStatus">
+    <el-dialog width="30%" title="计算结果" :visible.sync="oneStatus">
         <el-descriptions style="width: auto" :column="1">
             <el-descriptions-item label="Stretch Ratio">{{ oneStatusDate.Stretch_Ratio }}</el-descriptions-item>
             <el-descriptions-item label="Compression Ratio">{{ oneStatusDate.Compression_Ratio }}</el-descriptions-item>
@@ -776,7 +776,7 @@
         </el-descriptions>
         <div @click="MiFengPDF" style="margin: 0 auto;" class="submit_button">下载计算结果</div>
     </el-dialog>
-    <el-dialog width="30%" title="端面内外压沟槽" :visible.sync="twoStatus">
+    <el-dialog width="30%" title="计算结果" :visible.sync="twoStatus">
         <el-descriptions style="width: auto" :column="1">
             <el-descriptions-item label="Stretch Ratio">{{ twoStatusDate.Stretch_Ratio }}</el-descriptions-item>
             <el-descriptions-item label="Compression Ratio">{{ twoStatusDate.Compression_Ratio }}</el-descriptions-item>
@@ -786,7 +786,7 @@
         </el-descriptions>
         <div @click="DuanMianPDF" style="margin: 0 auto;" class="submit_button">下载计算结果</div>
     </el-dialog>
-    <el-dialog width="30%" title="全燕尾槽" :visible.sync="threeStatus">
+    <el-dialog width="30%" title="计算结果" :visible.sync="threeStatus">
         <el-descriptions style="width: auto" :column="1">
             <el-descriptions-item label="Stretch Ratio,%">{{ threeStatusDate.Stretch_Ratio }}</el-descriptions-item>
             <el-descriptions-item label="Compress.Ratio,%">{{ threeStatusDate.Compress_Ratio }}</el-descriptions-item>
@@ -940,10 +940,16 @@
                 let wire_diameter = Number(form.wire_diameter);
                 let wire_diameter_tolerance = Number(form.wire_diameter_tolerance);
                 let RefTemp = form.Ref_Temp;
-                let MaterialA = form.Material_ScienceA;
+                let MaterialA = this.standardListList.find((value)=>{
+                    return value.value === form.Material_ScienceA;
+                }).standard;
                 let wrkTemp = form.wrk_Temp;
-                let MaterialB = form.Material_ScienceB;
-                let sealingMaterial = form.Material_Science_seal_up;
+                let MaterialB = this.standardListList.find((value)=>{
+                    return value.value === form.Material_ScienceB;
+                }).standard;
+                let sealingMaterial = this.standardFunctionList.find((value)=>{
+                    return value.value === form.Material_Science_seal_up;
+                }).standard;
                 let StretchRatio = threeStatusDate.Stretch_Ratio;
                 let CompressRatio = threeStatusDate.Compress_Ratio;
                 let F2OverRatio = threeStatusDate.F2_Over_Ratio;
@@ -970,10 +976,16 @@
                 let wire_diameter = Number(form.wire_diameter);
                 let wire_diameter_tolerance = Number(form.wire_diameter_tolerance);
                 let RefTemp = form.Ref_Temp;
-                let MaterialA = form.Material_ScienceA;
+                let MaterialA = this.standardListList.find((value)=>{
+                    return value.value === form.Material_ScienceA;
+                }).standard;
                 let wrkTemp = form.wrk_Temp;
-                let MaterialB = form.Material_ScienceB;
-                let sealingMaterial = form.Material_Science_seal_up;
+                let MaterialB = this.standardListList.find((value)=>{
+                    return value.value === form.Material_ScienceB;
+                }).standard;
+                let sealingMaterial = this.standardFunctionList.find((value)=>{
+                    return value.value === form.Material_Science_seal_up;
+                }).standard;
                 let StretchRatio = oneStatusDate.Stretch_Ratio;
                 let CompressRatio = oneStatusDate.Compression_Ratio;
                 let GrooveFill = oneStatusDate.Groove_Fill;
@@ -1009,10 +1021,16 @@
                 let wire_diameter = Number(form.wire_diameter);
                 let wire_diameter_tolerance = Number(form.wire_diameter_tolerance);
                 let RefTemp = form.Ref_Temp;
-                let MaterialA = form.Material_ScienceA;
+                let MaterialA = this.standardListList.find((value)=>{
+                    return value.value === form.Material_ScienceA;
+                }).standard;
                 let wrkTemp = form.wrk_Temp;
-                let MaterialB = form.Material_ScienceB;
-                let sealingMaterial = form.Material_Science_seal_up;
+                let MaterialB = this.standardListList.find((value)=>{
+                    return value.value === form.Material_ScienceB;
+                }).standard;
+                let sealingMaterial = this.standardFunctionList.find((value)=>{
+                    return value.value === form.Material_Science_seal_up;
+                }).standard;
                 let StretchRatio = twoStatusDate.Stretch_Ratio;
                 let CompressRatio = twoStatusDate.Compression_Ratio;
                 let GrooveFill = twoStatusDate.Groove_Fill;
@@ -1409,6 +1427,18 @@
                     Recommended_h = 4.5;
                 }
 
+                if (D5 >= 0 && D5 < 1.78) {
+                    Rec_Dia_Clearance = 0.04 + '~' + 0.10;
+                } else if (D5 >= 1.78 && D5 < 2.62) {
+                    Rec_Dia_Clearance = 0.05 + '~' + 0.13;
+                } else if (D5 >= 2.62 && D5 < 3.53) {
+                    Rec_Dia_Clearance = 0.08 + '~' + 0.15;
+                } else if (D5 >= 3.53 && D5 < 5.33) {
+                    Rec_Dia_Clearance = 0.08 + '~' + 0.15;
+                } else if (D5 >= 5.33 && D5 < 6.99) {
+                    Rec_Dia_Clearance = 0.10 + '~' + 0.18;
+                }
+
                 if (type) {
                     this.oneStatusDate = {
                         Stretch_Ratio,
@@ -1563,7 +1593,7 @@
                 // 0.02
                 // 0.025
 
-                if (F6 >= 1 && F6 < 10) {
+                if (F6 >= 0 && F6 < 10) {
                     Recommended_D = 0.008;
                     Recommended_F = 0.003;
                 } else if (F6 >= 10 && F6 < 16) {
@@ -1741,7 +1771,7 @@
                     BL5,
                 })
 
-                if (F5 >= 1 && F5 < 10) {
+                if (F5 >= 0 && F5 < 10) {
                     Recommended_D = 0.008;
                     Recommended_F = 0.003;
                 } else if (F5 >= 10 && F5 < 16) {
