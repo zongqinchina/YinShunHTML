@@ -933,23 +933,27 @@
             yanPDF() {
                 const form = this.form;
                 const threeStatusDate = this.threeStatusDate;
-                let standard_classification = form.standard;
-                let number = form.number;
+                let standard_classification = form.standard ? this.standard_classificationList.find((value)=>{
+                    return value.id === form.standard;
+                }).title : '';
+                let number = form.number ? this.standard_sizeList.find((value)=>{
+                    return value.id === form.number;
+                }).number : '';
                 let inside_diameter = Number(form.inside_diameter);
                 let inside_diameter_tolerance = Number(form.inside_diameter_tolerance);
                 let wire_diameter = Number(form.wire_diameter);
                 let wire_diameter_tolerance = Number(form.wire_diameter_tolerance);
                 let RefTemp = form.Ref_Temp;
-                let MaterialA = this.standardListList.find((value)=>{
+                let MaterialA = form.Material_ScienceA ? this.standardListList.find((value)=>{
                     return value.value === form.Material_ScienceA;
-                }).standard;
+                }).standard : '';
                 let wrkTemp = form.wrk_Temp;
-                let MaterialB = this.standardListList.find((value)=>{
+                let MaterialB = form.Material_ScienceB ? this.standardListList.find((value)=>{
                     return value.value === form.Material_ScienceB;
-                }).standard;
-                let sealingMaterial = this.standardFunctionList.find((value)=>{
+                }).standard : '';
+                let sealingMaterial = form.Material_Science_seal_up ? this.standardFunctionList.find((value)=>{
                     return value.value === form.Material_Science_seal_up;
-                }).standard;
+                }).standard : '';
                 let StretchRatio = threeStatusDate.Stretch_Ratio;
                 let CompressRatio = threeStatusDate.Compress_Ratio;
                 let F2OverRatio = threeStatusDate.F2_Over_Ratio;
@@ -969,23 +973,27 @@
             MiFengPDF() {
                 const form = this.form;
                 const oneStatusDate = this.oneStatusDate;
-                let standard_classification = form.standard;
-                let number = form.number;
+                let standard_classification = form.standard ? this.standard_classificationList.find((value)=>{
+                    return value.id === form.standard;
+                }).title : '';
+                let number = form.number ? this.standard_sizeList.find((value)=>{
+                    return value.id === form.number;
+                }).number : '';
                 let inside_diameter = Number(form.inside_diameter);
                 let inside_diameter_tolerance = Number(form.inside_diameter_tolerance);
                 let wire_diameter = Number(form.wire_diameter);
                 let wire_diameter_tolerance = Number(form.wire_diameter_tolerance);
                 let RefTemp = form.Ref_Temp;
-                let MaterialA = this.standardListList.find((value)=>{
+                let MaterialA = form.Material_ScienceA ? this.standardListList.find((value)=>{
                     return value.value === form.Material_ScienceA;
-                }).standard;
+                }).standard : '';
                 let wrkTemp = form.wrk_Temp;
-                let MaterialB = this.standardListList.find((value)=>{
+                let MaterialB = form.Material_ScienceB ? this.standardListList.find((value)=>{
                     return value.value === form.Material_ScienceB;
-                }).standard;
-                let sealingMaterial = this.standardFunctionList.find((value)=>{
+                }).standard : '';
+                let sealingMaterial = form.Material_Science_seal_up ? this.standardFunctionList.find((value)=>{
                     return value.value === form.Material_Science_seal_up;
-                }).standard;
+                }).standard : '';
                 let StretchRatio = oneStatusDate.Stretch_Ratio;
                 let CompressRatio = oneStatusDate.Compression_Ratio;
                 let GrooveFill = oneStatusDate.Groove_Fill;
@@ -1014,23 +1022,27 @@
             DuanMianPDF() {
                 const form = this.form;
                 const twoStatusDate = this.twoStatusDate;
-                let standard_classification = form.standard;
-                let number = form.number;
+                let standard_classification = form.standard ? this.standard_classificationList.find((value)=>{
+                    return value.id === form.standard;
+                }).title : '';
+                let number = form.number ? this.standard_sizeList.find((value)=>{
+                    return value.id === form.number;
+                }).number : '';
                 let inside_diameter = Number(form.inside_diameter);
                 let inside_diameter_tolerance = Number(form.inside_diameter_tolerance);
                 let wire_diameter = Number(form.wire_diameter);
                 let wire_diameter_tolerance = Number(form.wire_diameter_tolerance);
                 let RefTemp = form.Ref_Temp;
-                let MaterialA = this.standardListList.find((value)=>{
+                let MaterialA = form.Material_ScienceA ? this.standardListList.find((value)=>{
                     return value.value === form.Material_ScienceA;
-                }).standard;
+                }).standard : '';
                 let wrkTemp = form.wrk_Temp;
-                let MaterialB = this.standardListList.find((value)=>{
+                let MaterialB = form.Material_ScienceB ? this.standardListList.find((value)=>{
                     return value.value === form.Material_ScienceB;
-                }).standard;
-                let sealingMaterial = this.standardFunctionList.find((value)=>{
+                }).standard : '';
+                let sealingMaterial = form.Material_Science_seal_up ? this.standardFunctionList.find((value)=>{
                     return value.value === form.Material_Science_seal_up;
-                }).standard;
+                }).standard : '';
                 let StretchRatio = twoStatusDate.Stretch_Ratio;
                 let CompressRatio = twoStatusDate.Compression_Ratio;
                 let GrooveFill = twoStatusDate.Groove_Fill;
@@ -2232,7 +2244,6 @@
                 }
             },
             bottomForm_1_submit(type) {
-                this.threeStatus = true;
                 this.$refs['searchForm'].validate((valid) => {
                     if (valid) {
                         console.log('成功');
@@ -2268,7 +2279,6 @@
                 }
             },
             bottomForm_2_submit(type) {
-                this.threeStatus = true;
                 this.$refs['searchForm'].validate((valid) => {
                     if (valid) {
                         console.log('成功');
