@@ -721,21 +721,21 @@
                                 <td></td>
                             </tr>
                             <tr>
-                                <td>F1</td>
+                                <td><el-radio v-model="F2inputStatus" label="1">F1</el-radio></td>
                                 <td>
-                                    <el-input type="number" @input="F2inputChange" v-model="bottomForm_2.F1"></el-input>
+                                    <el-input type="number" @input="F2inputChange" :disabled="F2inputStatus === '2'" v-model="bottomForm_2.F1"></el-input>
                                 </td>
                                 <td>
-                                    <el-input type="number" @input="F2inputChange" v-model="bottomForm_2.F2"></el-input>
+                                    <el-input type="number" @input="F2inputChange" :disabled="F2inputStatus === '2'" v-model="bottomForm_2.F2"></el-input>
                                 </td>
                             </tr>
                             <tr>
-                                <td>F2</td>
+                                <td><el-radio v-model="F2inputStatus" label="2">F2</el-radio></td>
                                 <td>
-                                    <el-input type="number" disabled v-model="bottomForm_2.F21"></el-input>
+                                    <el-input type="number" @input="F2inputChange" :disabled="F2inputStatus === '1'" v-model="bottomForm_2.F21"></el-input>
                                 </td>
                                 <td>
-                                    <el-input type="number" disabled v-model="bottomForm_2.F22"></el-input>
+                                    <el-input type="number" @input="F2inputChange" :disabled="F2inputStatus === '1'" v-model="bottomForm_2.F22"></el-input>
                                 </td>
                             </tr>
                         </table>
@@ -915,6 +915,7 @@
                 standardFunctionList: [],
                 standardListList: [],
                 classButtonStatus: false,
+                F2inputStatus:"1",
             }
         },
         mounted() {
@@ -926,17 +927,25 @@
         methods: {
             F2inputChange() {
                 // 燕尾槽F2与F1关系公式：F2=F1+2*(R1/TAN(RADIANS((90-α)/2))-R1);
-                const {F1, R1, a, F2} = this.bottomForm_2;
-                this.bottomForm_2.F21 = Number(F1) + 2 * (Number(R1) / Math.tan(this.RADIANS((90 - Number(a)) / 2)) - Number(R1));
-                this.bottomForm_2.F22 = F2;
+
+                if (this.F2inputStatus === '1') {
+                    const {F1, R1, a, F2} = this.bottomForm_2;
+                    this.bottomForm_2.F21 = Number(F1) + 2 * (Number(R1) / Math.tan(this.RADIANS((90 - Number(a)) / 2)) - Number(R1));
+                    this.bottomForm_2.F22 = F2;
+                } else if (this.F2inputStatus === '2') {
+                    const {R1, a, F21, F22} = this.bottomForm_2;
+                    this.bottomForm_2.F1 = Number(F21) - 2 * (Number(R1) / Math.tan(this.RADIANS((90 - Number(a)) / 2)) - Number(R1));
+                    this.bottomForm_2.F2 = F22
+                }
+
             },
             yanPDF() {
                 const form = this.form;
                 const threeStatusDate = this.threeStatusDate;
-                let standard_classification = form.standard ? this.standard_classificationList.find((value)=>{
+                let standard_classification = form.standard ? this.standard_classificationList.find((value) => {
                     return value.id === form.standard;
                 }).title : '';
-                let number = form.number ? this.standard_sizeList.find((value)=>{
+                let number = form.number ? this.standard_sizeList.find((value) => {
                     return value.id === form.number;
                 }).number : '';
                 let inside_diameter = Number(form.inside_diameter);
@@ -944,14 +953,14 @@
                 let wire_diameter = Number(form.wire_diameter);
                 let wire_diameter_tolerance = Number(form.wire_diameter_tolerance);
                 let RefTemp = form.Ref_Temp;
-                let MaterialA = form.Material_ScienceA ? this.standardListList.find((value)=>{
+                let MaterialA = form.Material_ScienceA ? this.standardListList.find((value) => {
                     return value.value === form.Material_ScienceA;
                 }).standard : '';
                 let wrkTemp = form.wrk_Temp;
-                let MaterialB = form.Material_ScienceB ? this.standardListList.find((value)=>{
+                let MaterialB = form.Material_ScienceB ? this.standardListList.find((value) => {
                     return value.value === form.Material_ScienceB;
                 }).standard : '';
-                let sealingMaterial = form.Material_Science_seal_up ? this.standardFunctionList.find((value)=>{
+                let sealingMaterial = form.Material_Science_seal_up ? this.standardFunctionList.find((value) => {
                     return value.value === form.Material_Science_seal_up;
                 }).standard : '';
                 let StretchRatio = threeStatusDate.Stretch_Ratio;
@@ -973,10 +982,10 @@
             MiFengPDF() {
                 const form = this.form;
                 const oneStatusDate = this.oneStatusDate;
-                let standard_classification = form.standard ? this.standard_classificationList.find((value)=>{
+                let standard_classification = form.standard ? this.standard_classificationList.find((value) => {
                     return value.id === form.standard;
                 }).title : '';
-                let number = form.number ? this.standard_sizeList.find((value)=>{
+                let number = form.number ? this.standard_sizeList.find((value) => {
                     return value.id === form.number;
                 }).number : '';
                 let inside_diameter = Number(form.inside_diameter);
@@ -984,14 +993,14 @@
                 let wire_diameter = Number(form.wire_diameter);
                 let wire_diameter_tolerance = Number(form.wire_diameter_tolerance);
                 let RefTemp = form.Ref_Temp;
-                let MaterialA = form.Material_ScienceA ? this.standardListList.find((value)=>{
+                let MaterialA = form.Material_ScienceA ? this.standardListList.find((value) => {
                     return value.value === form.Material_ScienceA;
                 }).standard : '';
                 let wrkTemp = form.wrk_Temp;
-                let MaterialB = form.Material_ScienceB ? this.standardListList.find((value)=>{
+                let MaterialB = form.Material_ScienceB ? this.standardListList.find((value) => {
                     return value.value === form.Material_ScienceB;
                 }).standard : '';
-                let sealingMaterial = form.Material_Science_seal_up ? this.standardFunctionList.find((value)=>{
+                let sealingMaterial = form.Material_Science_seal_up ? this.standardFunctionList.find((value) => {
                     return value.value === form.Material_Science_seal_up;
                 }).standard : '';
                 let StretchRatio = oneStatusDate.Stretch_Ratio;
@@ -1022,10 +1031,10 @@
             DuanMianPDF() {
                 const form = this.form;
                 const twoStatusDate = this.twoStatusDate;
-                let standard_classification = form.standard ? this.standard_classificationList.find((value)=>{
+                let standard_classification = form.standard ? this.standard_classificationList.find((value) => {
                     return value.id === form.standard;
                 }).title : '';
-                let number = form.number ? this.standard_sizeList.find((value)=>{
+                let number = form.number ? this.standard_sizeList.find((value) => {
                     return value.id === form.number;
                 }).number : '';
                 let inside_diameter = Number(form.inside_diameter);
@@ -1033,14 +1042,14 @@
                 let wire_diameter = Number(form.wire_diameter);
                 let wire_diameter_tolerance = Number(form.wire_diameter_tolerance);
                 let RefTemp = form.Ref_Temp;
-                let MaterialA = form.Material_ScienceA ? this.standardListList.find((value)=>{
+                let MaterialA = form.Material_ScienceA ? this.standardListList.find((value) => {
                     return value.value === form.Material_ScienceA;
                 }).standard : '';
                 let wrkTemp = form.wrk_Temp;
-                let MaterialB = form.Material_ScienceB ? this.standardListList.find((value)=>{
+                let MaterialB = form.Material_ScienceB ? this.standardListList.find((value) => {
                     return value.value === form.Material_ScienceB;
                 }).standard : '';
-                let sealingMaterial = form.Material_Science_seal_up ? this.standardFunctionList.find((value)=>{
+                let sealingMaterial = form.Material_Science_seal_up ? this.standardFunctionList.find((value) => {
                     return value.value === form.Material_Science_seal_up;
                 }).standard : '';
                 let StretchRatio = twoStatusDate.Stretch_Ratio;
