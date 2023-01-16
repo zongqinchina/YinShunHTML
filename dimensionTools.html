@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <link rel="stylesheet" type="text/css" href="headerS.css">
     <style>
+
         * {
             margin: 0;
             padding: 0;
+
         }
 
         html, body {
@@ -968,8 +970,19 @@
                 let F2OverRatio = threeStatusDate.F2_Over_Ratio;
                 let PrelimCSFill = threeStatusDate.Prelim_CS_Fill;
                 let VolumeFill = threeStatusDate.Volume_Fill;
+                let statusButton = this.statusButton;
+                let bottomForm_2 = this.bottomForm_2;
+                let bottomForm_1 = this.bottomForm_1;
 
-                window.location.href = `http://webapi.issealing.com/api/index/pdfSize?standard_classification=${standard_classification}&number=${number}&inside_diameter=${inside_diameter}&inside_diameter_tolerance=${inside_diameter_tolerance}&wire_diameter=${wire_diameter}&wire_diameter_tolerance=${wire_diameter_tolerance}&RefTemp=${RefTemp}&MaterialA=${MaterialA}&wrkTemp=${wrkTemp}&MaterialB=${MaterialB}&sealingMaterial=${sealingMaterial}&StretchRatio=${StretchRatio}&CompressRatio=${CompressRatio}&F2OverRatio=${F2OverRatio}&PrelimCSFill=${PrelimCSFill}&VolumeFill=${VolumeFill}`
+                // statusButton 1方形 2环形
+                let img = statusButton === 1 ? '/application/api/controller/2035589dfbdb49bd9be3da986aa2412.jpg' : '/application/api/controller/c2756669785b27b19afda268367be37.jpg';
+
+                if (statusButton === 1){
+                    window.location.href = `http://webapi.issealing.com/api/index/pdfSizeFangXing?standard_classification=${standard_classification}&number=${number}&inside_diameter=${inside_diameter}&inside_diameter_tolerance=${inside_diameter_tolerance}&wire_diameter=${wire_diameter}&wire_diameter_tolerance=${wire_diameter_tolerance}&RefTemp=${RefTemp}&MaterialA=${MaterialA}&wrkTemp=${wrkTemp}&MaterialB=${MaterialB}&sealingMaterial=${sealingMaterial}&StretchRatio=${StretchRatio}&CompressRatio=${CompressRatio}&F2OverRatio=${F2OverRatio}&PrelimCSFill=${PrelimCSFill}&VolumeFill=${VolumeFill}&CLLDim=${bottomForm_1.CLL1}&CLLTol=${bottomForm_1.CLL2}&CLWDim=${bottomForm_1.CLW1}&CLWTol=${bottomForm_1.CLW2}&R1Dim=${bottomForm_1.R11}&R1Tol=${bottomForm_1.R12}&R2Dim=${bottomForm_1.R21}&R2Tol=${bottomForm_1.R22}&R3Dim=${bottomForm_1.R31}&R3Tol=${bottomForm_1.R32}&R4Dim=${bottomForm_1.R41}&R4Tol=${bottomForm_1.R42}&hDim=${bottomForm_1.h11}&hTol=${bottomForm_1.h12}&αDim=${bottomForm_1.a}&r1Dim=${bottomForm_1.r1}&r2Dim=${bottomForm_1.r2}&F1Dim=${bottomForm_1.F11}&F1Tol=${bottomForm_1.F12}&F2Dim=${bottomForm_1.F21}&img=${img}`
+                } else {
+                    window.location.href = `http://webapi.issealing.com/api/index/pdfSize?standard_classification=${standard_classification}&number=${number}&inside_diameter=${inside_diameter}&inside_diameter_tolerance=${inside_diameter_tolerance}&wire_diameter=${wire_diameter}&wire_diameter_tolerance=${wire_diameter_tolerance}&RefTemp=${RefTemp}&MaterialA=${MaterialA}&wrkTemp=${wrkTemp}&MaterialB=${MaterialB}&sealingMaterial=${sealingMaterial}&StretchRatio=${StretchRatio}&CompressRatio=${CompressRatio}&F2OverRatio=${F2OverRatio}&PrelimCSFill=${PrelimCSFill}&VolumeFill=${VolumeFill}&CLDim=${bottomForm_2.CL1}&CLTol=${bottomForm_2.CL2}&hDim=${bottomForm_2.h1}&hTol=${bottomForm_2.h2}&αDim=${bottomForm_2.a}&r1Dim=${bottomForm_2.R1}&r2Dim=${bottomForm_2.R2}&F1Dim=${bottomForm_2.F1}&F1Tol=${bottomForm_2.F2}&F2Dim=${bottomForm_2.F21}&F2Tol=${bottomForm_2.F22}&img=${img}`
+                }
+
 
                 // fetchFun(`http://webapi.issealing.com/api/index/pdfSize?standard_classification=${standard_classification}&number=${number}&inside_diameter=${inside_diameter}&inside_diameter_tolerance=${inside_diameter_tolerance}&wire_diameter=${wire_diameter}&wire_diameter_tolerance=${wire_diameter_tolerance}&RefTemp=${RefTemp}&MaterialA=${MaterialA}&wrkTemp=${wrkTemp}&MaterialB=${MaterialB}&sealingMaterial=${sealingMaterial}&StretchRatio=${StretchRatio}&CompressRatio=${CompressRatio}&F2OverRatio=${F2OverRatio}&PrelimCSFill=${PrelimCSFill}&VolumeFill=${VolumeFill}`, "GET")
                 //     .then(res => {
@@ -980,6 +993,17 @@
                 //     })
             },
             MiFengPDF() {
+                // F6: Number(bottomForm_0.A1),
+                // G6: Number(bottomForm_0.A2),
+                // H6: Number(bottomForm_0.A3),
+                // I6: Number(bottomForm_0.B1),
+                // J6: Number(bottomForm_0.B2),
+                // K6: Number(bottomForm_0.B3),
+                // L6: Number(bottomForm_0.C1),
+                // M6: Number(bottomForm_0.C2),
+                // N6: Number(bottomForm_0.C3),
+                // O6: Number(bottomForm_0.R1),
+                const bottomForm_0 = this.bottomForm_0;
                 const form = this.form;
                 const oneStatusDate = this.oneStatusDate;
                 let standard_classification = form.standard ? this.standard_classificationList.find((value) => {
@@ -1009,16 +1033,10 @@
                 let RecommendedE = oneStatusDate.Recommended_E;
                 let Recommendedh = oneStatusDate.Recommended_h;
                 let RecDiaClearance = oneStatusDate.Rec_Dia_Clearance;
-                // oneStatusDate: {
-                //     Stretch_Ratio: 0,
-                //         Compression_Ratio: 0,
-                //         Groove_Fill: 0,
-                //         Recommended_E: 0,
-                //         Recommended_h: 0,
-                //         Rec_Dia_Clearance: 0,
-                // },
 
-                window.location.href = `http://webapi.issealing.com/api/index/pdfSizeMiFeng?standard_classification=${standard_classification}&number=${number}&inside_diameter=${inside_diameter}&inside_diameter_tolerance=${inside_diameter_tolerance}&wire_diameter=${wire_diameter}&wire_diameter_tolerance=${wire_diameter_tolerance}&RefTemp=${RefTemp}&MaterialA=${MaterialA}&wrkTemp=${wrkTemp}&MaterialB=${MaterialB}&sealingMaterial=${sealingMaterial}&StretchRatio=${StretchRatio}&CompressRatio=${CompressRatio}&GrooveFill=${GrooveFill}&RecommendedE=${RecommendedE}&Recommendedh=${Recommendedh}&RecDiaClearance=${RecDiaClearance}`
+                let img = bottomForm_0.classStatus === '1' ? '/application/api/controller/ac971fdaafdb3203b2b7a7f27b57069.jpg' : '/application/api/controller/01d4cbfd41df8d921f2cd9876014c9d.jpg';
+
+                window.location.href = `http://webapi.issealing.com/api/index/pdfSizeMiFeng?standard_classification=${standard_classification}&number=${number}&inside_diameter=${inside_diameter}&inside_diameter_tolerance=${inside_diameter_tolerance}&wire_diameter=${wire_diameter}&wire_diameter_tolerance=${wire_diameter_tolerance}&RefTemp=${RefTemp}&MaterialA=${MaterialA}&wrkTemp=${wrkTemp}&MaterialB=${MaterialB}&sealingMaterial=${sealingMaterial}&StretchRatio=${StretchRatio}&CompressRatio=${CompressRatio}&GrooveFill=${GrooveFill}&RecommendedE=${RecommendedE}&Recommendedh=${Recommendedh}&RecDiaClearance=${RecDiaClearance}&ADim=${bottomForm_0.A1}&AUTol=${bottomForm_0.A2}&ALTol=${bottomForm_0.A3}&BDim=${bottomForm_0.B1}&BUTol=${bottomForm_0.B2}&BLTol=${bottomForm_0.B3}&CDim=${bottomForm_0.C1}&CUTol=${bottomForm_0.C2}&CLTol=${bottomForm_0.C3}&RDim=${bottomForm_0.R1}&img=${img}`
 
                 // fetchFun(`http://webapi.issealing.com/api/index/pdfSize?standard_classification=${standard_classification}&number=${number}&inside_diameter=${inside_diameter}&inside_diameter_tolerance=${inside_diameter_tolerance}&wire_diameter=${wire_diameter}&wire_diameter_tolerance=${wire_diameter_tolerance}&RefTemp=${RefTemp}&MaterialA=${MaterialA}&wrkTemp=${wrkTemp}&MaterialB=${MaterialB}&sealingMaterial=${sealingMaterial}&StretchRatio=${StretchRatio}&CompressRatio=${CompressRatio}&F2OverRatio=${F2OverRatio}&PrelimCSFill=${PrelimCSFill}&VolumeFill=${VolumeFill}`, "GET")
                 //     .then(res => {
@@ -1029,6 +1047,7 @@
                 //     })
             },
             DuanMianPDF() {
+                const bottomForm_0 = this.bottomForm_0;
                 const form = this.form;
                 const twoStatusDate = this.twoStatusDate;
                 let standard_classification = form.standard ? this.standard_classificationList.find((value) => {
@@ -1065,7 +1084,9 @@
                 //         Recommended_F: 0,
                 // },
 
-                window.location.href = `http://webapi.issealing.com/api/index/pdfSizeDuanMian?standard_classification=${standard_classification}&number=${number}&inside_diameter=${inside_diameter}&inside_diameter_tolerance=${inside_diameter_tolerance}&wire_diameter=${wire_diameter}&wire_diameter_tolerance=${wire_diameter_tolerance}&RefTemp=${RefTemp}&MaterialA=${MaterialA}&wrkTemp=${wrkTemp}&MaterialB=${MaterialB}&sealingMaterial=${sealingMaterial}&StretchRatio=${StretchRatio}&CompressRatio=${CompressRatio}&GrooveFill=${GrooveFill}&RecommendedD=${RecommendedD}&RecommendedF=${RecommendedF}`
+                let img = bottomForm_0.classStatus === '3' ? '/application/api/controller/a5b2c55009e1baafad483778d107cde.jpg' : '/application/api/controller/54c3988bee14ab56d7d2b7088575f95.jpg';
+
+                window.location.href = `http://webapi.issealing.com/api/index/pdfSizeDuanMian?standard_classification=${standard_classification}&number=${number}&inside_diameter=${inside_diameter}&inside_diameter_tolerance=${inside_diameter_tolerance}&wire_diameter=${wire_diameter}&wire_diameter_tolerance=${wire_diameter_tolerance}&RefTemp=${RefTemp}&MaterialA=${MaterialA}&wrkTemp=${wrkTemp}&MaterialB=${MaterialB}&sealingMaterial=${sealingMaterial}&StretchRatio=${StretchRatio}&CompressRatio=${CompressRatio}&GrooveFill=${GrooveFill}&RecommendedD=${RecommendedD}&RecommendedF=${RecommendedF}&ADim=${bottomForm_0.A1}&AUTol=${bottomForm_0.A2}&ALTol=${bottomForm_0.A3}&BDim=${bottomForm_0.B1}&BUTol=${bottomForm_0.B2}&BLTol=${bottomForm_0.B3}&CDim=${bottomForm_0.C1}&CUTol=${bottomForm_0.C2}&CLTol=${bottomForm_0.C3}&RDim=${bottomForm_0.R1}&img=${img}`
 
                 // fetchFun(`http://webapi.issealing.com/api/index/pdfSize?standard_classification=${standard_classification}&number=${number}&inside_diameter=${inside_diameter}&inside_diameter_tolerance=${inside_diameter_tolerance}&wire_diameter=${wire_diameter}&wire_diameter_tolerance=${wire_diameter_tolerance}&RefTemp=${RefTemp}&MaterialA=${MaterialA}&wrkTemp=${wrkTemp}&MaterialB=${MaterialB}&sealingMaterial=${sealingMaterial}&StretchRatio=${StretchRatio}&CompressRatio=${CompressRatio}&F2OverRatio=${F2OverRatio}&PrelimCSFill=${PrelimCSFill}&VolumeFill=${VolumeFill}`, "GET")
                 //     .then(res => {
