@@ -353,20 +353,21 @@
                     });
                     return;
                 }
+                this.codeStatus = false;
+                this.codeSetInterval = setInterval(()=>{
+                    this.code --;
+                    if (this.code<=0){
+                        this.codeStatus = true;
+                        clearInterval(this.codeSetInterval);
+                    }
+                },1000)
                 let formData = new FormData();
                 formData.append('phone',this.form.phone);
                 fetchFun('http://webapi.issealing.com/api/verification/code',"POST",formData)
                     .then(res => {
                         console.log(111, res)
                         if (res.code === 200) {
-                            this.codeStatus = false;
-                            this.codeSetInterval = setInterval(()=>{
-                                this.code --;
-                                if (this.code<=0){
-                                    this.codeStatus = true;
-                                    clearInterval(this.codeSetInterval);
-                                }
-                            },1000)
+
                         }
                     })
             },
