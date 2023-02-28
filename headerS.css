@@ -130,7 +130,7 @@
     }
     .content .content_lists {
         min-width: 0;
-        padding: 10px;
+        padding: 10px 10px 25px;
         border-color: #EBF1F7;
         background-color: #EBF1F7;
     }
@@ -140,6 +140,12 @@
         background-color: #EBF1F7;
         margin-bottom: 10px;
         text-align: left;
+    }
+    .content .listButton_elRow {
+        flex-direction: column;
+    }
+    .content .listButton_elRow_div {
+        margin-bottom: 10px;
     }
     .content .el-table, .el-table__expanded-cell {
         background-color: #EBF1F7;
@@ -153,6 +159,10 @@
     }
     .content .el-input-group__append, .el-input-group__prepend {
         padding: 0 8px;
+    }
+
+    .content .listButton_elRow table {
+        width: 100%!important;
     }
 
     .content .listButton_elRow td {
