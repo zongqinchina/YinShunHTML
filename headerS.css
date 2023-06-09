@@ -1,5 +1,5 @@
 .headerS {
-    background-color: #257DD1;
+    background-color: #18a575;
     position: fixed;
     top: 0;
     left: 0;
@@ -151,10 +151,10 @@
         background-color: #EBF1F7;
     }
     .content .el-table tr {
-        background-color: #2C85DA;
+        background-color: #18a575;
     }
     .content .el-table th.el-table__cell {
-        background-color: #2C85DA;
+        background-color: #18a575;
         color: #FFFFFF;
     }
     .content .el-input-group__append, .el-input-group__prepend {

@@ -1,7 +1,7 @@
 //定义组件注册的模板template
 var tabs = `<div class="header">
     <div class="header_left">
-      <img src="./img/index(17).png" alt="">
+      <img src="./img/mine1.png" alt="">
     </div>
     <div class="header_right">
       <span @click="goIndex('')" class="header_right_index">首页</span>
