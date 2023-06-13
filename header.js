@@ -4,7 +4,7 @@ var tabs = `<div class="header">
       <img src="./img/mine1.png" alt="">
     </div>
     <div class="header_right">
-      <span @click="goIndex('')" class="header_right_index">首页</span>
+      <span @click="goIndex('#')" class="header_right_index">首页</span>
       <a @click="goIndex('#introduce')" href="#introduce" class="header_right_indexs">胤舜介绍</a>
       <a @click="goIndex('#technology')" href="#technology" class="header_right_indexs">技术能力</a>
       <a @click="goIndex('#range')" href="#range" class="header_right_indexs">产品范围</a>
