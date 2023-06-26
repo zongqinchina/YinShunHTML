@@ -11,12 +11,12 @@ var tabs = `<div>
         <div :style="tan ? 'display: flex' : 'display: none'" class="tan">
             <div @click="tan = false" class="tan_divss"></div>
             <div @click="tan = false" class="tan_div">
-                <a href="./indexs.html#introduce">胤舜介绍</a>
-                <a href="./indexs.html#technology">技术能力</a>
-                <a href="./indexs.html#range">产品范围</a>
-                <a href="./indexs.html#programme">解决方案</a>
-                <a href="./indexs.html#tool">辅助工具</a>
-                <a href="./indexs.html#supplier">友情链接</a>
+                <a href="./index.html#introduce">胤舜介绍</a>
+                <a href="./index.html#technology">技术能力</a>
+                <a href="./index.html#range">产品范围</a>
+                <a href="./index.html#programme">解决方案</a>
+                <a href="./index.html#tool">辅助工具</a>
+                <a href="./index.html#supplier">友情链接</a>
                 <a @click="loginClick">{{ user && user.id ? '用户中心' : '登录' }}</a>
                 <a v-if="!(user && user.id)" @click="zhuClick">注册</a>
                 <a v-if="user && user.id" @click="loginOut">退出登录</a>
