@@ -156,8 +156,11 @@
         }
 
         .introduce-2 {
-            width: 53%;
-            margin-right: 1%;
+            width: 52%;
+            margin-right: 2%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .introduce-1 {
@@ -628,13 +631,37 @@
             overflow: hidden;
             box-sizing: border-box;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             background-color: #FFFFFF;
             background-image: url("./img/yiwen-3.png");
             background-size: 100% 100%;
             position: relative;
+        }
+
+        .yiwen-div {
+            width: 50%;
+            margin-left: 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .yiwen-span1 {
+            font-size: 70rem;
+            color: #004b43;
+        }
+
+        .yiwen-span2 {
+            font-size: 70rem;
+            color: #004b43;
+            margin-bottom: 50rem;
+        }
+
+        .yiwen-span3 {
+            font-size: 30rem;
+            color: #004b43;
         }
 
         .yiwen-1 {
@@ -705,11 +732,25 @@
         </video>
     </div>
     <div id="introduce" class="introduce">
-        <img class="introduce-2" src="./img/introduce-2.png">
+        <div class="introduce-2">
+            <span class="yiwen-span1">凭借我们不断提升的专业能力，</span>
+            <span class="yiwen-span2">成为客户长期的合作伙伴</span>
+            <span class="yiwen-span3">胤舜密封专业为客户提供橡胶、塑料及金属等相关静密封产品，长久以来一直为半导体及电子、石油化工、石油天然气、能源电力等行业高端装备提供成熟稳定的密封产品。随着科技水平的逐步提高，每个工业领域的要求也不断升级，我们努力通过专业的产品（材料）、技术及服务能力，为用户提供更优秀、更可靠、更安全、更加可持续的密封解决方案。</span>
+        </div>
+<!--        <img class="introduce-2" src="./img/introduce-2.png">-->
         <img class="introduce-1" src="./img/introduce-1.png">
     </div>
     <div id="technology" class="yiwen">
-        <img class="yiwen-1" src="./img/yiwen-1.png" alt="">
+        <div class="yiwen-div">
+            <span class="yiwen-span1">当您对选择仍有疑问，</span>
+            <span class="yiwen-span2">我们会用专业的能力为您解答</span>
+            <span class="yiwen-span3">胤舜密封为客户提供全产品周期内技术支持服务，包括产品设计开发、选型、可靠性验证、对比测试、失效分析等，帮助客户寻找合适的密封选择；资深的团队以及专业完备的实验室能为客户选择做出有力的技术支撑。</span>
+        </div>
+<!--        <span>包括产品设计开发、选型、可靠性验证、对比测试、</span>-->
+<!--        <span>失效分析等，帮助客户寻找最合适的密封选择；资</span>-->
+<!--        <span>深的团队以及专业完备的实验室能为客户选择做</span>-->
+<!--        <span>出有力的技术支撑。</span>-->
+<!--        <img class="yiwen-1" src="./img/yiwen-1.png" alt="">-->
         <img class="yiwen-2" src="./img/yiwen-2.png" alt="">
     </div>
     <div class="technologyS">
@@ -730,7 +771,7 @@
     <div id="range" class="range">
         <div class="range-header">
             <span>恰当的密封选择</span>
-            <span>带来成本价值的最优化</span>
+            <span>带来成本价值的更优化</span>
             <img src="./img/range-1.png" alt="">
         </div>
         <div class="range-list">
